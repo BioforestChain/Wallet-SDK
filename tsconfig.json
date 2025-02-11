@@ -1,0 +1,21 @@
+{
+    "files": [],
+    "include": [],
+    "references": [
+        {
+            "path": "./packages/typings/tsconfig.json"
+        },
+        {
+            "path": "./packages/core/tsconfig.json"
+        },
+        {
+            "path": "./packages/sdk/tsconfig.json"
+        },
+        {
+            "path": "./packages/wallet/tsconfig.json"
+        },
+        {
+            "path": "./packages/test/tsconfig.json"
+        }
+    ]
+}

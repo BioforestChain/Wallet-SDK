@@ -1,0 +1,21 @@
+{
+    "name": "@bnqkl/wallet-sdk",
+    "version": "0.22.11",
+    "description": "bnqkl wallet sdk",
+    "main": "build/src/index.js",
+    "type": "commonjs",
+    "keywords": [
+        "bnqkl",
+        "wallet"
+    ],
+    "author": "wzx",
+    "license": "MIT",
+    "files": [
+        "build"
+    ],
+    "dependencies": {
+        "@bfmeta/transaction-maker-api": "^1.1.11",
+        "@bfmeta/wallet": "^1.6.10",
+        "@bnqkl/server-util": "^1.1.0"
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+        "outDir": "./build/src",
+        "rootDir": "./src",
+        "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "**/*spec.ts"
+    ],
+    "files": [
+        "src/core/index.ts",
+        "src/core/transaction-maker.ts",
+        "src/core/wallet-sdk.ts",
+        "src/core/wallet-server-sdk.ts",
+        "src/helper/crypto.helper.ts",
+        "src/helper/external-chain.helper.ts",
+        "src/helper/index.ts",
+        "src/helper/internal-chain.helper.ts",
+        "src/helper/order.helper.ts",
+        "src/index.ts",
+        "src/mq/@types.ts",
+        "src/mq/constants.ts",
+        "src/mq/index.ts",
+        "src/mq/wallet.consumer.ts",
+        "src/order/@types.ts",
+        "src/order/constants.ts",
+        "src/order/index.ts",
+        "src/order/order-mgr.ts",
+        "src/order/order-obj.ts",
+        "src/order/order-state.ts",
+        "src/typings/@types.ts",
+        "src/typings/constants.ts",
+        "src/typings/index.ts"
+    ],
+    "references": [
+        {
+            "path": "../typings/tsconfig.json"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS `rmb_transactions`  (
+    `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    `entity_id` varchar(128) NOT NULL DEFAULT '' COMMENT '唯一id',
+    `chain_name` varchar(20) NOT NULL DEFAULT '' COMMENT '链名',
+    `mq_id` varchar(255) NOT NULL DEFAULT '' COMMENT '消息队列id',
+    `platform_tx_id` varchar(255) NOT NULL DEFAULT '' COMMENT '支付平台交易id',
+    `platform` smallint(6) NOT NULL DEFAULT 0 COMMENT '支付平台',
+    `user_id` varchar(50) NOT NULL DEFAULT '' COMMENT '用户id',
+    `amount` varchar(255) NOT NULL DEFAULT '0' COMMENT '交易金额',
+    `state` smallint(6) NOT NULL DEFAULT 0 COMMENT '交易状态',
+    `fail_reason` varchar(1000) NOT NULL DEFAULT '' COMMENT '失败原因',
+    `link_type` tinyint(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '关联业务表类型',
+    `link_id` varchar(50) NOT NULL DEFAULT '' COMMENT '关联业务表编号',
+    `del_flag` tinyint(2) NOT NULL DEFAULT 0 COMMENT '逻辑删除标志：0：正常，1：删除，默认0',
+    `created_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE KEY `uniq_entityId`(`entity_id`) USING BTREE COMMENT '唯一id索引',
+    UNIQUE KEY `uniq_platform_tx_id`(`platform_tx_id`) USING BTREE,
+    KEY `idx_user_id`(`user_id`) USING BTREE,
+    KEY `idx_state`(`state`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = '人民币交易表';

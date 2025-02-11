@@ -1,0 +1,25 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+        "outDir": "./build/src",
+        "rootDir": "./src",
+        "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "files": [
+        "src/chain-data/@types.ts",
+        "src/chain-data/constants.ts",
+        "src/chain-data/index.ts",
+        "src/index.ts",
+        "src/typings/@types.ts",
+        "src/typings/constants.ts",
+        "src/typings/index.ts"
+    ],
+    "references": [
+        {
+            "path": "../typings/tsconfig.json"
+        }
+    ]
+}

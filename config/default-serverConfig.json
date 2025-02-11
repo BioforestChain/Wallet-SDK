@@ -1,0 +1,104 @@
+{
+    "coreForProcess": {
+        "coreNumForWebServer": 3
+    },
+    "ports": {
+        "web": 4100,
+        "global": 4101,
+        "trans": 4102,
+        "order": 4103
+    },
+    "mysql": {
+        "host": "192.168.150.250",
+        "port": 3306,
+        "dbName": "",
+        "username": "",
+        "password": ""
+    },
+    "redis": {
+        "server": {
+            "host": "192.168.140.48",
+            "port": 6379,
+            "db": 0
+        }
+    },
+    "rabbitMQ": {
+        "enable": true,
+        "server": {
+            "hostname": "192.168.150.170",
+            "port": 5672,
+            "username": "admin",
+            "password": "123456"
+        }
+    },
+    "chainConfig": {
+        "chainNetworkType": "testnet",
+        "chain": {
+            "bcf": {
+                "ccchain": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.48", "port": 19003 }],
+                    "browserPath": "http://192.168.140.48:5052/browser"
+                },
+                "bfm": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.34", "port": 19003 }],
+                    "browserPath": "http://192.168.140.34:5052/browser"
+                },
+                "pmchain": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.47", "port": 19503 }],
+                    "browserPath": "http://192.168.140.47:5052/browser"
+                },
+                "ethm": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.47", "port": 19603 }],
+                    "browserPath": "http://192.168.140.47:5056/browser"
+                },
+                "bfchainv2": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.46", "port": 19703 }],
+                    "browserPath": "http://192.168.140.46:5052/browser"
+                },
+                "btgmeta": {
+                    "enable": true,
+                    "host": [{ "ip": "192.168.140.49", "port": 19803 }],
+                    "browserPath": "http://192.168.140.49:5053/browser"
+                }
+            },
+            "tron": { "enable": true, "host": [{ "ip": "192.168.150.6", "port": 8090 }] },
+            "eth": { "enable": true, "host": [{ "ip": "192.168.150.4", "port": 8545 }], "testnet": true },
+            "bsc": { "enable": true, "host": [{ "ip": "192.168.150.7", "port": 8989 }], "testnet": true },
+            "btc": {
+                "rpcPath": "http://192.168.150.3/99f690606c21452795ea9b9eae876876",
+                "blockbookPath": "http://192.168.150.3/a937ec9cbd45445f9599a2d66f4dfb59"
+            }
+        },
+        "transactionMakerPort": {
+            "ip": "192.168.140.45",
+            "pmchain": "7788",
+            "ethmchain": "7789",
+            "bfchainv2": "7791",
+            "bfmchain": "7792",
+            "ccchain": "7794",
+            "btgmeta": "7795"
+        },
+        "syncInternalDelayHeight": 1
+    },
+    "log4j": {
+        "level": "DEBUG",
+        "maxLevel": "WARN"
+    },
+    "blob": {
+        "types": ["image/png", "image/bmp", "image/jpeg", "image/gif"],
+        "maxSize": 4194304,
+        "uploadRootPath": "lib"
+    },
+    "alipay": {
+        "appId": "appId",
+        "privateKey": "privateKey",
+        "alipayPublicKey": "alipayPublicKey",
+        "gateway": "gateway",
+        "notifyUrl": "notifyUrl"
+    }
+}

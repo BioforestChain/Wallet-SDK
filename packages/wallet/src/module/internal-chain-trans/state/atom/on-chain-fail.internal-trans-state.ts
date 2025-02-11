@@ -1,0 +1,24 @@
+import { TRANS_QUEUE_ROUTING_KEY, InternalTransStateID } from "@bnqkl/wallet-sdk";
+import { Injectable } from "@nestjs/common";
+import { walletPublisher } from "../../../mq";
+import { InternalChainTransObj } from "../../internal-chain-trans-obj";
+import { InternalTransFinallyState } from "../internal-trans-finally.state";
+
+/**上链失败状态 */
+@Injectable()
+export class OnChainFail_InternalTransState extends InternalTransFinallyState {
+    constructor() {
+        super(InternalTransStateID.ON_CHAIN_FAIL);
+    }
+
+    /**
+     * 进入状态
+     * @param transObj
+     */
+    async onEnterState(transObj: InternalChainTransObj): Promise<void> {
+        const { chainName, txId, mqId, linkId } = transObj;
+        if (linkId && mqId) {
+            await walletPublisher.publishOnChainEvent(TRANS_QUEUE_ROUTING_KEY.INTERNAL_FAIL, { chainName, entityId: txId }, mqId);
+        }
+    }
+}

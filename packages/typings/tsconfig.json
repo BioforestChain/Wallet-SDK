@@ -1,0 +1,39 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+        "outDir": "./build/src",
+        "rootDir": "./src",
+        "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "**/*spec.ts"
+    ],
+    "files": [
+        "src/airdrop/@types.ts",
+        "src/airdrop/constants.ts",
+        "src/airdrop/index.ts",
+        "src/exception/errorCode.ts",
+        "src/exception/index.ts",
+        "src/external-chain/@types.ts",
+        "src/external-chain/constants.ts",
+        "src/external-chain/index.ts",
+        "src/helper/chain.helper.ts",
+        "src/helper/index.ts",
+        "src/index.ts",
+        "src/internal-chain/@types.ts",
+        "src/internal-chain/constants.ts",
+        "src/internal-chain/index.ts",
+        "src/rmb/@types.ts",
+        "src/rmb/constants.ts",
+        "src/rmb/index.ts",
+        "src/typings/@types.ts",
+        "src/typings/constants.ts",
+        "src/typings/index.ts"
+    ]
+}

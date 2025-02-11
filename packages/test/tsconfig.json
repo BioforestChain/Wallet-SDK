@@ -1,0 +1,41 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+        "outDir": "./build/src",
+        "rootDir": "./src",
+        "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+        "baseUrl": "."
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "**/*spec.ts"
+    ],
+    "files": [
+        "src/@type.ts",
+        "src/airdrop/airdrop-api.test.ts",
+        "src/airdrop/airdrop-test.module.ts",
+        "src/api/common.api.ts",
+        "src/api/external-transfer.api.ts",
+        "src/api/trans.api.ts",
+        "src/common/common.test.ts",
+        "src/constant.ts",
+        "src/helper/base.helper.ts",
+        "src/helper/index.ts",
+        "src/index.ts",
+        "src/test-main.ts",
+        "src/test.app.ts",
+        "src/test.module.ts",
+        "src/trans/trans-api.test.ts",
+        "src/trans/trans-test.module.ts"
+    ],
+    "references": [
+        {
+            "path": "../wallet/tsconfig.json"
+        }
+    ]
+}
