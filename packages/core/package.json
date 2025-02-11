@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-core",
-    "version": "0.23.0",
+    "version": "0.23.1",
     "description": "bnqkl wallet core",
     "main": "build/src/index.js",
     "type": "commonjs",
@@ -12,5 +12,6 @@
     "license": "MIT",
     "files": [
         "build"
-    ]
+    ],
+    "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847"
 }
