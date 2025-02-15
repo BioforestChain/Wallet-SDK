@@ -28,6 +28,7 @@ declare global {
                         biwmeta: number;
                     };
                 };
+                docs: boolean;
             }
         }
     }

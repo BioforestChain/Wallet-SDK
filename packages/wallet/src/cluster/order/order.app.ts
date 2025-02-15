@@ -9,6 +9,7 @@ import { AirdropOrderMgr } from "../../module/airdrop/order/airdrop-order-mgr";
 import { InternalChainTransMgr } from "../../module/internal-chain-trans/internal-chain-trans-mgr";
 import { walletConsumer } from "../../module/mq";
 import { staticConfig } from "../../config";
+import { NotifyService } from "../../module/notify/notify.service";
 
 export class OrderApp extends BaseApp implements OnModuleInit {
     @Inject(forwardRef(() => MemoryService))
@@ -19,6 +20,8 @@ export class OrderApp extends BaseApp implements OnModuleInit {
     private __globalValueRedisRepository!: GlobalValueRedisRepository;
     @Inject(forwardRef(() => InternalChainTransMgr))
     private __internalChainTransMgr!: InternalChainTransMgr;
+    @Inject(forwardRef(() => NotifyService))
+    private __notifyService!: NotifyService;
 
     async onModuleInit() {
         await this.start();
@@ -28,6 +31,8 @@ export class OrderApp extends BaseApp implements OnModuleInit {
         await this.__processMqTask();
         // orderMgr初始化
         await this.__orderMgrInit();
+        this.__notifyService.beginCheckOnChain();
+        this.__notifyService.beginCheckNotify();
     }
 
     private async __injectAddress() {

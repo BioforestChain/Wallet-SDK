@@ -34,7 +34,7 @@ export abstract class BaseWorker {
         // 全局异常过滤器
         app.useGlobalFilters(new WalletAllExceptionFilter());
         app.useGlobalInterceptors(new CommonTransformIterceptor());
-        if (staticConfig.chainConfig.chainNetworkType === CHAIN_NETWORK_TYPE.TESTNET) {
+        if (staticConfig.docs) {
             const config = new DocumentBuilder()
                 .setTitle("Wallet Doc")
                 .setDescription("API description")

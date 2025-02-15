@@ -26,7 +26,17 @@ import {
 } from "./dto";
 import { staticConfig } from "../../config";
 import { walletSdk, transactionMaker, bfmetaSignUtil } from "../../helper";
-import { BcfQueryBlockReqDto, BcfQueryTransactionReqDto, BcfGetAddressBalanceReqDto, BcfGetAssetsReqDto, BcfGetPendingTrReqDto } from "../bcf/dto";
+import {
+    BcfQueryBlockReqDto,
+    BcfQueryTransactionReqDto,
+    BcfGetAddressBalanceReqDto,
+    BcfGetAssetsReqDto,
+    BcfGetPendingTrReqDto,
+    BcfBroadcastTransactionReqDto,
+    BcfBroadcastTransactionNotifyReqDto,
+} from "../bcf/dto";
+import { NotifyService } from "../notify/notify.service";
+import { forwardRef, Inject } from "@nestjs/common";
 
 export abstract class InternalChainTransService extends ChainTransServiceBase<
     InternalTransStateID,
@@ -36,7 +46,8 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
 > {
     /**创世块信息 */
     private __simpleGenesisAssetInfo?: Wallet.InternalChain.SimpleGenesisAssetInfo;
-
+    @Inject(forwardRef(() => NotifyService))
+    public readonly notifyService: NotifyService;
     constructor(chainName: InternalChainName) {
         super(chainName);
     }
@@ -186,10 +197,27 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
         return result;
     }
 
-    async broadcastTransaction(tr: BFMetaNodeSDK.Basic.TransactionJSON): Promise<BFMetaNodeSDK.ApiReturn<BFMetaNodeSDK.Basic.TransactionJSON>> {
+    async broadcastTransaction(tr: BcfBroadcastTransactionReqDto): Promise<BFMetaNodeSDK.ApiReturn<BFMetaNodeSDK.Basic.TransactionJSON>> {
         const result = await this.sdkBroadcastTransaction(tr);
         if (result.success) {
             await this.createTransaction(tr);
+        }
+        return result;
+    }
+
+    async broadcastTransactionNotify(dto: BcfBroadcastTransactionNotifyReqDto): Promise<BFMetaNodeSDK.ApiReturn<BFMetaNodeSDK.Basic.TransactionJSON>> {
+        const { fromAddress, toAddress, amount, trsInfo, notifyUrl } = dto;
+        this.notifyService.checkNotifyParam(dto);
+        const result = await this.sdkBroadcastTransaction(trsInfo.info.trs);
+        if (result.success) {
+            await this.createTransaction(trsInfo.info.trs, undefined, {
+                chainName: trsInfo.chain,
+                trSignature: trsInfo.info.trsId,
+                notifyUrl,
+                fromAddress,
+                toAddress,
+                amount,
+            });
         }
         return result;
     }
@@ -793,7 +821,11 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
      * @param param
      * @returns
      */
-    async createTransaction<T extends InternalTransactionBase>(trJson: BFMetaNodeSDK.Basic.TransactionJSON, param?: WalletTypings.Entity.BusinessParam) {
+    async createTransaction<T extends InternalTransactionBase>(
+        trJson: BFMetaNodeSDK.Basic.TransactionJSON,
+        param?: WalletTypings.Entity.BusinessParam,
+        notify?: WalletCore.Notify.SaveNotifyParam,
+    ) {
         if (!trJson.signature) {
             throw new Error(`[${this.chainName}] createTransaction signature is undefined`);
         }
@@ -812,6 +844,9 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
             trans.mqId = param.mqId;
             trans.linkType = param.linkType;
             trans.linkId = param.linkId;
+        }
+        if (notify) {
+            await this.notifyService.saveNotify(notify);
         }
         await this.repository.save(trans);
         return trans;

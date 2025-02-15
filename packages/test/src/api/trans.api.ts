@@ -77,6 +77,27 @@ export class TransApi {
         return result;
     }
 
+    
+    /**
+     * 广播交易
+     * @param chainName
+     * @param request
+     * @param networkHelper
+     * @returns
+     */
+    static async broadcastTransactionNotify(
+        chainName: InternalChainName,
+        request: WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyReqDto,
+        networkHelper: NetWorkHelper,
+    ) {
+        const apiPath = ChainHelper.getBcfPath(chainName, WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION_NOTIFY);
+        const result = await networkHelper.post<WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyReqDto, WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyResDto>(
+            apiPath,
+            request,
+        );
+        return result;
+    }
+    
     /**
      * bsc-获取chainId
      * @param networkHelper

@@ -40,6 +40,11 @@ declare global {
                     port?: number;
                 };
                 alipay: WalletAlipaySdkConfig;
+                notify: {
+                    url: string;
+                    port: number;
+                    key: string;
+                };
             }
 
             export interface WalletAlipaySdkConfig extends AlipaySdkConfig {

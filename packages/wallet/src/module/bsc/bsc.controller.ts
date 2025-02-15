@@ -15,6 +15,7 @@ import {
     BscBrocastDirectReqDto,
     BscBaseReqDto,
     BscQueryTransReqDto,
+    BscBrocastDirectNotifyReqDto,
 } from "./dto";
 
 import { BscService } from "./bsc.service";
@@ -169,5 +170,10 @@ export class BscController {
     @ApiOperation({ summary: "bsc-直接广播", description: "WALLET_BSC_API_REQUEST.BROADCAST_DIRECT" })
     broadcastDirect(@Body() dto: BscBrocastDirectReqDto): Promise<WalletTypings.Bsc.Api.BscBrocastDirectResDto> {
         return this.__bscService.sdkBroadcastTransaction(dto);
+    }
+    @Post(WALLET_BSC_API_REQUEST.BROADCAST_DIRECT_NOTIFY)
+    @ApiOperation({ summary: "bsc-直接广播", description: "WALLET_BSC_API_REQUEST.BROADCAST_DIRECT_NOTIFY" })
+    broadcastDirectNotify(@Body() dto: BscBrocastDirectNotifyReqDto): Promise<WalletTypings.Bsc.Api.BscBrocastDirectResDto> {
+        return this.__bscService.sdkBroadcastTransactionNotify(dto);
     }
 }

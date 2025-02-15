@@ -64,6 +64,8 @@ export enum WALLET_BCF_API_REQUEST {
     QUERY_TRANSACTION = "/transactions/query",
     /**广播事件 */
     BROADCAST_TRANSACTION = "/transactions/broadcast",
+    /**广播事件 */
+    BROADCAST_TRANSACTION_NOTIFY = "/transactions/broadcast/notify",
     /**创建转账事件 */
     CREATE_TRANSFER_ASSET = "/transactions/createTransferAsset",
     /**创建转账事件(安全密钥) */

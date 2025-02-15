@@ -7,9 +7,10 @@ import { OrderApp } from "./order.app";
 import { AirdropModule } from "../../module/airdrop/airdrop.module";
 import { RedisBaseModule } from "@bnqkl/wallet-sdk";
 import { InternalChainTransModule } from "../../module/internal-chain-trans/internal-chain-trans.module";
+import { NotifyModule } from "../../module/notify/notify.module";
 
 @Module({
-    imports: [TypeOrmModule.forRootAsync(mysqlConfig), RedisBaseModule, RedisModule, InternalChainTransModule, MemoryModule, AirdropModule],
+    imports: [TypeOrmModule.forRootAsync(mysqlConfig), RedisBaseModule, RedisModule, InternalChainTransModule, MemoryModule, AirdropModule, NotifyModule],
     controllers: [],
     providers: [OrderApp],
 })

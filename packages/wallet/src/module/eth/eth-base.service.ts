@@ -13,6 +13,7 @@ import {
     ERC20BalanceItem,
     EthTransHistoryReqDto,
     EthAccountBalanceV2ReqDto,
+    EthBrocastDirectNotifyReqDto,
 } from "./dto";
 import { EthApi } from "@bfmeta/wallet-eth";
 import { BscApi } from "@bfmeta/wallet-bsc";
@@ -363,6 +364,24 @@ export abstract class EthServiceBase extends ExternalChainTransService {
 
     async sdkBroadcastTransaction(trJson: Pick<WalletTypings.ExternalChain.EthTrJson, "signTransData">) {
         const txHash = await this.baseApi.sendSignedTransaction(trJson.signTransData);
+        return txHash;
+    }
+
+    async sdkBroadcastTransactionNotify(dto: EthBrocastDirectNotifyReqDto) {
+        const { fromAddress, toAddress, amount, trsInfo, notifyUrl } = dto;
+        this.notifyService.checkNotifyParam(dto);
+        const txHash = await this.baseApi.sendSignedTransaction(trsInfo.info.trs);
+        if (notifyUrl) {
+            await this.notifyService.saveNotify({
+                chainName: this.chainName,
+                trSignature: txHash,
+                notifyUrl,
+                fromAddress,
+                toAddress,
+                amount,
+            });
+        }
+
         return txHash;
     }
 }

@@ -12,5 +12,6 @@
     { "version": "1.1.10", "describe": "新增biwmeta表", "fileName": "upgrade-2024-05-17.sql" },
     { "version": "1.2.0", "describe": "新增人民币交易表", "fileName": "upgrade-2024-06-06.sql" },
     { "version": "1.2.1", "describe": "新增空投订单表", "fileName": "upgrade-2024-06-25.sql" },
-    { "version": "1.2.2", "describe": "内链tr_json改为mediumtext", "fileName": "upgrade-2024-07-29.sql" }
+    { "version": "1.2.2", "describe": "内链tr_json改为mediumtext", "fileName": "upgrade-2024-07-29.sql" },
+    { "version": "1.2.3", "describe": "新增notify", "fileName": "upgrade-2025-02-14.sql" }
 ]

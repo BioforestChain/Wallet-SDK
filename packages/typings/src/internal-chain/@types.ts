@@ -496,6 +496,28 @@ declare global {
                 export type BcfBroadcastTransactionResDto = BFMetaNodeSDK.Basic.TransactionJSON;
 
                 /**
+                 * 广播事件-通知
+                 * WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION_NOTIFY
+                 */
+                export type BcfBroadcastTransactionNotifyReqDto = {
+                    notifyUrl: string; // url
+                    toAddress: string; // 接收地址
+                    fromAddress: string; // 发送地址
+                    amount: string; // 发送数量
+                    timestamp: number; // 时间戳，用于签名用
+                    signature: string; /// 内链对整个 json签名
+                    publickey: string; /// 签名对应公钥
+                    trsInfo: {
+                        chain: InternalChainName; // 链名
+                        info: {
+                            assetType: string;
+                            trs: WalletTypings.Bcf.Api.BcfBroadcastTransactionReqDto; // 内链确保转账交易，assetType跟传进来的一样,接收地址跟发送地址跟传进来的相匹配
+                            trsId: string; //交易id，交易id判断该交易体没上链过（避免拿以前上链交易进来）
+                        };
+                    };
+                };
+                export type BcfBroadcastTransactionNotifyResDto = BFMetaNodeSDK.Basic.TransactionJSON;
+                /**
                  * 创建转账事件
                  * WALLET_BCF_API_REQUEST.CREATE_TRANSFER_ASSET
                  */

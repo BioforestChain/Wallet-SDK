@@ -61,6 +61,7 @@
         "src/common/entity/internal-chain/index.ts",
         "src/common/entity/internal-chain/internal-transaction-base.ts",
         "src/common/entity/mysql.config.ts",
+        "src/common/entity/notify.entity.ts",
         "src/common/entity/rmb-transaction.entity.ts",
         "src/common/filter/all-exception.filter.ts",
         "src/common/filter/index.ts",

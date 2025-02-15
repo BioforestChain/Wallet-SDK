@@ -5,6 +5,7 @@ import { ContractTokenInfoService } from "../contract-token-info/contract-token-
 import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service";
 import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-sdk";
 import { In } from "typeorm";
+import { NotifyService } from "../notify/notify.service";
 
 export abstract class ExternalChainTransService extends ChainTransServiceBase<
     ExternalTransStateID,
@@ -14,7 +15,8 @@ export abstract class ExternalChainTransService extends ChainTransServiceBase<
 > {
     @Inject(forwardRef(() => ContractTokenInfoService))
     protected __contractTokenInfoService!: ContractTokenInfoService;
-
+    @Inject(forwardRef(() => NotifyService))
+    protected notifyService: NotifyService;
     constructor(chainName: ExternalChainName) {
         super(chainName);
     }

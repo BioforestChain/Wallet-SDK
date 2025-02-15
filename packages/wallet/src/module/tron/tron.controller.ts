@@ -21,6 +21,7 @@ import {
     TronSendTrc20Dto,
     TronTransBodyDto,
     Trc20TransBodyDto,
+    TRC20TransactionNotifyDto,
 } from "./dto";
 import { TronService } from "./tron.service";
 import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto";
@@ -194,5 +195,11 @@ export class TronController {
     @ApiOperation({ summary: "tron-直接广播", description: "WALLET_TRON_API_REQUEST.BROADCAST_DIRECT" })
     broadcastDirect(@Body() dto: TRC20TransactionDto): Promise<WalletTypings.Tron.Api.TronBrocastDirectResDto> {
         return this.__tronService.sdkBroadcastTransaction(dto);
+    }
+
+    @Post(WALLET_TRON_API_REQUEST.BROADCAST_DIRECT_NOTIFY)
+    @ApiOperation({ summary: "tron-直接广播-通知", description: "WALLET_TRON_API_REQUEST.BROADCAST_DIRECT_NOTIFY" })
+    broadcastDirectNotify(@Body() dto: TRC20TransactionNotifyDto): Promise<WalletTypings.Tron.Api.TronBrocastDirectResDto> {
+        return this.__tronService.sdkBroadcastTransactionNotify(dto);
     }
 }

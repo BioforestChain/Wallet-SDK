@@ -14,6 +14,7 @@ import {
 } from "./internal-chain";
 import { RmbTransactions } from "./rmb-transaction.entity";
 import { AirdropOrder, AirdropTransferTx } from "./airdrop";
+import { NotifyEntity } from "./notify.entity";
 
 const { host, port, username, password, dbName } = staticConfig.mysql;
 export const mysqlConfig: TypeOrmModuleAsyncOptions = {
@@ -40,6 +41,7 @@ export const mysqlConfig: TypeOrmModuleAsyncOptions = {
             RmbTransactions,
             AirdropOrder,
             AirdropTransferTx,
+            NotifyEntity,
         ],
 
         maxQueryExecutionTime: 500,

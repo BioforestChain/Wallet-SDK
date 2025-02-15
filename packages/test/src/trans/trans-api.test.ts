@@ -52,15 +52,16 @@ export class TransApiTest extends CommonTest {
      */
     async simpleTransfer() {
         const { info, network } = (await this.getLoginAccounts())[0];
-        const chainName = InternalChainName.BTGMETA;
+        const chainName = InternalChainName.BIWMETA;
         const maker = await transactionMaker.getTrMaker(chainName);
+        const amount = "50000";
         const param: TransactionMaker.Transaction.TransferAssetTransactionParams = {
-            secret: info.secret,
+            secret: "",
             fee: "10000",
-            recipientId: "cDMenVpHefpDwActPsYpFzgnhLtbXtfNCz",
+            recipientId: "b7jTEcjyVYy2jMG9DA7dARrNSAJDaRGUQA",
             applyBlockHeight: await TransApi.getLastblockHeight(chainName, network),
             assetInfo: {
-                amount: "200000000",
+                amount: amount,
                 assetType: ChainHelper.getInternalMainAssetType(chainName, staticConfig.chainConfig.chainNetworkType === CHAIN_NETWORK_TYPE.TESTNET),
             },
         };
@@ -70,7 +71,28 @@ export class TransApiTest extends CommonTest {
         }
         const trJson = ret.result as WalletTypings.InternalChain.TransferAssetTransaction;
         Logger.debug(`transactionJSON = `, JSON.stringify(trJson, null, 2));
-        const res = await TransApi.broadcastTransaction(chainName, trJson, network);
+        const res = await TransApi.broadcastTransactionNotify(
+            chainName,
+            {
+                notifyUrl: "http://35.213.16.141:28003/api/basic/getTransactions?minHeight=1&tid=123456",
+                toAddress: trJson.recipientId,
+                fromAddress: trJson.senderId,
+                amount: amount,
+                timestamp: 123,
+                signature: trJson.signature,
+                publickey: trJson.senderPublicKey,
+                trsInfo: {
+                    chain: InternalChainName.BIWMETA,
+                    info: {
+                        assetType: "BIW",
+                        trs: trJson,
+                        trsId: trJson.signature,
+                    },
+                },
+            },
+            network,
+        );
+        console.log(res);
         Logger.debug(`broadcastTransaction done.`);
     }
 

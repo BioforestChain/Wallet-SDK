@@ -22,6 +22,7 @@ import {
     Trc20TransBodyDto,
     TronBroadcastTrxReqDto,
     TronBroadcastTrc20ReqDto,
+    TRC20TransactionNotifyDto,
 } from "./dto";
 import { TronTransactions } from "../../common/entity";
 import { ExternalChainTransService } from "../external-chain-trans/external-chain-trans.service";
@@ -449,6 +450,23 @@ export class TronService extends ExternalChainTransService {
 
     async sdkBroadcastTransaction(trJson: BFChainWallet.TRON.TronTransaction | BFChainWallet.TRON.Trc20Transaction) {
         const result = await this.baseApi.broadcastTransaction(trJson);
+        return result.txid;
+    }
+
+    async sdkBroadcastTransactionNotify(dto: TRC20TransactionNotifyDto) {
+        const { fromAddress, toAddress, amount, trsInfo, notifyUrl } = dto;
+        this.notifyService.checkNotifyParam(dto);
+        const result = await this.baseApi.broadcastTransaction(trsInfo.info.trs);
+        if (notifyUrl) {
+            await this.notifyService.saveNotify({
+                chainName: this.chainName,
+                trSignature: result.txid,
+                notifyUrl,
+                fromAddress,
+                toAddress,
+                amount,
+            });
+        }
         return result.txid;
     }
 

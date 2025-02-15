@@ -29,6 +29,7 @@ import {
     BcfGetAssetsReqDto,
     MinperByteResDto,
     BcfGetAssetDetailsReqDto,
+    BcfBroadcastTransactionNotifyReqDto,
 } from "./dto";
 import { ChainHelper, InternalChainName, WALLET_BCF_API_REQUEST } from "@bnqkl/wallet-sdk";
 
@@ -69,6 +70,12 @@ export abstract class BCFController {
     @ApiOperation({ summary: "广播事件", description: "WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION" })
     broadcastTransaction(@Body() transaction: BcfBroadcastTransactionReqDto): Promise<WalletTypings.Bcf.Api.BcfBroadcastTransactionResDto> {
         return this.service.broadcastTransaction(transaction) as any;
+    }
+
+    @Post(WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION_NOTIFY)
+    @ApiOperation({ summary: "广播事件", description: "WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION_NOTIFY" })
+    broadcastTransactionNotify(@Body() dto: BcfBroadcastTransactionNotifyReqDto): Promise<WalletTypings.Bcf.Api.BcfBroadcastTransactionResDto> {
+        return this.service.broadcastTransactionNotify(dto) as any;
     }
 
     @Post(WALLET_BCF_API_REQUEST.CREATE_TRANSFER_ASSET)

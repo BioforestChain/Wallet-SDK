@@ -30,9 +30,10 @@ import {
     ETHMetaTransactionsRepository,
     PmchainTransactionsRepository,
 } from "./bcf.repository";
+import { NotifyModule } from "../notify/notify.module";
 
 @Module({
-    imports: [forwardRef(() => RedisModule)],
+    imports: [forwardRef(() => RedisModule), forwardRef(() => NotifyModule)],
     controllers: [
         BfmChainController,
         BFChainV2Controller,

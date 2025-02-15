@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { ExternalChainName, InternalChainName } from "../../..";
 
 export class BFChainTransInBlockDto implements BFMetaNodeSDK.Basic.TransactionInBlockJSON {
     @ApiProperty()
@@ -72,4 +73,29 @@ export class BcfBroadcastTransactionReqDto implements WalletTypings.Bcf.Api.BcfB
     storageValue?: string;
     @ApiProperty()
     nonce: number;
+}
+
+export class BcfBroadcastTransactionNotifyReqDto implements WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyReqDto {
+    @ApiProperty()
+    notifyUrl: string; // url
+    @ApiProperty()
+    toAddress: string; // 接收地址
+    @ApiProperty()
+    fromAddress: string; // 发送地址
+    @ApiProperty()
+    amount: string; // 发送数量
+    @ApiProperty()
+    timestamp: number; // 时间戳，用于签名用
+    @ApiProperty()
+    signature: string; /// 内链对整个 json签名
+    @ApiProperty()
+    publickey: string; /// 签名对应公钥
+    trsInfo: {
+        chain: InternalChainName; // 链名
+        info: {
+            assetType: string;
+            trs: WalletTypings.Bcf.Api.BcfBroadcastTransactionReqDto; // 内链确保转账交易，assetType跟传进来的一样,接收地址跟发送地址跟传进来的相匹配
+            trsId: string; //交易id，交易id判断该交易体没上链过（避免拿以前上链交易进来）
+        };
+    };
 }

@@ -15,6 +15,7 @@ import {
     EthBrocastDirectReqDto,
     EthBaseReqDto,
     EthQueryTransReqDto,
+    EthBrocastDirectNotifyReqDto,
 } from "./dto";
 import { EthService } from "./eth.service";
 import { ExternalTransType, WALLET_ETH_API_REQUEST } from "@bnqkl/wallet-sdk";
@@ -168,5 +169,11 @@ export class EthController {
     @ApiOperation({ summary: "eth-直接广播", description: "WALLET_ETH_API_REQUEST.BROADCAST_DIRECT" })
     broadcastDirect(@Body() dto: EthBrocastDirectReqDto): Promise<WalletTypings.Eth.Api.EthBrocastDirectResDto> {
         return this.__ethService.sdkBroadcastTransaction(dto);
+    }
+
+    @Post(WALLET_ETH_API_REQUEST.BROADCAST_DIRECT_NOTIFY)
+    @ApiOperation({ summary: "eth-直接广播-通知", description: "WALLET_ETH_API_REQUEST.BROADCAST_DIRECT_NOTIFY" })
+    broadcastDirectNotify(@Body() dto: EthBrocastDirectNotifyReqDto): Promise<WalletTypings.Eth.Api.EthBrocastDirectResDto> {
+        return this.__ethService.sdkBroadcastTransactionNotify(dto);
     }
 }

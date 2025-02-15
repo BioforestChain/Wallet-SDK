@@ -7,9 +7,10 @@ import { WalletRequestMiddleware } from "../../common";
 import { RedisBaseModule } from "@bnqkl/wallet-sdk";
 import { ExternalChainTransModule } from "../../module/external-chain-trans/external-chain-trans.module";
 import { InternalChainTransModule } from "../../module/internal-chain-trans/internal-chain-trans.module";
+import { NotifyModule } from "../../module/notify/notify.module";
 
 @Module({
-    imports: [TypeOrmModule.forRootAsync(mysqlConfig), RedisBaseModule, UpgradeModule, InternalChainTransModule, ExternalChainTransModule],
+    imports: [TypeOrmModule.forRootAsync(mysqlConfig), RedisBaseModule, UpgradeModule, InternalChainTransModule, ExternalChainTransModule, NotifyModule],
     controllers: [],
     providers: [GlobalApp],
 })

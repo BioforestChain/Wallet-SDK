@@ -9,6 +9,7 @@ import { QueneEventEmitter } from "@bnqkl/util-node";
 import { RedisModule } from "../redis/redis.module";
 import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module";
 import { ExternalChainTransController } from "./external-chain-trans.controller";
+import { NotifyModule } from "../notify/notify.module";
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { ExternalChainTransController } from "./external-chain-trans.controller"
         forwardRef(() => RedisModule),
         forwardRef(() => ContracTokenInfoModule),
         forwardRef(() => BTCModule),
+        forwardRef(() => NotifyModule),
     ],
     controllers: [ExternalChainTransController],
     providers: [ExternalChainTransMgr, WaitOnChain_ExternalTransState, OnChainFail_ExternalTransState, Success_ExternalTransState, QueneEventEmitter],

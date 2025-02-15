@@ -48,7 +48,6 @@ config/serverConfig.json
 
 /temp
 
-#lib
-lib/*
-!/lib/READM.md
-!/lib/genesisInfos
+#maker
+maker/*
+wallet/*

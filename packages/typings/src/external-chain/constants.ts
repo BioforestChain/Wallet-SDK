@@ -76,6 +76,8 @@ export enum WALLET_ETH_API_REQUEST {
     TRANS_ERC20_CREATE = "/eth/trans/erc20/create",
     /**eth-直接广播 */
     BROADCAST_DIRECT = "/eth/broadcast/direct",
+    /**eth-直接广播-通知 */
+    BROADCAST_DIRECT_NOTIFY = "/eth/broadcast/direct/notify",
 }
 
 /**bsc接口请求地址 */
@@ -124,6 +126,8 @@ export enum WALLET_BSC_API_REQUEST {
     TRANS_BEP20_CREATE = "/bsc/trans/bep20/create",
     /**bsc-直接广播 */
     BROADCAST_DIRECT = "/bsc/broadcast/direct",
+    /**bsc-直接广播-通知 */
+    BROADCAST_DIRECT_NOTIFY = "/bsc/broadcast/direct/notify",
 }
 
 /**tron接口请求地址 */
@@ -176,6 +180,8 @@ export enum WALLET_TRON_API_REQUEST {
     TRANS_RECEIPT = "/tron/trans/receipt",
     /**tron-直接广播 */
     BROADCAST_DIRECT = "/tron/broadcast/direct",
+    /**tron-直接广播-通知 */
+    BROADCAST_DIRECT_NOTIFY = "/tron/broadcast/direct/notify",
 }
 
 /** 外链交易类型 */
