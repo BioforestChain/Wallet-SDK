@@ -172,7 +172,7 @@ export class BscController {
         return this.__bscService.sdkBroadcastTransaction(dto);
     }
     @Post(WALLET_BSC_API_REQUEST.BROADCAST_DIRECT_NOTIFY)
-    @ApiOperation({ summary: "bsc-直接广播", description: "WALLET_BSC_API_REQUEST.BROADCAST_DIRECT_NOTIFY" })
+    @ApiOperation({ summary: "bsc-直接广播-通知", description: "WALLET_BSC_API_REQUEST.BROADCAST_DIRECT_NOTIFY" })
     broadcastDirectNotify(@Body() dto: BscBrocastDirectNotifyReqDto): Promise<WalletTypings.Bsc.Api.BscBrocastDirectResDto> {
         return this.__bscService.sdkBroadcastTransactionNotify(dto);
     }

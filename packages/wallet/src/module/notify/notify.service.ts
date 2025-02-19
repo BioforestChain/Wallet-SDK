@@ -23,8 +23,8 @@ export class NotifyService {
     async beginCheckOnChain() {
         do {
             try {
-                Logger.debug(`begin beginCheckOnChain`);
                 const arrs = await this.__notifyRepository.find({ where: { notifyResult: NotifyResult.UNDO } });
+                Logger.debug(`begin beginCheckOnChain ${arrs.length}`);
                 for (const item of arrs) {
                     try {
                         const result = await this.checkTrSignture(item);
@@ -51,8 +51,8 @@ export class NotifyService {
     async beginCheckNotify() {
         do {
             try {
-                Logger.debug(`begin beginCheckNotify`);
                 const arrs = await this.__notifyRepository.find({ where: { notifyResult: NotifyResult.ONCHAIN } });
+                Logger.debug(`begin beginCheckNotify ${arrs.length}`);
                 for (const item of arrs) {
                     try {
                         const result = await this.netWorkHelper.post("levelup", {
