@@ -207,12 +207,12 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
 
     async broadcastTransactionNotify(dto: BcfBroadcastTransactionNotifyReqDto): Promise<BFMetaNodeSDK.ApiReturn<BFMetaNodeSDK.Basic.TransactionJSON>> {
         const { fromAddress, toAddress, amount, trsInfo, notifyUrl } = dto;
-        this.notifyService.checkNotifyParam(dto);
+        this.notifyService.checkNotifyParam(dto, this.chainName);
         const result = await this.sdkBroadcastTransaction(trsInfo.info.trs);
         if (result.success) {
             await this.createTransaction(trsInfo.info.trs, undefined, {
                 chainName: trsInfo.chain,
-                trSignature: trsInfo.info.trsId,
+                trSignature: trsInfo.info.trs.signature,
                 notifyUrl,
                 fromAddress,
                 toAddress,

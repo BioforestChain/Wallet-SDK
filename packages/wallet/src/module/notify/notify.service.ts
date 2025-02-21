@@ -55,17 +55,37 @@ export class NotifyService {
                 Logger.debug(`begin beginCheckNotify ${arrs.length}`);
                 for (const item of arrs) {
                     try {
-                        const result = await this.netWorkHelper.post("levelup", {
+                        const signtime = Date.now();
+                        const url = new URL(item.notifyUrl);
+                        const pathParts = url.pathname.split("/");
+                        const post = pathParts[1];
+                        const notifyUrl = item.notifyUrl;
+                        const data: {
+                            tid: string;
+                            trsId: string;
+                            fromAddress: string;
+                            toAddress: string;
+                            amount: string;
+                            signtime: number;
+                            signature?: string;
+                        } = {
                             tid: item.tid,
+                            trsId: item.trSignature,
                             fromAddress: item.fromAddress,
                             toAddress: item.toAddress,
                             amount: item.amount,
-                            signTime: item.signTime,
-                            signature: item.signature,
-                        });
-
-                        item.notifyResult = NotifyResult.NOTIFY_SUCCESS;
-                        await this.__notifyRepository.save(item);
+                            signtime: signtime,
+                        };
+                        data.signature = this.doSignData(staticConfig.notify.key, this.getSignData(data));
+                        Logger.debug(`post ${notifyUrl} ${JSON.stringify(data)}`);
+                        const result: { success: boolean } = await this.netWorkHelper.postUrl(notifyUrl, data);
+                        if (result.success) {
+                            item.notifyResult = NotifyResult.NOTIFY_SUCCESS;
+                            item.signTime = signtime;
+                            item.signature = data.signature;
+                            await this.__notifyRepository.save(item);
+                        }
+                        Logger.debug(`post ${notifyUrl} result ${JSON.stringify(result)}`);
                     } catch (error) {
                         console.log(error);
                     }
@@ -152,18 +172,8 @@ export class NotifyService {
             n.toAddress = dto.toAddress;
             n.amount = dto.amount;
             n.trSignature = dto.trSignature;
-            n.signTime = Date.now();
-            n.signature = this.doSignData(
-                "key",
-                this.getSignData({
-                    tid: n.tid,
-                    fromAddress: n.fromAddress,
-                    toAddress: n.toAddress,
-                    amount: n.amount,
-                    trSignature: n.trSignature,
-                    signTime: n.signTime,
-                }),
-            );
+            n.signTime = 0;
+            n.signature = "";
             n.notifyResult = NotifyResult.UNDO;
             n.retryNum = 0;
             await this.__notifyRepository.save(n);
@@ -184,11 +194,22 @@ export class NotifyService {
         return crypto.createHash("sha256").update(signData).update(key).digest("hex");
     };
 
-    checkNotifyParam(dto: BcfBroadcastTransactionNotifyReqDto | EthBrocastDirectNotifyReqDto | TRC20TransactionNotifyDto) {
+    checkNotifyParam(
+        dto: BcfBroadcastTransactionNotifyReqDto | EthBrocastDirectNotifyReqDto | TRC20TransactionNotifyDto,
+        chainName: ExternalChainName | InternalChainName,
+    ) {
+        if (!dto.trsInfo) {
+            throw `trsInfo is not vaild`;
+        }
         const chain = dto.trsInfo.chain;
         if (chain in ExternalChainName || chain in InternalChainName) {
         } else {
             throw `${chain} is not vaild`;
+        }
+        if (chainName) {
+            if (chain !== chainName) {
+                throw `${chain} is not vaild`;
+            }
         }
     }
 }

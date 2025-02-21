@@ -188,10 +188,10 @@
   dependencies:
     "@deno/shim-deno" "~0.16.1"
 
-"@bnqkl/server-util@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bnqkl/server-util/-/server-util-1.1.0.tgz#fad563cab55e9f3dd0d8c840585fb9760cc75600"
-  integrity sha512-eB/5acyIbvYtsSVaDtU0hk7XWqaVaBEkKoxxTyXaDkz/HyeddaVNTfWOPqdKJ9B+ZJTwbtybAB4vMJ47+39iqw==
+"@bnqkl/server-util@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bnqkl/server-util/-/server-util-1.1.2.tgz#694bfedb5e04938acad424b9de7eb0561487d6d9"
+  integrity sha512-miTl+IVBL+c06x1n2+2EhMKEn2DlPKoVFm6CQZ5dCz0fMO0+W50F6Q3TwO6bCtP+jLfYBJVszsxAEBOAx7jFqA==
   dependencies:
     "@bfmeta/wallet-typings" "^1.6.0"
     "@bnqkl/ipc" "^1.0.1"
