@@ -500,6 +500,7 @@ declare global {
                  * WALLET_BCF_API_REQUEST.BROADCAST_TRANSACTION_NOTIFY
                  */
                 export type BcfBroadcastTransactionNotifyReqDto = {
+                    customParamString?: string; // 自定义参数
                     notifyUrl: string; // url
                     toAddress: string; // 接收地址
                     fromAddress: string; // 发送地址

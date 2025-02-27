@@ -458,14 +458,17 @@ export class TronService extends ExternalChainTransService {
         this.notifyService.checkNotifyParam(dto, this.chainName);
         const result = await this.baseApi.broadcastTransaction(trsInfo.info.trs);
         if (notifyUrl) {
-            await this.notifyService.saveNotify({
-                chainName: this.chainName,
-                trSignature: result.txid,
-                notifyUrl,
-                fromAddress,
-                toAddress,
-                amount,
-            });
+            await this.notifyService.saveNotify(
+                {
+                    chainName: this.chainName,
+                    trSignature: result.txid,
+                    notifyUrl,
+                    fromAddress,
+                    toAddress,
+                    amount,
+                },
+                dto.customParamString,
+            );
         }
         return result.txid;
     }

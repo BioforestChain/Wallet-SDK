@@ -62,6 +62,8 @@ export class TRC20TransactionDto implements WalletTypings.Tron.Api.TronBroadcast
 
 export class TRC20TransactionNotifyDto {
     @ApiProperty()
+    customParamString?: string; // 自定义参数
+    @ApiProperty()
     notifyUrl: string; // url
     @ApiProperty()
     toAddress: string; // 接收地址

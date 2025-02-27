@@ -77,6 +77,8 @@ export class BcfBroadcastTransactionReqDto implements WalletTypings.Bcf.Api.BcfB
 
 export class BcfBroadcastTransactionNotifyReqDto implements WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyReqDto {
     @ApiProperty()
+    customParamString?: string; // 自定义参数
+    @ApiProperty()
     notifyUrl: string; // url
     @ApiProperty()
     toAddress: string; // 接收地址

@@ -1,0 +1,1 @@
+ALTER TABLE `notify` ADD COLUMN `custom_param_string` varchar(5000) NULL COMMENT '自定义参数' AFTER `retry_num`;

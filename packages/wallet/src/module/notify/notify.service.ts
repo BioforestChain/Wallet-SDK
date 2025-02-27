@@ -60,7 +60,7 @@ export class NotifyService {
                         const pathParts = url.pathname.split("/");
                         const post = pathParts[1];
                         const notifyUrl = item.notifyUrl;
-                        const data: {
+                        let data: {
                             tid: string;
                             trsId: string;
                             fromAddress: string;
@@ -76,6 +76,15 @@ export class NotifyService {
                             amount: item.amount,
                             signtime: signtime,
                         };
+                        const customParamString = item.customParamString;
+                        if (customParamString) {
+                            try {
+                                const customParam = JSON.parse(customParamString);
+                                data = Object.assign(data, customParam);
+                            } catch (err) {
+                                console.log(err);
+                            }
+                        }
                         data.signature = this.doSignData(staticConfig.notify.key, this.getSignData(data));
                         Logger.debug(`post ${notifyUrl} ${JSON.stringify(data)}`);
                         const result: { success: boolean } = await this.netWorkHelper.postUrl(notifyUrl, data);
@@ -157,7 +166,7 @@ export class NotifyService {
         }
         return false;
     }
-    async saveNotify(dto: WalletCore.Notify.SaveNotifyParam) {
+    async saveNotify(dto: WalletCore.Notify.SaveNotifyParam, customParamString?: string) {
         try {
             const n = new NotifyEntity();
             n.chainName = dto.chainName;
@@ -176,6 +185,9 @@ export class NotifyService {
             n.signature = "";
             n.notifyResult = NotifyResult.UNDO;
             n.retryNum = 0;
+            if (customParamString) {
+                n.customParamString = customParamString;
+            }
             await this.__notifyRepository.save(n);
         } catch (error) {
             console.log(error);

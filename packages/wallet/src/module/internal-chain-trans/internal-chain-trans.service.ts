@@ -210,14 +210,19 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
         this.notifyService.checkNotifyParam(dto, this.chainName);
         const result = await this.sdkBroadcastTransaction(trsInfo.info.trs);
         if (result.success) {
-            await this.createTransaction(trsInfo.info.trs, undefined, {
-                chainName: trsInfo.chain,
-                trSignature: trsInfo.info.trs.signature,
-                notifyUrl,
-                fromAddress,
-                toAddress,
-                amount,
-            });
+            await this.createTransaction(
+                trsInfo.info.trs,
+                undefined,
+                {
+                    chainName: trsInfo.chain,
+                    trSignature: trsInfo.info.trs.signature,
+                    notifyUrl,
+                    fromAddress,
+                    toAddress,
+                    amount,
+                },
+                dto.customParamString,
+            );
         }
         return result;
     }
@@ -825,6 +830,7 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
         trJson: BFMetaNodeSDK.Basic.TransactionJSON,
         param?: WalletTypings.Entity.BusinessParam,
         notify?: WalletCore.Notify.SaveNotifyParam,
+        customParamString?: string,
     ) {
         if (!trJson.signature) {
             throw new Error(`[${this.chainName}] createTransaction signature is undefined`);
@@ -846,7 +852,7 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
             trans.linkId = param.linkId;
         }
         if (notify) {
-            await this.notifyService.saveNotify(notify);
+            await this.notifyService.saveNotify(notify, customParamString);
         }
         await this.repository.save(trans);
         return trans;

@@ -27,4 +27,6 @@ export class NotifyEntity extends BaseEntity {
     /** 重试次数 */
     @Column("smallint", { name: "retry_num", default: 0 })
     retryNum: number;
+    @Column({ name: "custom_param_string", comment: "自定义参数" })
+    customParamString?: string;
 }

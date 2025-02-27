@@ -18,6 +18,8 @@ export class EthBrocastDirectReqDto implements WalletTypings.Eth.Api.EthBrocastD
 }
 export class EthBrocastDirectNotifyReqDto {
     @ApiProperty()
+    customParamString?: string; // 自定义参数
+    @ApiProperty()
     notifyUrl: string; // url
     @ApiProperty()
     toAddress: string; // 接收地址

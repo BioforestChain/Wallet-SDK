@@ -372,14 +372,17 @@ export abstract class EthServiceBase extends ExternalChainTransService {
         this.notifyService.checkNotifyParam(dto, this.chainName);
         const txHash = await this.baseApi.sendSignedTransaction(trsInfo.info.trs);
         if (notifyUrl) {
-            await this.notifyService.saveNotify({
-                chainName: this.chainName,
-                trSignature: txHash,
-                notifyUrl,
-                fromAddress,
-                toAddress,
-                amount,
-            });
+            await this.notifyService.saveNotify(
+                {
+                    chainName: this.chainName,
+                    trSignature: txHash,
+                    notifyUrl,
+                    fromAddress,
+                    toAddress,
+                    amount,
+                },
+                dto.customParamString,
+            );
         }
 
         return txHash;
