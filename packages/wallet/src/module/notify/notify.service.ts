@@ -12,6 +12,8 @@ import { NetWorkHelper } from "@bnqkl/server-util";
 import { staticConfig } from "../../config";
 import { walletSdk } from "../../helper";
 import { BCFApi } from "@bfmeta/wallet-bcf";
+import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto";
+import { FindOptionsWhere } from "typeorm";
 
 @Injectable()
 export class NotifyService {
@@ -19,6 +21,44 @@ export class NotifyService {
     private __notifyRepository: NotifyRepository;
     private netWorkHelper = new NetWorkHelper(staticConfig.notify.url, staticConfig.notify.port);
     constructor() {}
+
+    async listNotify(dto: GetNotifyListDto) {
+        const opt: FindOptionsWhere<NotifyEntity> = {};
+        if (dto.trSignature) {
+            opt.trSignature = dto.trSignature;
+        }
+        if (dto.fromAddress) {
+            opt.fromAddress = dto.fromAddress;
+        }
+        if (dto.tid) {
+            opt.tid = dto.tid;
+        }
+        if (dto.notifyResult) {
+            opt.notifyResult = Number(dto.notifyResult);
+        }
+        if (Object.keys(opt).length === 0) {
+            throw Error("should fill param");
+        }
+        const arrs = await this.__notifyRepository.find({ where: opt });
+        return arrs;
+    }
+
+    async updateNotify(dto: UpdateNotifyDto) {
+        const { id, notifyResult } = dto;
+        if (!id) {
+            throw Error(`invaild id ${id}`);
+        }
+        if (!(notifyResult in NotifyResult)) {
+            throw Error(`invaild notifyResult ${notifyResult}`);
+        }
+        const item = await this.__notifyRepository.findOne({ where: { id } });
+        if (!item) {
+            throw Error(`cat not find item ${id}`);
+        }
+        item.notifyResult = notifyResult;
+        await this.__notifyRepository.save(item);
+        return item;
+    }
 
     async beginCheckOnChain() {
         do {
@@ -30,6 +70,7 @@ export class NotifyService {
                         const result = await this.checkTrSignture(item);
                         if (result) {
                             item.notifyResult = NotifyResult.ONCHAIN;
+                            item.retryNum = 0;
                         } else {
                             item.retryNum++;
                             if (item.retryNum > CHECK_RETRY_MAX_NUM) {
@@ -87,14 +128,24 @@ export class NotifyService {
                         }
                         data.signature = this.doSignData(staticConfig.notify.key, this.getSignData(data));
                         Logger.debug(`post ${notifyUrl} ${JSON.stringify(data)}`);
-                        const result: { success: boolean } = await this.netWorkHelper.postUrl(notifyUrl, data);
-                        if (result.success) {
-                            item.notifyResult = NotifyResult.NOTIFY_SUCCESS;
-                            item.signTime = signtime;
-                            item.signature = data.signature;
-                            await this.__notifyRepository.save(item);
+                        try {
+                            const result: { success: boolean } = await this.netWorkHelper.postUrl(notifyUrl, data);
+                            if (result.success) {
+                                item.notifyResult = NotifyResult.NOTIFY_SUCCESS;
+                                item.signTime = signtime;
+                                item.signature = data.signature;
+                            } else {
+                                item.retryNum++;
+                            }
+                            Logger.debug(`post ${notifyUrl} result ${JSON.stringify(result)}`);
+                        } catch (error) {
+                            item.retryNum++;
+                            console.log(error);
                         }
-                        Logger.debug(`post ${notifyUrl} result ${JSON.stringify(result)}`);
+                        if (item.retryNum > CHECK_RETRY_MAX_NUM) {
+                            item.notifyResult = NotifyResult.FAIL;
+                        }
+                        await this.__notifyRepository.save(item);
                     } catch (error) {
                         console.log(error);
                     }
@@ -107,62 +158,66 @@ export class NotifyService {
     }
 
     async checkTrSignture(item: NotifyEntity) {
-        const hash = item.trSignature;
-        let api!: BCFApi;
-        switch (item.chainName) {
-            case ExternalChainName.BSC:
-                const resultBsc = await walletSdk.walletFactory.BscApi.getTransReceiptNative(hash);
-                if (resultBsc?.status) {
-                    return true;
-                }
-                break;
-            case ExternalChainName.ETH:
-                const resultEth = await walletSdk.walletFactory.EthApi.getTransReceiptNative(hash);
-                if (resultEth?.status) {
-                    return true;
-                }
-                break;
-            case ExternalChainName.TRON:
-                const resultTron = await walletSdk.walletFactory.TronApi.getTransReceipt(hash);
-                if (resultTron?.status) {
-                    return true;
-                }
-                break;
-            case InternalChainName.BFCHAINV2:
-                api = walletSdk.BFCHAINV2Api;
-                break;
-            case InternalChainName.BFMCHAIN:
-                api = walletSdk.BFMApi;
-                break;
-            case InternalChainName.CCCHAIN:
-                api = walletSdk.CCChainApi;
-                break;
-            case InternalChainName.PMCHAIN:
-                api = walletSdk.PMChainApi;
-                break;
-            case InternalChainName.ETHMETA:
-                api = walletSdk.ETHMChainApi;
-                break;
-            case InternalChainName.BTGMETA:
-                api = walletSdk.BTGMChainApi;
-                break;
-            case InternalChainName.BTCMETA:
-                api = walletSdk.BTCMChainApi;
-                break;
-            case InternalChainName.BIWMETA:
-                api = walletSdk.BIWMChainApi;
-                break;
-            default:
-                throw Error(`wrong chainname ${item.chainName}`);
-        }
-        if (api) {
-            const r = await api.sdk.api.basic.getTransactions({
-                signature: hash,
-                minHeight: 1,
-            });
-            if (r.success && r.result.trs.length > 0) {
-                return true;
+        try {
+            const hash = item.trSignature;
+            let api!: BCFApi;
+            switch (item.chainName) {
+                case ExternalChainName.BSC:
+                    const resultBsc = await walletSdk.walletFactory.BscApi.getTransReceiptNative(hash);
+                    if (resultBsc?.status) {
+                        return true;
+                    }
+                    break;
+                case ExternalChainName.ETH:
+                    const resultEth = await walletSdk.walletFactory.EthApi.getTransReceiptNative(hash);
+                    if (resultEth?.status) {
+                        return true;
+                    }
+                    break;
+                case ExternalChainName.TRON:
+                    const resultTron = await walletSdk.walletFactory.TronApi.getTransReceipt(hash);
+                    if (resultTron?.status) {
+                        return true;
+                    }
+                    break;
+                case InternalChainName.BFCHAINV2:
+                    api = walletSdk.BFCHAINV2Api;
+                    break;
+                case InternalChainName.BFMCHAIN:
+                    api = walletSdk.BFMApi;
+                    break;
+                case InternalChainName.CCCHAIN:
+                    api = walletSdk.CCChainApi;
+                    break;
+                case InternalChainName.PMCHAIN:
+                    api = walletSdk.PMChainApi;
+                    break;
+                case InternalChainName.ETHMETA:
+                    api = walletSdk.ETHMChainApi;
+                    break;
+                case InternalChainName.BTGMETA:
+                    api = walletSdk.BTGMChainApi;
+                    break;
+                case InternalChainName.BTCMETA:
+                    api = walletSdk.BTCMChainApi;
+                    break;
+                case InternalChainName.BIWMETA:
+                    api = walletSdk.BIWMChainApi;
+                    break;
+                default:
+                    throw Error(`wrong chainname ${item.chainName}`);
             }
+            if (api) {
+                const r = await api.sdk.api.basic.getTransactions({
+                    signature: hash,
+                    minHeight: 1,
+                });
+                if (r.success && r.result.trs.length > 0) {
+                    return true;
+                }
+            }
+        } catch (error) {
+            return false;
         }
         return false;
     }
