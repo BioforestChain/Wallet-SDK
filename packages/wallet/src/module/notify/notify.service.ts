@@ -108,6 +108,7 @@ export class NotifyService {
                             toAddress: string;
                             amount: string;
                             signtime: number;
+                            customParam?: any;
                             signature?: string;
                         } = {
                             tid: item.tid,
@@ -115,13 +116,14 @@ export class NotifyService {
                             fromAddress: item.fromAddress,
                             toAddress: item.toAddress,
                             amount: item.amount,
+                            // customParam: {},
                             signtime: signtime,
                         };
                         const customParamString = item.customParamString;
                         if (customParamString) {
                             try {
                                 const customParam = JSON.parse(customParamString);
-                                data = Object.assign(data, customParam);
+                                data.customParam = customParam;
                             } catch (err) {
                                 console.log(err);
                             }
