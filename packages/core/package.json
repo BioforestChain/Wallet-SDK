@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-core",
-    "version": "0.23.1",
+    "version": "0.23.2",
     "description": "bnqkl wallet core",
     "main": "build/src/index.js",
     "type": "commonjs",
