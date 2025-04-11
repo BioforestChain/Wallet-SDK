@@ -30,6 +30,7 @@ import {
     BTGMetaTransactionsRepository,
     CcchainTransactionsRepository,
     ETHMetaTransactionsRepository,
+    MalibuTransactionsRepository,
     PmchainTransactionsRepository,
 } from "./bcf.repository";
 import { NotifyModule } from "../notify/notify.module";
@@ -65,6 +66,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaTransactionsRepository,
         BTGMetaTransactionsRepository,
         BIWMetaTransactionsRepository,
+        MalibuTransactionsRepository
     ],
     exports: [
         BfmChainService,
