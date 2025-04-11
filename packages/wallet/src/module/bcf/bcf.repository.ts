@@ -8,6 +8,7 @@ import {
     BTGMetaTransactions,
     CcchainTransactions,
     ETHMetaTransactions,
+    MalibuTransactions,
     PMChainTransactions,
 } from "../../common";
 import { BaseRepository } from "@bnqkl/wallet-sdk";
@@ -65,5 +66,12 @@ export class BTGMetaTransactionsRepository extends BaseRepository<BTGMetaTransac
 export class BIWMetaTransactionsRepository extends BaseRepository<BIWMetaTransactions> {
     constructor(dataSource: DataSource) {
         super(BIWMetaTransactions, dataSource);
+    }
+}
+
+@Injectable()
+export class MalibuTransactionsRepository extends BaseRepository<MalibuTransactions> {
+    constructor(dataSource: DataSource) {
+        super(MalibuTransactions, dataSource);
     }
 }

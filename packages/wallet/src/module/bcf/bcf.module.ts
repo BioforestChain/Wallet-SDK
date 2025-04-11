@@ -7,6 +7,7 @@ import {
     BTGMetaService,
     CcchainService,
     ETHMetaService,
+    MalibuService,
     PMChainService,
 } from "./bcf.service";
 import {
@@ -17,6 +18,7 @@ import {
     BTGMetaController,
     CcchainController,
     ETHMetaController,
+    MalibuController,
     PMChainController,
 } from "./bcf.controller";
 import { RedisModule } from "../redis/redis.module";
@@ -43,6 +45,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaController,
         BTGMetaController,
         BIWMetaController,
+        MalibuController,
     ],
     providers: [
         BfmChainService,
@@ -53,6 +56,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaService,
         BTGMetaService,
         BIWMetaService,
+        MalibuService,
         BfmchainTransactionsRepository,
         BFChainV2TransactionsRepository,
         CcchainTransactionsRepository,
@@ -62,6 +66,16 @@ import { NotifyModule } from "../notify/notify.module";
         BTGMetaTransactionsRepository,
         BIWMetaTransactionsRepository,
     ],
-    exports: [BfmChainService, BFChainV2Service, CcchainService, PMChainService, ETHMetaService, BTCMetaService, BTGMetaService, BIWMetaService],
+    exports: [
+        BfmChainService,
+        BFChainV2Service,
+        CcchainService,
+        PMChainService,
+        ETHMetaService,
+        BTCMetaService,
+        BTGMetaService,
+        BIWMetaService,
+        MalibuService,
+    ],
 })
 export class BCFModule {}

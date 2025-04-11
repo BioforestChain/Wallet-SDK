@@ -126,6 +126,8 @@ export enum InternalChainName {
     BTCMETA = "BTCMETA",
     /**BIWMETA */
     BIWMETA = "BIWMETA",
+    /**MALIBU */
+    MALIBU = "MALIBU",
 }
 
 /**内链支持交易的货币类型 */
@@ -139,6 +141,7 @@ export enum InternalAssetType {
     BFT = "BFT",
     BTGM = "BTGM",
     BIW = "BIW",
+    MLB = "MLB",
 }
 
 /** 内链主币种 */
@@ -151,6 +154,7 @@ export enum InternalMainAssetType {
     BFT = "BFT",
     BTGM = "BTGM",
     BIW = "BIW",
+    MLB = "MLB",
 }
 
 /**默认手续费 */

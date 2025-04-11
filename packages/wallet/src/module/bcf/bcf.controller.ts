@@ -8,6 +8,7 @@ import {
     BTGMetaService,
     CcchainService,
     ETHMetaService,
+    MalibuService as MalibuService,
     PMChainService,
 } from "./bcf.service";
 import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service";
@@ -223,4 +224,11 @@ export class BTGMetaController extends BCFController {
 export class BIWMetaController extends BCFController {
     @Inject(BIWMetaService)
     public readonly service: BIWMetaService;
+}
+
+@ApiTags(InternalChainName.MALIBU)
+@Controller(ChainHelper.getBcfPathPrefix(InternalChainName.MALIBU))
+export class MalibuController extends BCFController {
+    @Inject(MalibuService)
+    public readonly service: MalibuService;
 }

@@ -24,3 +24,6 @@ export class BTGMetaTransactions extends InternalTransactionBase {}
 
 @Entity("biwmeta_transactions")
 export class BIWMetaTransactions extends InternalTransactionBase {}
+
+@Entity("malibu_transactions")
+export class MalibuTransactions extends InternalTransactionBase {}

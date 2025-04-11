@@ -56,7 +56,7 @@ export class TransApiTest extends CommonTest {
         const maker = await transactionMaker.getTrMaker(chainName);
         const amount = "50000";
         const param: TransactionMaker.Transaction.TransferAssetTransactionParams = {
-            secret: "",
+            secret: "mimic elephant list lizard deputy autumn already tomorrow arm carpet front victory silly avoid globe town twin exercise nose extend divorce imitate basic puppy",
             fee: "10000",
             recipientId: "b7jTEcjyVYy2jMG9DA7dARrNSAJDaRGUQA",
             applyBlockHeight: await TransApi.getLastblockHeight(chainName, network),
