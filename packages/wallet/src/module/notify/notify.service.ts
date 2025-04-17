@@ -206,6 +206,9 @@ export class NotifyService {
                 case InternalChainName.BIWMETA:
                     api = walletSdk.BIWMChainApi;
                     break;
+                case InternalChainName.MALIBU:
+                    api = walletSdk.MalibuApi;
+                    break;
                 default:
                     throw Error(`wrong chainname ${item.chainName}`);
             }
