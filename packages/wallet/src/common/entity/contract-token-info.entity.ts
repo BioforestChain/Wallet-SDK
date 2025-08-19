@@ -1,38 +1,39 @@
-import { BaseEntity, ExternalChainName } from "@bnqkl/wallet-sdk";
+import type { ExternalChainName } from "@bnqkl/wallet-sdk";
+import { BaseEntity } from "@bnqkl/wallet-sdk";
 import { Column, Entity } from "typeorm";
 
 @Entity("contract_token_info")
 export class ContractTokenInfo extends BaseEntity {
     @Column()
-    chain: ExternalChainName;
+    chain!: ExternalChainName;
 
     @Column()
-    address: string;
+    address!: string;
 
     @Column()
-    name: string;
+    name!: string;
 
     @Column()
-    icon: string;
+    icon!: string;
 
     @Column()
-    symbol: string;
+    symbol!: string;
 
     @Column("int")
-    decimals: number;
+    decimals!: number;
 
     @Column("varchar", { name: "total_supply" })
-    totalSupply: string;
+    totalSupply!: string;
 
     @Column()
-    website: string;
+    website!: string;
 
     @Column("datetime", { name: "publish_time" })
-    publishTime: Date;
+    publishTime!: Date;
 
     /**
      * 逻辑删除
      */
     @Column({ default: 0, select: false, name: "del_flag" })
-    delFlag: number;
+    delFlag!: number;
 }

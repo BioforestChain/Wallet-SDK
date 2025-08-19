@@ -1,5 +1,5 @@
 import type {} from "@bfmeta/sign-util";
-import { NetWorkHelper } from "@bnqkl/wallet";
+import type { NetWorkHelper } from "@bnqkl/wallet";
 
 export {};
 declare global {

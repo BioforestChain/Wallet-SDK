@@ -2,47 +2,47 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class BFChainBlockDto implements BFMetaNodeSDK.Basic.BlockWithoutTransactionJSON {
     @ApiProperty()
-    version: number;
+    version!: number;
     @ApiProperty()
-    height: number;
+    height!: number;
     @ApiProperty()
-    blockSize: number;
+    blockSize!: number;
     @ApiProperty()
-    timestamp: number;
+    timestamp!: number;
     @ApiProperty()
-    signature: string;
+    signature!: string;
     @ApiProperty()
     signSignature?: string;
     @ApiProperty()
-    generatorPublicKey: string;
+    generatorPublicKey!: string;
     @ApiProperty()
     generatorSecondPublicKey?: string;
     @ApiProperty()
-    generatorEquity: string;
+    generatorEquity!: string;
     @ApiProperty()
-    numberOfTransactions: number;
+    numberOfTransactions!: number;
     @ApiProperty()
-    payloadHash: string;
+    payloadHash!: string;
     @ApiProperty()
-    payloadLength: number;
+    payloadLength!: number;
     @ApiProperty()
-    previousBlockSignature: string;
+    previousBlockSignature!: string;
     @ApiProperty()
-    totalAmount: string;
+    totalAmount!: string;
     @ApiProperty()
-    totalFee: string;
+    totalFee!: string;
     @ApiProperty()
-    reward: string;
+    reward!: string;
     @ApiProperty()
-    magic: string;
+    magic!: string;
     @ApiProperty()
-    blockParticipation: string;
+    blockParticipation!: string;
     @ApiProperty()
-    remark: { [key: string]: string };
+    remark!: { [key: string]: string };
     @ApiProperty()
-    asset: object;
+    asset!: object;
     @ApiProperty()
-    statisticInfo: BFMetaNodeSDK.Basic.StatisticInfoJSON;
+    statisticInfo!: BFMetaNodeSDK.Basic.StatisticInfoJSON;
     @ApiProperty()
-    roundOfflineGeneratersHashMap: BFMetaNodeSDK.Basic.RoundOfflineGeneratersHashMap;
+    roundOfflineGeneratersHashMap!: BFMetaNodeSDK.Basic.RoundOfflineGeneratersHashMap;
 }

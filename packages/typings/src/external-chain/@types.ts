@@ -1,5 +1,5 @@
-import { CHAIN_ID } from "../typings.js";
-import { ExternalAssetType, ExternalChainName, ExternalTransStateID } from "./constants.js";
+import type { CHAIN_ID } from "../typings/index.js";
+import type { ExternalAssetType, ExternalChainName, ExternalTransStateID } from "./constants.js";
 
 export {};
 declare global {

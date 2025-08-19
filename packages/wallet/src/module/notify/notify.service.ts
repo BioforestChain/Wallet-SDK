@@ -4,21 +4,21 @@ import { NotifyEntity } from "../../common/entity/notify.entity.js";
 import { NotifyRepository } from "./notify.repository.js";
 import { URL } from "url";
 import { Logger, sleep } from "@bnqkl/server-util";
-import { BcfBroadcastTransactionNotifyReqDto } from "../bcf/dto.js";
-import { EthBrocastDirectNotifyReqDto } from "../eth/dto.js";
-import { TRC20TransactionNotifyDto } from "../tron/dto.js";
+import type { BcfBroadcastTransactionNotifyReqDto } from "../bcf/dto/index.js";
+import type { EthBrocastDirectNotifyReqDto } from "../eth/dto/index.js";
+import type { TRC20TransactionNotifyDto } from "../tron/dto/index.js";
 import { CHECK_RETRY_MAX_NUM, ExternalChainName, InternalChainName, NotifyResult } from "@bnqkl/wallet-core";
 import { NetWorkHelper } from "@bnqkl/server-util";
-import { staticConfig } from "../../config.js";
-import { walletSdk } from "../../helper.js";
-import { BCFApi } from "@bfmeta/wallet-bcf";
-import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto.js";
-import { FindOptionsWhere } from "typeorm";
+import { staticConfig } from "../../config/index.js";
+import { walletSdk } from "../../helper/index.js";
+import type { BCFApi } from "@bfmeta/wallet-bcf";
+import type { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto.js";
+import type { FindOptionsWhere } from "typeorm";
 
 @Injectable()
 export class NotifyService {
     @Inject(NotifyRepository)
-    private __notifyRepository: NotifyRepository;
+    private __notifyRepository!: NotifyRepository;
     private netWorkHelper = new NetWorkHelper(staticConfig.notify.url, staticConfig.notify.port);
     constructor() {}
 
@@ -257,7 +257,7 @@ export class NotifyService {
 
     getSignData = (data: Record<string, any>) => {
         return JSON.stringify(
-            [...Object.entries(data)].sort((fielda, fieldb) => {
+            Object.entries(data).sort((fielda, fieldb) => {
                 return fielda[0].localeCompare(fieldb[0]);
             }),
         );

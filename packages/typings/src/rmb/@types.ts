@@ -1,4 +1,4 @@
-import { ALIPAY_TRADE_STATUS, RMB_PAY_PLATFORM, RMB_TRANS_STATE_ID } from "./constants.js";
+import type { ALIPAY_TRADE_STATUS, RMB_PAY_PLATFORM, RMB_TRANS_STATE_ID } from "./constants.js";
 
 export {};
 declare global {

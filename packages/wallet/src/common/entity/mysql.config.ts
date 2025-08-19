@@ -1,7 +1,7 @@
-import { TypeOrmModuleAsyncOptions } from "@nestjs/typeorm";
-import { staticConfig } from "../../config.js";
+import type { TypeOrmModuleAsyncOptions } from "@nestjs/typeorm";
+import { staticConfig } from "../../config/index.js";
 import { ContractTokenInfo } from "./contract-token-info.entity.js";
-import { TronTransactions, EthTransactions, BscTransactions } from "./external-chain.js";
+import { TronTransactions, EthTransactions, BscTransactions } from "./external-chain/index.js";
 import {
     CcchainTransactions,
     BfmchainTransactions,
@@ -12,9 +12,9 @@ import {
     BTCMetaTransactions,
     BIWMetaTransactions,
     MalibuTransactions,
-} from "./internal-chain.js";
+} from "./internal-chain/index.js";
 import { RmbTransactions } from "./rmb-transaction.entity.js";
-import { AirdropOrder, AirdropTransferTx } from "./airdrop.js";
+import { AirdropOrder, AirdropTransferTx } from "./airdrop/index.js";
 import { NotifyEntity } from "./notify.entity.js";
 
 const { host, port, username, password, dbName } = staticConfig.mysql;

@@ -6,7 +6,7 @@ import { IsNotEmpty } from "class-validator";
 export class GetInternalAccountsBalanceReqDto implements WalletTypings.InternalChain.Api.GetInternalAccountsBalanceReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
     @ApiProperty({ description: "过滤条件" })
-    filter: BFChainWallet.BCF.GetAllAccountAssetReq;
+    filter!: BFChainWallet.BCF.GetAllAccountAssetReq;
 }

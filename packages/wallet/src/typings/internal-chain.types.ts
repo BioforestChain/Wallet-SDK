@@ -1,4 +1,4 @@
-import { InternalTransStateID } from "@bnqkl/wallet-sdk";
+import type { InternalTransStateID } from "@bnqkl/wallet-sdk";
 
 export {};
 

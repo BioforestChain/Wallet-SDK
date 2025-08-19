@@ -6,24 +6,24 @@ import { IsNotEmpty } from "class-validator";
 export class GetInternalAccountBalanceReqDto implements WalletTypings.InternalChain.Api.GetInternalAccountBalanceReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "用户地址" })
-    address: string;
+    address!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "资产类型" })
-    assetType: string;
+    assetType!: string;
 }
 
 /**获取内链账户余额 */
 export class GetInternalAssetDetailsReqDto implements WalletTypings.InternalChain.Api.GetAssetDetailsReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "资产类型" })
-    assetType: string;
+    assetType!: string;
 }

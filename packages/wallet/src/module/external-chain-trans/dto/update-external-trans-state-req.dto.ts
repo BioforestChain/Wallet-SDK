@@ -6,13 +6,13 @@ import { IsNotEmpty } from "class-validator";
 export class UpdateExternalTransStateReqDto implements WalletTypings.ExternalChain.Api.UpdateExternalTransStateReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: ExternalChainName })
-    chainName: ExternalChainName;
+    chainName!: ExternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易id" })
-    txId: string;
+    txId!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易状态", enum: ExternalTransStateID })
-    state: ExternalTransStateID;
+    state!: ExternalTransStateID;
 }

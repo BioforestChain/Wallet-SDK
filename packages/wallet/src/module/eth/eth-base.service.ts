@@ -1,8 +1,9 @@
-import { $asyncAllNoNullMap, BaseRepository, ExternalChainName, ExternalTransStateID, ExternalTransType, JSBIHelper, Logger } from "@bnqkl/wallet-sdk";
-import { API_SCAN_SORT_ENUM } from "../../common/constants.js";
-import { EthTransactions } from "../../common/entity.js";
+import type { BaseRepository, ExternalChainName} from "@bnqkl/wallet-sdk";
+import { $asyncAllNoNullMap, ExternalTransStateID, ExternalTransType, JSBIHelper, Logger } from "@bnqkl/wallet-sdk";
+import { API_SCAN_SORT_ENUM } from "../../common/constants/index.js";
+import type { EthTransactions } from "../../common/entity/index.js";
 import { ExternalChainTransService } from "../external-chain-trans/external-chain-trans.service.js";
-import {
+import type {
     EthCreateTransReqDto,
     Erc20TransDataReqDto,
     Erc20BalanceReqDto,
@@ -14,9 +15,9 @@ import {
     EthTransHistoryReqDto,
     EthAccountBalanceV2ReqDto,
     EthBrocastDirectNotifyReqDto,
-} from "./dto.js";
-import { EthApi } from "@bfmeta/wallet-eth";
-import { BscApi } from "@bfmeta/wallet-bsc";
+} from "./dto/index.js";
+import type { EthApi } from "@bfmeta/wallet-eth";
+import type { BscApi } from "@bfmeta/wallet-bsc";
 
 export abstract class EthServiceBase extends ExternalChainTransService {
     abstract repository: BaseRepository<EthTransactions>;

@@ -11,12 +11,14 @@ import {
     DefalutPageSize,
     ALIPAY_TRADE_STATUS,
 } from "@bnqkl/wallet-sdk";
-import { BUSINESS_QUEUE_ROUTING_KEY, RmbTransactions } from "../../common.js";
-import { PayFail_RmbTransState, RmbTransState, Success_RmbTransState, WaitPay_RmbTransState } from "./state.js";
+import type { RmbTransactions } from "../../common/index.js";
+import { BUSINESS_QUEUE_ROUTING_KEY } from "../../common/index.js";
+import type { RmbTransState} from "./state/index.js";
+import { PayFail_RmbTransState, Success_RmbTransState, WaitPay_RmbTransState } from "./state/index.js";
 import { RmbTransObj } from "./rmb-trans-obj.js";
-import { FindOptionsWhere } from "typeorm";
+import type { FindOptionsWhere } from "typeorm";
 import { RmbTransService } from "./rmb-trans.service.js";
-import { businessConsumer } from "../mq.js";
+import { businessConsumer } from "../mq/index.js";
 
 /**人民币交易管理器 */
 @Injectable()

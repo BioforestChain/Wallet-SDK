@@ -1,5 +1,5 @@
 import { Injectable, Inject } from "@nestjs/common";
-import { RmbTransactions } from "../../common/entity.js";
+import { RmbTransactions } from "../../common/entity/index.js";
 import {
     ALIPAY_TRADE_STATUS,
     BaseRepository,
@@ -10,13 +10,14 @@ import {
     RMB_TRANS_STATE_ID,
     TRANS_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { DataSource, In } from "typeorm";
-import { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto.js";
-import { alipaySdk, TransHelper } from "../../helper.js";
-import { BUSINESS_QUEUE_ROUTING_KEY } from "../../common.js";
-import { staticConfig } from "../../config.js";
-import { businessPublisher } from "../mq.js";
-import { AlipaySdkCommonResult } from "alipay-sdk";
+import type { DataSource} from "typeorm";
+import { In } from "typeorm";
+import type { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto/index.js";
+import { alipaySdk, TransHelper } from "../../helper/index.js";
+import { BUSINESS_QUEUE_ROUTING_KEY } from "../../common/index.js";
+import { staticConfig } from "../../config/index.js";
+import { businessPublisher } from "../mq/index.js";
+import type { AlipaySdkCommonResult } from "alipay-sdk";
 
 @Injectable()
 export class RmbTransactionRepository extends BaseRepository<RmbTransactions> {
@@ -27,7 +28,7 @@ export class RmbTransactionRepository extends BaseRepository<RmbTransactions> {
 
 export class RmbTransService {
     @Inject(RmbTransactionRepository)
-    public readonly repository: RmbTransactionRepository;
+    public readonly repository!: RmbTransactionRepository;
 
     newTransaction() {
         return new RmbTransactions();

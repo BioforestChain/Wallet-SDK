@@ -1,12 +1,13 @@
 import { BaseRepository, CHAIN_NETWORK_TYPE, ExternalChainName, memTimeCache, MEM_TIME_CACHE_STRATEGY } from "@bnqkl/wallet-sdk";
 import { Inject, Injectable } from "@nestjs/common";
-import { externalChainHelper, walletSdk } from "../../helper.js";
-import { DataSource } from "typeorm";
+import { externalChainHelper, walletSdk } from "../../helper/index.js";
+import type { DataSource } from "typeorm";
 import { EthServiceBase } from "../eth/eth-base.service.js";
-import { BscAccountBalanceResDto, BscTransHistoryReqDto } from "./dto.js";
-import { BscTransactions } from "../../common/entity.js";
-import { API_SCAN_SORT_ENUM } from "../../common/constants.js";
-import { staticConfig } from "../../config.js";
+import type { BscTransHistoryReqDto } from "./dto/index.js";
+import { BscAccountBalanceResDto } from "./dto/index.js";
+import { BscTransactions } from "../../common/entity/index.js";
+import { API_SCAN_SORT_ENUM } from "../../common/constants/index.js";
+import { staticConfig } from "../../config/index.js";
 
 @Injectable()
 export class BscTransactionRepository extends BaseRepository<BscTransactions> {
@@ -18,7 +19,7 @@ export class BscTransactionRepository extends BaseRepository<BscTransactions> {
 @Injectable()
 export class BscService extends EthServiceBase {
     @Inject(BscTransactionRepository)
-    public readonly repository: BscTransactionRepository;
+    public readonly repository!: BscTransactionRepository;
 
     constructor() {
         super(ExternalChainName.BSC);

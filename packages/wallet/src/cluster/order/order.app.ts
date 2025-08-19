@@ -1,14 +1,16 @@
-import { AIRDROP_TYPE, CHAIN_NETWORK_TYPE, InternalChainName, Logger, rabbitMQCore, sleep, TRANS_QUEUE_ROUTING_KEY } from "@bnqkl/wallet-sdk";
-import { forwardRef, Inject, OnModuleInit } from "@nestjs/common";
-import { CMD, LOCAL_MQ_ID, TRANSACTION_LINK_TYPE } from "../../common.js";
-import { ipcHelpers } from "../../helper.js";
+import type { InternalChainName} from "@bnqkl/wallet-sdk";
+import { AIRDROP_TYPE, CHAIN_NETWORK_TYPE, Logger, rabbitMQCore, sleep, TRANS_QUEUE_ROUTING_KEY } from "@bnqkl/wallet-sdk";
+import type { OnModuleInit } from "@nestjs/common";
+import { forwardRef, Inject } from "@nestjs/common";
+import { CMD, LOCAL_MQ_ID, TRANSACTION_LINK_TYPE } from "../../common/index.js";
+import { ipcHelpers } from "../../helper/index.js";
 import { MemoryService } from "../../module/memory/memory.service.js";
-import { GlobalValueRedisRepository } from "../../module/redis.js";
+import { GlobalValueRedisRepository } from "../../module/redis/index.js";
 import { BaseApp } from "../app.js";
 import { AirdropOrderMgr } from "../../module/airdrop/order/airdrop-order-mgr.js";
 import { InternalChainTransMgr } from "../../module/internal-chain-trans/internal-chain-trans-mgr.js";
-import { walletConsumer } from "../../module/mq.js";
-import { staticConfig } from "../../config.js";
+import { walletConsumer } from "../../module/mq/index.js";
+import { staticConfig } from "../../config/index.js";
 import { NotifyService } from "../../module/notify/notify.service.js";
 
 export class OrderApp extends BaseApp implements OnModuleInit {

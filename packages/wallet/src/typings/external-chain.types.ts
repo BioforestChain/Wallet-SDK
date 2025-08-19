@@ -1,4 +1,4 @@
-import { ExternalTransStateID } from "@bnqkl/wallet-sdk";
+import type { ExternalTransStateID } from "@bnqkl/wallet-sdk";
 
 export {};
 declare global {

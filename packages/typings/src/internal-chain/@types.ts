@@ -1,4 +1,4 @@
-import { InternalAssetType, InternalChainName, InternalTransStateID } from "./constants.js";
+import type { InternalAssetType, InternalChainName, InternalTransStateID } from "./constants.js";
 
 export {};
 declare global {

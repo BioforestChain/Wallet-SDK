@@ -11,27 +11,28 @@ import {
     MalibuService as MalibuService,
     PMChainService,
 } from "./bcf.service.js";
-import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service.js";
-import {
-    BFChainBlockDto,
+import type { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service.js";
+import type {
     BcfQueryBlockReqDto,
-    BFChainTransInBlockDto,
     BcfQueryTransactionReqDto,
     BcfBroadcastTransactionReqDto,
-    BcfCommonResponseTransDto,
     BcfCreateTransferAssetReqDto,
     BcfCommonPackageTransDto,
     BcfCommonBroadcastTransDto,
     BcfCreateSignatureReqDto,
     BcfGetAddressBalanceReqDto,
-    GetAccountInfoResDto,
     BcfGetAddressInfoReqDto,
     BcfGetPendingTrReqDto,
     BcfGetAssetsReqDto,
-    MinperByteResDto,
     BcfGetAssetDetailsReqDto,
-    BcfBroadcastTransactionNotifyReqDto,
-} from "./dto.js";
+    BcfBroadcastTransactionNotifyReqDto} from "./dto/index.js";
+import {
+    BFChainBlockDto,
+    BFChainTransInBlockDto,
+    BcfCommonResponseTransDto,
+    GetAccountInfoResDto,
+    MinperByteResDto
+} from "./dto/index.js";
 import { ChainHelper, InternalChainName, WALLET_BCF_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 /**
@@ -174,61 +175,61 @@ export abstract class BCFController {
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BFMCHAIN))
 export class BfmChainController extends BCFController {
     @Inject(BfmChainService)
-    public readonly service: BfmChainService;
+    public readonly service!: BfmChainService;
 }
 
 @ApiTags(InternalChainName.BFCHAINV2)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BFCHAINV2))
 export class BFChainV2Controller extends BCFController {
     @Inject(BFChainV2Service)
-    public readonly service: BFChainV2Service;
+    public readonly service!: BFChainV2Service;
 }
 
 @ApiTags(InternalChainName.CCCHAIN)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.CCCHAIN))
 export class CcchainController extends BCFController {
     @Inject(CcchainService)
-    public readonly service: CcchainService;
+    public readonly service!: CcchainService;
 }
 
 @ApiTags(InternalChainName.PMCHAIN)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.PMCHAIN))
 export class PMChainController extends BCFController {
     @Inject(PMChainService)
-    public readonly service: PMChainService;
+    public readonly service!: PMChainService;
 }
 
 @ApiTags(InternalChainName.ETHMETA)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.ETHMETA))
 export class ETHMetaController extends BCFController {
     @Inject(ETHMetaService)
-    public readonly service: ETHMetaService;
+    public readonly service!: ETHMetaService;
 }
 
 @ApiTags(InternalChainName.BTCMETA)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BTCMETA))
 export class BTCMetaController extends BCFController {
     @Inject(BTCMetaService)
-    public readonly service: BTCMetaService;
+    public readonly service!: BTCMetaService;
 }
 
 @ApiTags(InternalChainName.BTGMETA)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BTGMETA))
 export class BTGMetaController extends BCFController {
     @Inject(BTGMetaService)
-    public readonly service: BTGMetaService;
+    public readonly service!: BTGMetaService;
 }
 
 @ApiTags(InternalChainName.BIWMETA)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BIWMETA))
 export class BIWMetaController extends BCFController {
     @Inject(BIWMetaService)
-    public readonly service: BIWMetaService;
+    public readonly service!: BIWMetaService;
 }
 
 @ApiTags(InternalChainName.MALIBU)
 @Controller(ChainHelper.getBcfPathPrefix(InternalChainName.MALIBU))
 export class MalibuController extends BCFController {
     @Inject(MalibuService)
-    public readonly service: MalibuService;
+    public readonly service!: MalibuService;
 }

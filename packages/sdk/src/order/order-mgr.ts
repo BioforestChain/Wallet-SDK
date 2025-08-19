@@ -1,7 +1,8 @@
-import {
+import type {
     FSMEntity,
+    BaseRepository} from "@bnqkl/server-util";
+import {
     FSMMgr,
-    BaseRepository,
     rabbitMQCore,
     CommonHelper,
     DefalutPageSize,
@@ -11,10 +12,10 @@ import {
     $asyncAllNoNullMap,
     RedisLock,
 } from "@bnqkl/server-util";
-import { FindOptionsWhere } from "typeorm";
-import { OrderBaseHelper } from "../helper.js";
-import { OrderObj } from "./order-obj.js";
-import { OrderState } from "./order-state.js";
+import type { FindOptionsWhere } from "typeorm";
+import { OrderBaseHelper } from "../helper/index.js";
+import type { OrderObj } from "./order-obj.js";
+import type { OrderState } from "./order-state.js";
 
 /**订单管理器 */
 export abstract class OrderMgr<

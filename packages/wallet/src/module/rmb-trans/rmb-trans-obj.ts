@@ -1,11 +1,12 @@
-import { ALIPAY_TRADE_STATUS, RMB_PAY_PLATFORM, RMB_TRANS_STATE_ID } from "@bnqkl/wallet-typings";
+import type { RMB_TRANS_STATE_ID } from "@bnqkl/wallet-typings";
+import { ALIPAY_TRADE_STATUS, RMB_PAY_PLATFORM } from "@bnqkl/wallet-typings";
 import { Injectable } from "@nestjs/common";
-import { RmbTransactions } from "../../common/entity.js";
-import { RmbTransMgr } from "./rmb-trans-mgr.js";
-import { RmbTransState } from "./state.js";
-import { RmbTransService } from "./rmb-trans.service.js";
+import type { RmbTransactions } from "../../common/entity/index.js";
+import type { RmbTransMgr } from "./rmb-trans-mgr.js";
+import type { RmbTransState } from "./state/index.js";
+import type { RmbTransService } from "./rmb-trans.service.js";
 import { CHAIN_NETWORK_TYPE, FSMObj } from "@bnqkl/wallet-sdk";
-import { staticConfig } from "../../config.js";
+import { staticConfig } from "../../config/index.js";
 
 /**人民币交易的逻辑对象 */
 @Injectable()

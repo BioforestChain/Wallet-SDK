@@ -10,7 +10,7 @@ import {
     TransferTxOnChainFail_AirdropOrderState,
     TransferTxWaitOnChain_AirdropOrderState,
     Success_AirdropOrderState,
-} from "./order/state.js";
+} from "./order/state/index.js";
 import { InternalChainTransModule } from "../internal-chain-trans/internal-chain-trans.module.js";
 import { MemoryModule } from "../memory/memory.module.js";
 

@@ -1,6 +1,7 @@
 import { Body, Controller, forwardRef, Get, Inject, Post, Query, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from "@nestjs/swagger";
-import { AirdropRecordDetailReqDto, AirdropRecordsReqDto, AirdropReqDto, AirdropRetryIssueTxOnChainReqDto, AirdropRetryTransferTxOnChainReqDto } from "./dto.js";
+import type { AirdropRecordDetailReqDto, AirdropRecordsReqDto, AirdropRetryIssueTxOnChainReqDto, AirdropRetryTransferTxOnChainReqDto } from "./dto/index.js";
+import { AirdropReqDto } from "./dto/index.js";
 import { AirdropService } from "./airdrop.service.js";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Logger, WALLET_AIRDROP_API_REQUEST } from "@bnqkl/wallet-sdk";

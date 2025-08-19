@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as crypto from "node:crypto";
 import path from "path/posix";
-import { staticConfig } from "../config.js";
-import { BLOBS_SAVE_DIR, BLOBS_TEMPS_SAVE_DIR, BLOB_IN_TRS_REMARK_PREFIX } from "../common.js";
+import { staticConfig } from "../config/index.js";
+import { BLOBS_SAVE_DIR, BLOBS_TEMPS_SAVE_DIR, BLOB_IN_TRS_REMARK_PREFIX } from "../common/index.js";
 
 export class FileHelper {
     /**

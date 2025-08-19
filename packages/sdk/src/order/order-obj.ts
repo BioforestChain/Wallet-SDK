@@ -1,8 +1,9 @@
-import { FindOptionsWhere } from "typeorm";
-import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
-import { OrderMgr } from "./order-mgr.js";
-import { OrderState } from "./order-state.js";
-import { FSMEntity, FSMObj, BaseRepository } from "@bnqkl/server-util";
+import type { FindOptionsWhere } from "typeorm";
+import type { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity.js";
+import type { OrderMgr } from "./order-mgr.js";
+import type { OrderState } from "./order-state.js";
+import type { FSMEntity, BaseRepository } from "@bnqkl/server-util";
+import { FSMObj } from "@bnqkl/server-util";
 
 /**订单的逻辑对象 */
 export abstract class OrderObj<

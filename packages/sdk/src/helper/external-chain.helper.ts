@@ -1,5 +1,5 @@
 import { compareTwoStrLowerCase } from "@bnqkl/server-util";
-import { WalletSDK } from "../core.js";
+import type { WalletSDK } from "../core/index.js";
 import { ExternalChainName, TOKEN_TO_BEN } from "@bnqkl/wallet-typings";
 
 export class ExternalChainHelper {

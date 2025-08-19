@@ -6,9 +6,9 @@ import { IsNotEmpty } from "class-validator";
 export class GetInternalTransReqDto implements WalletTypings.InternalChain.Api.GetInternalTransReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易id" })
-    txId: string;
+    txId!: string;
 }

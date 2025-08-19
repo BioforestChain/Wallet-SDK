@@ -9,7 +9,7 @@ import {
     ETHMetaTransactions,
     MalibuTransactions,
     PMChainTransactions,
-} from "../../common.js";
+} from "../../common/index.js";
 import { memTimeCache, MEM_TIME_CACHE_STRATEGY, InternalChainName, ERROR_CODE_ENUM, ERROR_CODE_OBJ, Result } from "@bnqkl/wallet-sdk";
 import {
     BFChainV2TransactionsRepository,
@@ -22,14 +22,14 @@ import {
     MalibuTransactionsRepository,
     PmchainTransactionsRepository,
 } from "./bcf.repository.js";
-import { walletSdk } from "../../helper.js";
-import { BcfGetAssetsReqDto } from "./dto.js";
+import { walletSdk } from "../../helper/index.js";
+import type { BcfGetAssetsReqDto } from "./dto/index.js";
 import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service.js";
 
 @Injectable()
 export class BfmChainService extends InternalChainTransService {
     @Inject(BfmchainTransactionsRepository)
-    public readonly repository: BfmchainTransactionsRepository;
+    public readonly repository!: BfmchainTransactionsRepository;
 
     constructor() {
         super(InternalChainName.BFMCHAIN);
@@ -58,7 +58,7 @@ export class BfmChainService extends InternalChainTransService {
 @Injectable()
 export class BFChainV2Service extends InternalChainTransService {
     @Inject(BFChainV2TransactionsRepository)
-    public readonly repository: BFChainV2TransactionsRepository;
+    public readonly repository!: BFChainV2TransactionsRepository;
 
     constructor() {
         super(InternalChainName.BFCHAINV2);
@@ -87,7 +87,7 @@ export class BFChainV2Service extends InternalChainTransService {
 @Injectable()
 export class CcchainService extends InternalChainTransService {
     @Inject(CcchainTransactionsRepository)
-    public readonly repository: CcchainTransactionsRepository;
+    public readonly repository!: CcchainTransactionsRepository;
 
     constructor() {
         super(InternalChainName.CCCHAIN);
@@ -127,7 +127,7 @@ export class CcchainService extends InternalChainTransService {
 @Injectable()
 export class PMChainService extends InternalChainTransService {
     @Inject(PmchainTransactionsRepository)
-    public readonly repository: PmchainTransactionsRepository;
+    public readonly repository!: PmchainTransactionsRepository;
 
     constructor() {
         super(InternalChainName.PMCHAIN);
@@ -156,7 +156,7 @@ export class PMChainService extends InternalChainTransService {
 @Injectable()
 export class ETHMetaService extends InternalChainTransService {
     @Inject(ETHMetaTransactionsRepository)
-    public readonly repository: ETHMetaTransactionsRepository;
+    public readonly repository!: ETHMetaTransactionsRepository;
 
     constructor() {
         super(InternalChainName.ETHMETA);
@@ -185,7 +185,7 @@ export class ETHMetaService extends InternalChainTransService {
 @Injectable()
 export class BTCMetaService extends InternalChainTransService {
     @Inject(BTCMetaTransactionsRepository)
-    public readonly repository: BTCMetaTransactionsRepository;
+    public readonly repository!: BTCMetaTransactionsRepository;
 
     constructor() {
         super(InternalChainName.BTCMETA);
@@ -214,7 +214,7 @@ export class BTCMetaService extends InternalChainTransService {
 @Injectable()
 export class BTGMetaService extends InternalChainTransService {
     @Inject(BTGMetaTransactionsRepository)
-    public readonly repository: BTGMetaTransactionsRepository;
+    public readonly repository!: BTGMetaTransactionsRepository;
 
     constructor() {
         super(InternalChainName.BTGMETA);
@@ -243,7 +243,7 @@ export class BTGMetaService extends InternalChainTransService {
 @Injectable()
 export class BIWMetaService extends InternalChainTransService {
     @Inject(BIWMetaTransactionsRepository)
-    public readonly repository: BIWMetaTransactionsRepository;
+    public readonly repository!: BIWMetaTransactionsRepository;
 
     constructor() {
         super(InternalChainName.BIWMETA);
@@ -272,7 +272,7 @@ export class BIWMetaService extends InternalChainTransService {
 @Injectable()
 export class MalibuService extends InternalChainTransService {
     @Inject(MalibuTransactionsRepository)
-    public readonly repository: MalibuTransactionsRepository;
+    public readonly repository!: MalibuTransactionsRepository;
 
     constructor() {
         super(InternalChainName.MALIBU);

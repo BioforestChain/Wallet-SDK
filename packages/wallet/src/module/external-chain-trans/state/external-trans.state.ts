@@ -1,6 +1,7 @@
-import { ExternalChainTransObj } from "../external-chain-trans-obj.js";
+import type { ExternalChainTransObj } from "../external-chain-trans-obj.js";
 import { ChainTransState } from "../../../common/chain-trans/chain-trans-state.js";
-import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
+import type { ExternalChainName} from "@bnqkl/wallet-typings";
+import { ExternalTransStateID } from "@bnqkl/wallet-typings";
 
 /**外链交易状态基类 */
 export abstract class ExternalTransState extends ChainTransState<ExternalTransStateID, ExternalChainName> implements Wallet.ExternalChain.TransState {

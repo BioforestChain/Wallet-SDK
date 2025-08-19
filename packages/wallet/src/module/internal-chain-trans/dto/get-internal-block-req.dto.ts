@@ -1,4 +1,4 @@
-import { InternalChainName } from "@bnqkl/wallet-sdk";
+import type { InternalChainName } from "@bnqkl/wallet-sdk";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsOptional, IsNumber } from "class-validator";
 import { Type } from "class-transformer";
@@ -7,14 +7,14 @@ import { Type } from "class-transformer";
 export class GetInternalLastBlockReqDto implements WalletTypings.InternalChain.Api.GetInternalLastBlockReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名" })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 }
 
 /**获取内链区块 */
 export class GetInternalBlockReqDto implements WalletTypings.InternalChain.Api.GetInternalBlockReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名" })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @IsOptional()
     @ApiProperty({ description: "交易签名", required: false })

@@ -1,5 +1,5 @@
 import { CommonHelper } from "@bnqkl/wallet-sdk";
-import { ENTITY_ID_MAX_LENGTH, NORMAL_DP_NO } from "../common.js";
+import { ENTITY_ID_MAX_LENGTH, NORMAL_DP_NO } from "../common/index.js";
 
 export class AirdropHelper {
     /**

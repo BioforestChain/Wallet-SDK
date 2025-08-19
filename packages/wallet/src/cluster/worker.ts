@@ -1,12 +1,13 @@
-import { INestApplication, ValidationPipe } from "@nestjs/common";
+import type { INestApplication} from "@nestjs/common";
+import { ValidationPipe } from "@nestjs/common";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import express from "express";
 import helmet from "helmet";
 import type http from "node:http";
 import { CHAIN_NETWORK_TYPE, CommonTransformIterceptor, Logger, WALLET_GLOBAL_PREFIX } from "@bnqkl/wallet-sdk";
-import { VERSION } from "../common/constants.js";
-import { WalletAllExceptionFilter } from "../common.js";
-import { staticConfig } from "../config.js";
+import { VERSION } from "../common/constants/index.js";
+import { WalletAllExceptionFilter } from "../common/index.js";
+import { staticConfig } from "../config/index.js";
 
 export abstract class BaseWorker {
     server!: http.Server;

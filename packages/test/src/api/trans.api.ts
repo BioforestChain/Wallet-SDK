@@ -1,7 +1,8 @@
+import type {
+    InternalChainName,
+    NetWorkHelper} from "@bnqkl/wallet";
 import {
     ChainHelper,
-    InternalChainName,
-    NetWorkHelper,
     WALLET_BCF_API_REQUEST,
     WALLET_BSC_API_REQUEST,
     WALLET_ETH_API_REQUEST,

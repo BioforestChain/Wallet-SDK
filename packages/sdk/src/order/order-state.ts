@@ -1,5 +1,5 @@
 import { FSMState, Logger } from "@bnqkl/server-util";
-import { OrderObj } from "./order-obj.js";
+import type { OrderObj } from "./order-obj.js";
 
 /**订单状态基类 */
 export abstract class OrderState<StateID extends number> extends FSMState<StateID> implements WalletServerSdk.Order.OrderState<StateID> {

@@ -1,4 +1,4 @@
-import { NetWorkHelper } from "@bnqkl/wallet";
+import type { NetWorkHelper } from "@bnqkl/wallet";
 
 export abstract class CommonApi {
     // static async getToken(argv: MetaLordCore.Verify.GetTokenReq, networkHelper: NetWorkHelper) {

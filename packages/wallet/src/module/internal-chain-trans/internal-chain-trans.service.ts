@@ -1,5 +1,6 @@
+import type {
+    InternalChainName} from "@bnqkl/wallet-sdk";
 import {
-    InternalChainName,
     InternalTransStateID,
     DEFAULT_FEE,
     NUMBER_OF_EFFECTIVE_BLOCKS,
@@ -8,11 +9,12 @@ import {
     Logger,
     CHAIN_NETWORK_TYPE,
 } from "@bnqkl/wallet-sdk";
-import { CHAIN_INFO_HKEY, PROJECT_NAME, VERSION } from "../../common/constants.js";
-import { FindManyOptions, FindOptionsWhere, In } from "typeorm";
-import { InternalTransactionBase } from "../../common/entity.js";
+import { CHAIN_INFO_HKEY, PROJECT_NAME, VERSION } from "../../common/constants/index.js";
+import type { FindManyOptions, FindOptionsWhere} from "typeorm";
+import { In } from "typeorm";
+import type { InternalTransactionBase } from "../../common/entity/index.js";
 import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service.js";
-import {
+import type {
     CreateInternalDestroyAssetReqDto,
     CreateInternalIncreaseAssetReqDto,
     CreateInternalIssueAssetReqDto,
@@ -23,10 +25,10 @@ import {
     CreateIssueEntityMultiReqDto,
     CreateIssueEntityReqDto,
     CreateTransferEntityReqDto,
-} from "./dto.js";
-import { staticConfig } from "../../config.js";
-import { walletSdk, transactionMaker, bfmetaSignUtil } from "../../helper.js";
-import {
+} from "./dto/index.js";
+import { staticConfig } from "../../config/index.js";
+import { walletSdk, transactionMaker, bfmetaSignUtil } from "../../helper/index.js";
+import type {
     BcfQueryBlockReqDto,
     BcfQueryTransactionReqDto,
     BcfGetAddressBalanceReqDto,
@@ -34,7 +36,7 @@ import {
     BcfGetPendingTrReqDto,
     BcfBroadcastTransactionReqDto,
     BcfBroadcastTransactionNotifyReqDto,
-} from "../bcf/dto.js";
+} from "../bcf/dto/index.js";
 import { NotifyService } from "../notify/notify.service.js";
 import { forwardRef, Inject } from "@nestjs/common";
 
@@ -47,7 +49,7 @@ export abstract class InternalChainTransService extends ChainTransServiceBase<
     /**创世块信息 */
     private __simpleGenesisAssetInfo?: Wallet.InternalChain.SimpleGenesisAssetInfo;
     @Inject(forwardRef(() => NotifyService))
-    public readonly notifyService: NotifyService;
+    public readonly notifyService!: NotifyService;
     constructor(chainName: InternalChainName) {
         super(chainName);
     }

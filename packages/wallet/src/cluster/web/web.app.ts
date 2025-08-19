@@ -1,4 +1,4 @@
-import { OnModuleInit } from "@nestjs/common";
+import type { OnModuleInit } from "@nestjs/common";
 import { BaseApp } from "../app.js";
 
 export class WebApp extends BaseApp implements OnModuleInit {

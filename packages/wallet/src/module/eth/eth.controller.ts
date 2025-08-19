@@ -1,13 +1,11 @@
 import { Body, Controller, forwardRef, Get, Inject, Post, Query } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
-import {
-    Erc20BalanceResDto,
+import type {
     Erc20TransDataReqDto,
     Erc20BalanceReqDto,
     EthSignTransactionReqDto,
     EthCreateTransReqDto,
     EthSendSignTransReqDto,
-    EthTransPrepResDto,
     EthTransPrepReqDto,
     EthTransHistoryReqDto,
     EthAccountBalanceV2ReqDto,
@@ -15,13 +13,16 @@ import {
     EthBrocastDirectReqDto,
     EthBaseReqDto,
     EthQueryTransReqDto,
-    EthBrocastDirectNotifyReqDto,
-} from "./dto.js";
+    EthBrocastDirectNotifyReqDto} from "./dto/index.js";
+import {
+    Erc20BalanceResDto,
+    EthTransPrepResDto
+} from "./dto/index.js";
 import { EthService } from "./eth.service.js";
 import { ExternalTransType, WALLET_ETH_API_REQUEST } from "@bnqkl/wallet-sdk";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
+import type { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto/index.js";
 import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
+import type { GetExternalPendingTransReqDto } from "../external-chain-trans/dto/index.js";
 
 @ApiTags("ETH")
 @Controller()

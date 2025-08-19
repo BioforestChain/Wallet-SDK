@@ -1,5 +1,5 @@
-import { FSMEntity } from "@bnqkl/server-util";
-import { FindOptionsWhere, UpdateResult } from "typeorm";
+import type { FSMEntity } from "@bnqkl/server-util";
+import type { FindOptionsWhere, UpdateResult } from "typeorm";
 
 export {};
 declare global {

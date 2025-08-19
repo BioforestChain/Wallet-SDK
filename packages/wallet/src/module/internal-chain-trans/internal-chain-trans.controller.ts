@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Query, Res, UploadedFile, UploadedFiles, U
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { InternalChainTransMgr } from "./internal-chain-trans-mgr.js";
 import { forwardRef, Inject } from "@nestjs/common";
-import {
+import type {
     CreateInternalDestroyAssetReqDto,
     CreateInternalIncreaseAssetReqDto,
     CreateInternalIssueAssetReqDto,
@@ -23,14 +23,15 @@ import {
     GetInternalLastBlockReqDto,
     GetInternalTransReqDto,
     SaveInternalTransactionReqDto,
-    UpdateInternalTransStateReqDto,
+    UpdateInternalTransStateReqDto} from "./dto/index.js";
+import {
     UploadFileReqDto,
     UploadFilesReqDto,
-} from "./dto.js";
-import { FileHelper } from "../../helper.js";
+} from "./dto/index.js";
+import { FileHelper } from "../../helper/index.js";
 import { FileFieldsInterceptor, FileInterceptor } from "@nestjs/platform-express";
 import { Throttle } from "@nestjs/throttler";
-import { Response } from "express";
+import type { Response } from "express";
 import { $noNullMap, Logger, WALLET_INTERNAL_CHAIN_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 @ApiTags("INTERNAL-CHAIN")
@@ -198,7 +199,7 @@ export class InternalChainTransController {
     @ApiOperation({ summary: "下载文件", description: "WALLET_INTERNAL_CHAIN_API_REQUEST.DOWNLOAD_FILE" })
     async downloadFile(@Query() dto: DownloadFileReqDto, @Res() response: Response): Promise<void> {
         const { blobUrl } = dto;
-        const match = blobUrl.match(/\/\/([^\?]+)/);
+        const match = blobUrl.match(/\/\/([^?]+)/);
         if (!match || !match[1]) {
             throw Error(`asset image url format exception`);
         }

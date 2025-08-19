@@ -4,7 +4,7 @@ import { BTCModule } from "../btc/btc.module.js";
 import { EthModule } from "../eth/eth.module.js";
 import { BscModule } from "../bsc/bsc.module.js";
 import { TronModule } from "../tron/tron.module.js";
-import { OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state.js";
+import { OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state/index.js";
 import { QueneEventEmitter } from "@bnqkl/util-node";
 import { RedisModule } from "../redis/redis.module.js";
 import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module.js";

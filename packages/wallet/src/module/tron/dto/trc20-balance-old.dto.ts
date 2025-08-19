@@ -2,9 +2,9 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class TronBalanceReqDto implements WalletTypings.Tron.Api.TronBalanceReqDto {
     @ApiProperty({ description: "用户地址" })
-    owner_address: string;
+    owner_address!: string;
     @ApiProperty({ description: "合约地址" })
-    contract_address: string;
+    contract_address!: string;
     @ApiProperty({
         description: "账户地址是否为 Base58check 格式，默认为 false，使用 Hex 地址",
         default: false,
@@ -26,14 +26,14 @@ export class TronBalanceReqDto implements WalletTypings.Tron.Api.TronBalanceReqD
 
 export class Trc20BalanceResDto implements WalletTypings.Tron.Api.TronBalanceResDto {
     @ApiProperty({ description: "用户地址" })
-    owner_address: string;
+    owner_address!: string;
 
     @ApiProperty({ description: "合约地址" })
-    contract_address: string;
+    contract_address!: string;
 
     @ApiProperty({ description: "合约余额", default: 0 })
-    balance: number;
+    balance!: number;
 
     @ApiProperty({ description: "合约代币精度(只有余额不为0时显示)", default: 0 })
-    decimal: number;
+    decimal!: number;
 }

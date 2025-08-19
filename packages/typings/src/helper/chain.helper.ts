@@ -1,5 +1,6 @@
-import { ExternalChainName, ExternalMainAssetType, ExternalMainAssetDecimal } from "../external-chain.js";
-import { InternalChainName, InternalMainAssetType, WALLET_BCF_API_REQUEST } from "../internal-chain.js";
+import { ExternalChainName, ExternalMainAssetType, ExternalMainAssetDecimal } from "../external-chain/index.js";
+import type { WALLET_BCF_API_REQUEST } from "../internal-chain/index.js";
+import { InternalChainName, InternalMainAssetType } from "../internal-chain/index.js";
 
 export class ChainHelper {
     /**

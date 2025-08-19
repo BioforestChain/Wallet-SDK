@@ -1,5 +1,6 @@
 import { MqConsumer } from "@bnqkl/wallet-sdk";
-import { BUSINESS_EXCHANGE_NAME, BUSINESS_QUEUE_ROUTING_KEY, LOCAL_MQ_ID } from "../../common.js";
+import type { BUSINESS_QUEUE_ROUTING_KEY} from "../../common/index.js";
+import { BUSINESS_EXCHANGE_NAME, LOCAL_MQ_ID } from "../../common/index.js";
 
 export class BusinessConsumer extends MqConsumer {
     /**

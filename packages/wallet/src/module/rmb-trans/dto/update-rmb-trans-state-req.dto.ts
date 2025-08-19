@@ -6,9 +6,9 @@ import { IsNotEmpty } from "class-validator";
 export class UpdateRmbTransStateReqDto implements WalletTypings.Rmb.Api.UpdateRmbTransStateReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "交易id" })
-    txId: string;
+    txId!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易状态", enum: RMB_TRANS_STATE_ID })
-    state: RMB_TRANS_STATE_ID;
+    state!: RMB_TRANS_STATE_ID;
 }

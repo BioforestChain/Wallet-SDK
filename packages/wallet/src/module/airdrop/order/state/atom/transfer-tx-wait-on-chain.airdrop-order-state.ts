@@ -8,11 +8,11 @@ import {
     $asyncAllNoNullMap,
     AIRDROP_TYPE,
 } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../../airdrop-order-obj.js";
+import type { AirdropOrderObj } from "../../airdrop-order-obj.js";
 import { AirdropOrderPendingState } from "../airdrop-order-pending.state.js";
-import { LOCAL_MQ_ID, TRANSACTION_LINK_TYPE } from "../../../../../common.js";
-import { AirdropHelper } from "../../../../../helper.js";
-import { walletPublisher } from "../../../../mq.js";
+import { LOCAL_MQ_ID, TRANSACTION_LINK_TYPE } from "../../../../../common/index.js";
+import { AirdropHelper } from "../../../../../helper/index.js";
+import { walletPublisher } from "../../../../mq/index.js";
 
 /**转移交易等待上链状态 */
 @Injectable()

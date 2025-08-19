@@ -1,10 +1,10 @@
 import { $asyncAllNoNullMap, $noNullMap, sleep, CommonHelper, Logger, rabbitMQCore, DefalutPageSize, FSMMgr } from "@bnqkl/wallet-sdk";
-import { ChainTransEntity } from "../entity/chain-trans.entity.js";
-import { ChainTransObj } from "./chain-trans-obj.js";
-import { ChainTransState } from "./chain-trans-state.js";
-import { ChainTransServiceBase } from "./chain-trans-service.js";
-import { FindOptionsWhere } from "typeorm";
-import { CHAIN_TRANS_TYPE } from "../constants.js";
+import type { ChainTransEntity } from "../entity/chain-trans.entity.js";
+import type { ChainTransObj } from "./chain-trans-obj.js";
+import type { ChainTransState } from "./chain-trans-state.js";
+import type { ChainTransServiceBase } from "./chain-trans-service.js";
+import type { FindOptionsWhere } from "typeorm";
+import type { CHAIN_TRANS_TYPE } from "../constants/index.js";
 
 /**链上交易管理器 */
 export abstract class ChainTransMgr<

@@ -7,11 +7,11 @@ export abstract class ChainTransEntity<TransStateID extends number, ChainName ex
 {
     /**链名 */
     @Column("varchar", { name: "chain_name" })
-    chainName: ChainName;
+    chainName!: ChainName;
 
     /**交易体 */
     @Column("simple-json", { name: "tr_json" })
-    trJson: TrJsonType;
+    trJson!: TrJsonType;
 
     /** 失败原因 */
     @Column("varchar", { name: "fail_reason" })

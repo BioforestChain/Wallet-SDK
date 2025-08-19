@@ -3,13 +3,13 @@ import { BFChainTransInBlockDto } from "./bfchain-trans-in-block.dto.js";
 
 export class BFChainBrowserTransactionInBlockDto implements BFChainWallet.BCF.GetTransactionsByBrowserResp {
     @ApiProperty()
-    page: number;
+    page!: number;
     @ApiProperty()
-    pageSize: number;
+    pageSize!: number;
     @ApiProperty()
-    total: number;
+    total!: number;
     @ApiProperty()
-    hasMore: boolean;
+    hasMore!: boolean;
     @ApiProperty({ type: BFChainTransInBlockDto })
-    dataList: BFChainTransInBlockDto[];
+    dataList!: BFChainTransInBlockDto[];
 }

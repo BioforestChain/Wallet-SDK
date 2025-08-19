@@ -1,23 +1,24 @@
 import { Column, Entity } from "typeorm";
-import { FSMEntity, RMB_PAY_PLATFORM, RMB_TRANS_STATE_ID } from "@bnqkl/wallet-sdk";
+import type { RMB_PAY_PLATFORM, RMB_TRANS_STATE_ID } from "@bnqkl/wallet-sdk";
+import { FSMEntity } from "@bnqkl/wallet-sdk";
 
 @Entity("rmb_transactions")
 export class RmbTransactions extends FSMEntity<RMB_TRANS_STATE_ID> implements WalletTypings.Rmb.TransactionBase {
     /**支付平台交易id */
     @Column("varchar", { name: "platform_tx_id" })
-    platformTxId: string;
+    platformTxId!: string;
 
     /**支付平台 */
     @Column("smallint", { name: "platform" })
-    platform: RMB_PAY_PLATFORM;
+    platform!: RMB_PAY_PLATFORM;
 
     /**用户id */
     @Column("varchar", { name: "user_id" })
-    userId: string;
+    userId!: string;
 
     /**交易金额 */
     @Column("varchar", { name: "amount" })
-    amount: string;
+    amount!: string;
 
     /**失败原因 */
     @Column("varchar", { name: "fail_reason" })

@@ -1,13 +1,11 @@
 import { Body, Controller, forwardRef, Get, Inject, Post, Query } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
-import {
-    Bep20BalanceResDto,
+import type {
     Bep20TransDataReqDto,
     Bep20BalanceReqDto,
     BscSignTransactionReqDto,
     BscCreateTransReqDto,
     BscSendSignTransReqDto,
-    BscTransPrepResDto,
     BscTransPrepReqDto,
     BscTransHistoryReqDto,
     BscAccountBalanceV2ReqDto,
@@ -15,14 +13,17 @@ import {
     BscBrocastDirectReqDto,
     BscBaseReqDto,
     BscQueryTransReqDto,
-    BscBrocastDirectNotifyReqDto,
-} from "./dto.js";
+    BscBrocastDirectNotifyReqDto} from "./dto/index.js";
+import {
+    Bep20BalanceResDto,
+    BscTransPrepResDto
+} from "./dto/index.js";
 
 import { BscService } from "./bsc.service.js";
 import { ExternalTransType, WALLET_BSC_API_REQUEST } from "@bnqkl/wallet-sdk";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
+import type { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto/index.js";
 import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
+import type { GetExternalPendingTransReqDto } from "../external-chain-trans/dto/index.js";
 
 @ApiTags("BSC")
 @Controller()

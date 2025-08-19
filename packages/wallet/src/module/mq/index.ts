@@ -1,6 +1,6 @@
 export * from "./wallet.publisher.js";
 
-import { staticConfig } from "../../config.js";
+import { staticConfig } from "../../config/index.js";
 import { WalletConsumer } from "@bnqkl/wallet-sdk";
 import { WalletPublisher } from "./wallet.publisher.js";
 import { BusinessConsumer } from "./business.consumer.js";

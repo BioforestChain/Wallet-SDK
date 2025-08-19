@@ -5,12 +5,12 @@ export class BcfGetAssetsReqDto implements WalletTypings.Bcf.Api.BcfGetAssetsReq
     @IsPositive()
     @Min(1)
     @ApiProperty({ description: "page", default: 1 })
-    page: number;
+    page!: number;
 
     @IsPositive()
     @Min(1)
     @ApiProperty({ description: "pageSize", default: 10 })
-    pageSize: number;
+    pageSize!: number;
 
     @ApiProperty({ description: "查询资产名称(模糊匹配)" })
     assetType?: string;

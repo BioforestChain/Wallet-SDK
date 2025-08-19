@@ -1,4 +1,5 @@
-import { forwardRef, Inject, Injectable, OnApplicationBootstrap, OnModuleInit } from "@nestjs/common";
+import type { OnApplicationBootstrap, OnModuleInit } from "@nestjs/common";
+import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import { GLOBAL_INITING, redisCore } from "@bnqkl/wallet-sdk";
 import { BaseApp } from "../app.js";
 import { UpgradeService } from "../../module/upgrade/upgrade.service.js";

@@ -8,16 +8,16 @@ export enum ContractFunctionEnum {
 
 export class TriggerSmartContractDto implements WalletTypings.Tron.Api.TronCreateContractTransReqDto {
     @ApiProperty({ description: "发起合约调用的账户地址 默认使用 Hex 地址" })
-    owner_address: string;
+    owner_address!: string;
 
     @ApiProperty({ description: "合约地址 默认使用 Hex 地址" })
-    contract_address: string;
+    contract_address!: string;
 
     @ApiProperty({ description: "所调用的函数", enum: ContractFunctionEnum })
-    function_selector: string;
+    function_selector!: string;
 
     @ApiProperty({ description: "原始数据，包含转账地址和转账金额" })
-    input: BFChainWallet.TRON.TronContractParameter[];
+    input!: BFChainWallet.TRON.TronContractParameter[];
 
     @ApiHideProperty()
     parameter?: string;

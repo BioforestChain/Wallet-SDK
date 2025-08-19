@@ -1,4 +1,5 @@
-import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import type { MiddlewareConsumer, NestModule } from "@nestjs/common";
+import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { mysqlConfig } from "@bnqkl/wallet";
 import { TestApp } from "./test.app.js";

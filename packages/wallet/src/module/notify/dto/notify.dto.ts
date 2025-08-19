@@ -1,4 +1,4 @@
-import { NotifyResult } from "@bnqkl/wallet-core";
+import type { NotifyResult } from "@bnqkl/wallet-core";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsOptional } from "class-validator";
 
@@ -19,9 +19,9 @@ export class GetNotifyListDto {
 
 export class UpdateNotifyDto {
     @ApiProperty({ description: "id" })
-    id: number;
+    id!: number;
     @ApiProperty({ description: "notifyResult" })
-    notifyResult: NotifyResult;
+    notifyResult!: NotifyResult;
     @ApiProperty({ description: "verifyKey" })
-    verifyKey: string;
+    verifyKey!: string;
 }

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { WalletFactory } from "@bfmeta/wallet";
-import { BCFApi } from "@bfmeta/wallet-bcf";
+import type { BCFApi } from "@bfmeta/wallet-bcf";
 import { LoggerSymbol } from "@bfmeta/wallet-helpers";
 import { ModuleStroge } from "@bnqkl/util-node";
 import { BFMetaSignUtil } from "@bfmeta/sign-util";
@@ -19,7 +19,7 @@ try {
     console.log(err);
 }
 export class WalletSDK {
-    __walletFactory: WalletFactory;
+    __walletFactory?: WalletFactory;
     get walletFactory() {
         if (this.__walletFactory) {
             return this.__walletFactory;

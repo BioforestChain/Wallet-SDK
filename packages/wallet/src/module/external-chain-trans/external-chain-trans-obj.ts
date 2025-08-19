@@ -1,9 +1,9 @@
-import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
+import type { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
 import { Injectable } from "@nestjs/common";
-import { ExternalTransactionBase } from "../../common/entity.js";
+import type { ExternalTransactionBase } from "../../common/entity/index.js";
 import { ChainTransObj } from "../../common/chain-trans/chain-trans-obj.js";
-import { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
-import { ExternalTransState } from "./state.js";
+import type { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
+import type { ExternalTransState } from "./state/index.js";
 
 /**外链交易的逻辑对象 */
 @Injectable()
@@ -44,7 +44,7 @@ export class ExternalChainTransObj
             const txHash = await transactionService.sdkBroadcastTransaction(this.trJson as any);
             await this.onBroadcastSuccessCallback(txHash);
         } catch (e) {
-            await this.onChainFailCallback(e.message);
+            await this.onChainFailCallback(e instanceof Error ? e.message : String(e));
         }
     }
 

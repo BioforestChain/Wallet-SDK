@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { AIRDROP_ORDER_STATE_ID, AIRDROP_TYPE, COMMON_ORDER_QUEUE_ROUTING_KEY, Logger } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../../airdrop-order-obj.js";
+import type { AirdropOrderObj } from "../../airdrop-order-obj.js";
 import { AirdropOrderFinallyState } from "../airdrop-order-finally.state.js";
-import { walletPublisher } from "../../../../mq.js";
+import { walletPublisher } from "../../../../mq/index.js";
 
 /**成功状态 */
 @Injectable()

@@ -1,48 +1,49 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ExternalChainName, InternalChainName } from "../../...js";
+import type { InternalChainName } from "../../../index.js";
+import { ExternalChainName } from "../../../index.js";
 
 export class BFChainTransInBlockDto implements BFMetaNodeSDK.Basic.TransactionInBlockJSON {
     @ApiProperty()
-    index: number;
+    index!: number;
     @ApiProperty()
-    tIndex: number;
+    tIndex!: number;
     @ApiProperty()
-    height: number;
+    height!: number;
     @ApiProperty()
-    numberOfSenderTransactions: number;
+    numberOfSenderTransactions!: number;
     @ApiProperty()
-    transactionAssetChanges: BFMetaNodeSDK.Basic.TransactionAssetChangeJSON[];
+    transactionAssetChanges!: BFMetaNodeSDK.Basic.TransactionAssetChangeJSON[];
     @ApiProperty()
     assetPrealnum?: BFMetaNodeSDK.Basic.AssetPrealnumJSON;
     @ApiProperty()
-    signature: string;
+    signature!: string;
     @ApiProperty()
     signSignature?: string;
     @ApiProperty()
-    transaction: BFMetaNodeSDK.Basic.TransactionJSON;
+    transaction!: BFMetaNodeSDK.Basic.TransactionJSON;
 }
 
 export class BcfBroadcastTransactionReqDto implements WalletTypings.Bcf.Api.BcfBroadcastTransactionReqDto {
     @ApiProperty()
-    version: number;
+    version!: number;
     @ApiProperty()
-    type: string;
+    type!: string;
     @ApiProperty()
-    senderId: string;
+    senderId!: string;
     @ApiProperty()
-    senderPublicKey: string;
+    senderPublicKey!: string;
     @ApiProperty()
     senderSecondPublicKey?: string;
     @ApiProperty()
     recipientId?: string;
     @ApiProperty()
-    rangeType: 0 | 1 | 2 | 4;
+    rangeType!: 0 | 1 | 2 | 4;
     @ApiProperty()
-    range: string[];
+    range!: string[];
     @ApiProperty()
-    fee: string;
+    fee!: string;
     @ApiProperty()
-    timestamp: number;
+    timestamp!: number;
     @ApiProperty()
     dappid?: string;
     @ApiProperty()
@@ -50,21 +51,21 @@ export class BcfBroadcastTransactionReqDto implements WalletTypings.Bcf.Api.BcfB
     @ApiProperty()
     sourceIP?: string;
     @ApiProperty()
-    fromMagic: string;
+    fromMagic!: string;
     @ApiProperty()
-    toMagic: string;
+    toMagic!: string;
     @ApiProperty()
-    applyBlockHeight: number;
+    applyBlockHeight!: number;
     @ApiProperty()
-    effectiveBlockHeight: number;
+    effectiveBlockHeight!: number;
     @ApiProperty()
-    signature: string;
+    signature!: string;
     @ApiProperty()
     signSignature?: string;
     @ApiProperty()
-    remark: { [key: string]: string };
+    remark!: { [key: string]: string };
     @ApiProperty()
-    asset: object;
+    asset!: object;
     @ApiProperty()
     storage?: BFMetaNodeSDK.Basic.TransactionStorageJSON;
     @ApiProperty()
@@ -72,27 +73,27 @@ export class BcfBroadcastTransactionReqDto implements WalletTypings.Bcf.Api.BcfB
     @ApiProperty()
     storageValue?: string;
     @ApiProperty()
-    nonce: number;
+    nonce!: number;
 }
 
 export class BcfBroadcastTransactionNotifyReqDto implements WalletTypings.Bcf.Api.BcfBroadcastTransactionNotifyReqDto {
     @ApiProperty()
     customParamString?: string; // 自定义参数
     @ApiProperty()
-    notifyUrl: string; // url
+    notifyUrl!: string; // url
     @ApiProperty()
-    toAddress: string; // 接收地址
+    toAddress!: string; // 接收地址
     @ApiProperty()
-    fromAddress: string; // 发送地址
+    fromAddress!: string; // 发送地址
     @ApiProperty()
-    amount: string; // 发送数量
+    amount!: string; // 发送数量
     @ApiProperty()
-    timestamp: number; // 时间戳，用于签名用
+    timestamp!: number; // 时间戳，用于签名用
     @ApiProperty()
-    signature: string; /// 内链对整个 json签名
+    signature!: string; /// 内链对整个 json签名
     @ApiProperty()
-    publickey: string; /// 签名对应公钥
-    trsInfo: {
+    publickey!: string; /// 签名对应公钥
+    trsInfo!: {
         chain: InternalChainName; // 链名
         info: {
             assetType: string;

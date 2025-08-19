@@ -1,8 +1,8 @@
 import { Body, Controller, forwardRef, Inject, Post } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { NotifyService } from "./notify.service.js";
-import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto.js";
-import { NotifyEntity } from "../../common/entity/notify.entity.js";
+import type { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto.js";
+import type { NotifyEntity } from "../../common/entity/notify.entity.js";
 
 @ApiTags("NOTIFY")
 @Controller()

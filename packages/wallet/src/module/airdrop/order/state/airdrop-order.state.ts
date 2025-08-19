@@ -2,7 +2,7 @@ import { AIRDROP_ORDER_STATE_ID, Logger } from "@bnqkl/wallet-sdk";
 import { forwardRef, Inject } from "@nestjs/common";
 import { AirdropService } from "../../airdrop.service.js";
 import { OrderState } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../airdrop-order-obj.js";
+import type { AirdropOrderObj } from "../airdrop-order-obj.js";
 
 /**空投订单状态基类 */
 export abstract class AirdropOrderState extends OrderState<AIRDROP_ORDER_STATE_ID> implements Wallet.Airdrop.OrderState {

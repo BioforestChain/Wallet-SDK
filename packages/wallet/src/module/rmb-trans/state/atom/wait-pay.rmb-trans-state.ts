@@ -1,7 +1,7 @@
 import { RMB_TRANS_STATE_ID } from "@bnqkl/wallet-sdk";
 import { Injectable } from "@nestjs/common";
 import { Logger } from "@bnqkl/wallet-sdk";
-import { RmbTransObj } from "../../rmb-trans-obj.js";
+import type { RmbTransObj } from "../../rmb-trans-obj.js";
 import { RmbTransState } from "../rmb-trans.state.js";
 
 /**等待支付状态 */

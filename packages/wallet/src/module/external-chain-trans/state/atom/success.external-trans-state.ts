@@ -1,8 +1,8 @@
 import { TRANS_QUEUE_ROUTING_KEY, ExternalTransStateID } from "@bnqkl/wallet-sdk";
 import { Injectable } from "@nestjs/common";
-import { CHAIN_INFO_KEY_TYPE } from "../../../../common.js";
-import { walletPublisher } from "../../../mq.js";
-import { ExternalChainTransObj } from "../../external-chain-trans-obj.js";
+import { CHAIN_INFO_KEY_TYPE } from "../../../../common/index.js";
+import { walletPublisher } from "../../../mq/index.js";
+import type { ExternalChainTransObj } from "../../external-chain-trans-obj.js";
 import { ExternalTransFinallyState } from "../external-trans-finally.state.js";
 
 /**成功状态 */

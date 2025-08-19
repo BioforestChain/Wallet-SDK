@@ -1,4 +1,4 @@
-import { staticConfig } from "../../config.js";
+import { staticConfig } from "../../config/index.js";
 
 export const LOCAL_MQ_ID = staticConfig.mysql.dbName;
 

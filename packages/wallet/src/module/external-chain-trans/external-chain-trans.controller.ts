@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
-import {
+import type {
     CreateExternalTransferReqDto,
     CreateExternalTransObjReqDto,
     GetExternalAccountBalanceReqDto,
@@ -11,7 +11,7 @@ import {
     GetExternalTransFeeInfoReqDto,
     SaveExternalTransactionReqDto,
     UpdateExternalTransStateReqDto,
-} from "./dto.js";
+} from "./dto/index.js";
 import { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
 import { WALLET_EXTERNAL_CHAIN_API_REQUEST } from "@bnqkl/wallet-sdk";
 

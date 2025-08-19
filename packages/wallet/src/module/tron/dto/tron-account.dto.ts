@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ERC20BalanceItem, EthAccountBalanceV2ReqDto } from "../../eth/dto.js";
+import { ERC20BalanceItem, EthAccountBalanceV2ReqDto } from "../../eth/dto/index.js";
 
 export class TronAccountResDto implements WalletTypings.Tron.Api.TronGetAccountResDto {
     @ApiProperty({ description: "账户是否激活" })
-    active: boolean;
+    active!: boolean;
     @ApiProperty({ description: "账户具体信息(账户未激活时，此字段不返回)" })
     account?: {
         /** 账户地址，Base58check */

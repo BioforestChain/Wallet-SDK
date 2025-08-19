@@ -6,11 +6,11 @@ import { IsNotEmpty, IsOptional } from "class-validator";
 export class SaveInternalTransactionReqDto implements WalletTypings.InternalChain.Api.SaveInternalTransactionReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易体" })
-    transactionJSON: BFMetaNodeSDK.Basic.TransactionJSON;
+    transactionJSON!: BFMetaNodeSDK.Basic.TransactionJSON;
 
     @IsOptional()
     @ApiProperty({ description: "业务参数" })

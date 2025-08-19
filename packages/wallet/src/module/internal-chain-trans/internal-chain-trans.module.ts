@@ -1,6 +1,6 @@
 import { forwardRef, Module } from "@nestjs/common";
 import { InternalChainTransMgr } from "./internal-chain-trans-mgr.js";
-import { OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state.js";
+import { OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state/index.js";
 import { QueneEventEmitter } from "@bnqkl/util-node";
 import { InternalChainTransController } from "./internal-chain-trans.controller.js";
 import { BCFModule } from "../bcf/bcf.module.js";

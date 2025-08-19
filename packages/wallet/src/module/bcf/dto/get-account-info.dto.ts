@@ -4,24 +4,24 @@ import { IsNotEmpty } from "class-validator";
 export class BcfGetAddressInfoReqDto implements WalletTypings.Bcf.Api.BcfGetAddressInfoReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "地址" })
-    address: string;
+    address!: string;
 }
 
 export class GetAccountInfoResDto implements WalletTypings.Bcf.Api.BcfGetAddressInfoResDto {
     @ApiProperty({ description: "地址" })
-    address: string;
+    address!: string;
     @ApiProperty({ description: "公钥" })
-    publicKey: string;
+    publicKey!: string;
     @ApiProperty({ description: "二次公钥" })
-    secondPublicKey: string;
+    secondPublicKey!: string;
     @ApiProperty({ description: "是否为受托人" })
-    isDelegate: boolean;
+    isDelegate!: boolean;
     @ApiProperty({ description: "是否接受投票" })
-    isAcceptVote: boolean;
+    isAcceptVote!: boolean;
     @ApiProperty({ description: "账户状态 0 正常, 1 冻结" })
-    accountStatus: number;
+    accountStatus!: number;
     @ApiProperty({ description: "equityInfo" })
-    equityInfo: {
+    equityInfo!: {
         round: number;
         equity: string;
         fixedEquity: string;

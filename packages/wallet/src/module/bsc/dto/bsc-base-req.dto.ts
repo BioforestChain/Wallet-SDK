@@ -1,4 +1,4 @@
-import { EthBaseReqDto, EthQueryTransReqDto } from "../../eth/dto.js";
+import { EthBaseReqDto, EthQueryTransReqDto } from "../../eth/dto/index.js";
 
 export class BscBaseReqDto extends EthBaseReqDto implements WalletTypings.Bsc.Api.BscBaseReqDto {}
 

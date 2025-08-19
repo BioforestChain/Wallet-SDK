@@ -3,9 +3,10 @@ import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { forwardRef, Inject } from "@nestjs/common";
 import { ExternalChainTransMgr } from "../external-chain-trans/external-chain-trans-mgr.js";
 import { InternalChainTransMgr } from "../internal-chain-trans/internal-chain-trans-mgr.js";
-import { ExternalAssetQueryParam, InternalAssetQueryParam, MultiGetAssetInfoReqDto } from "./dto.js";
+import type { ExternalAssetQueryParam, InternalAssetQueryParam, MultiGetAssetInfoReqDto } from "./dto/index.js";
 import { $asyncAllNoNullMap } from "@bnqkl/server-util";
-import { BCF_DEFAULT_DECIMALS, ChainHelper, ExternalChainName, InternalChainName } from "@bnqkl/wallet-typings";
+import type { InternalChainName } from "@bnqkl/wallet-typings";
+import { BCF_DEFAULT_DECIMALS, ChainHelper, ExternalChainName } from "@bnqkl/wallet-typings";
 import { WALLET_CHAIN_DATA_API_REQUEST } from "@bnqkl/wallet-core";
 
 @ApiTags("CHAIN-DATA")

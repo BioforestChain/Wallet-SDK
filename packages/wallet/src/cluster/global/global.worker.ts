@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { Logger } from "@bnqkl/wallet-sdk";
-import { staticConfig } from "../../config.js";
+import { staticConfig } from "../../config/index.js";
 import { BaseWorker } from "../worker.js";
 import { GlobalAppModule } from "./global-app.module.js";
 

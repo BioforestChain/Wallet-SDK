@@ -1,7 +1,8 @@
-import { Inject, OnModuleInit, forwardRef } from "@nestjs/common";
-import { CMD } from "../../common.js";
+import type { OnModuleInit} from "@nestjs/common";
+import { Inject, forwardRef } from "@nestjs/common";
+import { CMD } from "../../common/index.js";
 import { BaseApp } from "../app.js";
-import { ipcHelpers } from "../../helper.js";
+import { ipcHelpers } from "../../helper/index.js";
 import { ExternalChainTransMgr } from "../../module/external-chain-trans/external-chain-trans-mgr.js";
 import { InternalChainTransMgr } from "../../module/internal-chain-trans/internal-chain-trans-mgr.js";
 import { RmbTransMgr } from "../../module/rmb-trans/rmb-trans-mgr.js";

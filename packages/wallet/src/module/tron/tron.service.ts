@@ -1,17 +1,12 @@
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
-import { DataSource } from "typeorm";
-import {
-    ContractFunctionEnum,
+import type { DataSource } from "typeorm";
+import type {
     TronCreateTransDto,
     TRC20TransactionDto,
-    TriggerSmartContractDto,
     TronTransactionDto,
     TronBaseReqDto,
-    TronAccountResDto,
-    Trc20BalanceResDto,
     TronBalanceReqDto,
     TronBlockResDto,
-    TRC20BalanceItem,
     TronTransHistoryReqDto,
     TronAccountBalanceV2ReqDto,
     Trc20ContractReqDto,
@@ -22,12 +17,18 @@ import {
     Trc20TransBodyDto,
     TronBroadcastTrxReqDto,
     TronBroadcastTrc20ReqDto,
-    TRC20TransactionNotifyDto,
-} from "./dto.js";
-import { TronTransactions } from "../../common/entity.js";
+    TRC20TransactionNotifyDto} from "./dto/index.js";
+import {
+    ContractFunctionEnum,
+    TriggerSmartContractDto,
+    TronAccountResDto,
+    Trc20BalanceResDto,
+    TRC20BalanceItem
+} from "./dto/index.js";
+import { TronTransactions } from "../../common/entity/index.js";
 import { ExternalChainTransService } from "../external-chain-trans/external-chain-trans.service.js";
 import { $asyncAllNoNullMap, BaseRepository, ExternalChainName, ExternalTransStateID, regSpace } from "@bnqkl/wallet-sdk";
-import { walletSdk } from "../../helper.js";
+import { walletSdk } from "../../helper/index.js";
 
 @Injectable()
 export class TronTransactionRepository extends BaseRepository<TronTransactions> {
@@ -39,7 +40,7 @@ export class TronTransactionRepository extends BaseRepository<TronTransactions> 
 @Injectable()
 export class TronService extends ExternalChainTransService {
     @Inject(TronTransactionRepository)
-    public readonly repository: TronTransactionRepository;
+    public readonly repository!: TronTransactionRepository;
 
     constructor() {
         super(ExternalChainName.TRON);

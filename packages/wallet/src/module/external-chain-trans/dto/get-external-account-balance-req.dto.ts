@@ -6,23 +6,23 @@ import { IsNotEmpty } from "class-validator";
 export class GetExternalAccountBalanceReqDto implements WalletTypings.ExternalChain.Api.GetExternalAccountBalanceReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: ExternalChainName })
-    chainName: ExternalChainName;
+    chainName!: ExternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "用户地址" })
-    address: string;
+    address!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "合约地址" })
-    contractAddress: string;
+    contractAddress!: string;
 }
 
 export class GetExternalBalanceReqDto implements WalletTypings.ExternalChain.Api.GetExternalBalanceReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: ExternalChainName })
-    chainName: ExternalChainName;
+    chainName!: ExternalChainName;
 
     @IsNotEmpty()
     @ApiProperty({ description: "用户地址" })
-    address: string;
+    address!: string;
 }

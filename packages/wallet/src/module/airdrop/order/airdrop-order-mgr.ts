@@ -1,18 +1,21 @@
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
+import type {
+    AirdropOrderState} from "./state/index.js";
 import {
     Success_AirdropOrderState,
     TransferTxOnChainFail_AirdropOrderState,
     TransferTxWaitOnChain_AirdropOrderState,
     IssueTxWaitOnChain_AirdropOrderState,
-    IssueTxOnChainFail_AirdropOrderState,
-    AirdropOrderState,
+    IssueTxOnChainFail_AirdropOrderState
 } from "./state/index.js";
 import { AirdropOrderObj } from "./airdrop-order-obj.js";
 import { AirdropOrderRepository, AirdropTransferTxRepository } from "../airdrop.repository.js";
-import { FindOptionsWhere, In } from "typeorm";
+import type { FindOptionsWhere} from "typeorm";
+import { In } from "typeorm";
 import { OrderMgr, AIRDROP_ORDER_STATE_ID, COMMON_ORDER_TEMP_QUEUE_ROUTING_KEY, Logger, COMMON_ORDER_QUEUE_ROUTING_KEY } from "@bnqkl/wallet-sdk";
 import { AirdropService } from "../airdrop.service.js";
-import { AirdropOrder, LOCAL_MQ_ID, ORDER_TYPE } from "../../../common/index.js";
+import type { AirdropOrder} from "../../../common/index.js";
+import { LOCAL_MQ_ID, ORDER_TYPE } from "../../../common/index.js";
 import { GlobalValueRedisRepository } from "../../redis/index.js";
 import { OrderHelper } from "../../../helper/index.js";
 import { walletConsumer, walletPublisher } from "../../mq/index.js";
@@ -21,9 +24,9 @@ import { walletConsumer, walletPublisher } from "../../mq/index.js";
 @Injectable()
 export class AirdropOrderMgr extends OrderMgr<AIRDROP_ORDER_STATE_ID, AirdropOrderState, AirdropOrder, AirdropOrderObj, ORDER_TYPE> {
     @Inject(forwardRef(() => AirdropOrderRepository))
-    public readonly repository: AirdropOrderRepository;
+    public readonly repository!: AirdropOrderRepository;
     @Inject(forwardRef(() => AirdropTransferTxRepository))
-    public readonly transferTxRepository: AirdropTransferTxRepository;
+    public readonly transferTxRepository!: AirdropTransferTxRepository;
     @Inject(forwardRef(() => IssueTxWaitOnChain_AirdropOrderState))
     private __issueTxWaitOnChain_AirdropOrderState!: IssueTxWaitOnChain_AirdropOrderState;
     @Inject(forwardRef(() => IssueTxOnChainFail_AirdropOrderState))

@@ -1,4 +1,4 @@
-import { AlipaySdkConfig } from "alipay-sdk";
+import type { AlipaySdkConfig } from "alipay-sdk";
 
 export {};
 declare global {

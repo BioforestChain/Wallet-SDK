@@ -1,24 +1,26 @@
 import { PromiseOut, EasyMap, QueneEventEmitter } from "@bnqkl/util-node";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
+import type {
+    InternalChainName} from "@bnqkl/wallet-sdk";
 import {
     $asyncAllNoNullMap,
     CommonHelper,
-    InternalChainName,
     InternalTransStateID,
     Logger,
     MQ_CONSUME_MAX_SPEED,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID, CHAIN_TRANS_TYPE } from "../../common/constants.js";
-import { InternalTransactionBase } from "../../common/entity.js";
-import { FindOptionsWhere } from "typeorm";
-import { InternalChainTransService } from "./internal-chain-trans.service.js";
+import { LOCAL_MQ_ID, CHAIN_TRANS_TYPE } from "../../common/constants/index.js";
+import type { InternalTransactionBase } from "../../common/entity/index.js";
+import type { FindOptionsWhere } from "typeorm";
+import type { InternalChainTransService } from "./internal-chain-trans.service.js";
 import { InternalChainTransObj } from "./internal-chain-trans-obj.js";
-import { InternalTransState, OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state.js";
+import type { InternalTransState} from "./state/index.js";
+import { OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state/index.js";
 import { ChainTransMgr } from "../../common/chain-trans/chain-trans-mgr.js";
-import { staticConfig } from "../../config.js";
-import { transactionMaker, TransHelper } from "../../helper.js";
-import {
+import { staticConfig } from "../../config/index.js";
+import { transactionMaker, TransHelper } from "../../helper/index.js";
+import type {
     CreateInternalTransferAssetReqDto,
     SaveInternalTransactionReqDto,
     CreateInternalTransObjReqDto,
@@ -37,8 +39,8 @@ import {
     CreateInternalUnstakeAssetReqDto,
     CreateInternalIssueAssetReqDto,
     GetInternalAssetDetailsReqDto,
-} from "./dto.js";
-import { walletPublisher, walletConsumer } from "../mq.js";
+} from "./dto/index.js";
+import { walletPublisher, walletConsumer } from "../mq/index.js";
 import {
     BfmChainService,
     BFChainV2Service,

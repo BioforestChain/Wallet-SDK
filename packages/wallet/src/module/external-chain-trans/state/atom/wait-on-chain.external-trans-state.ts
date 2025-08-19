@@ -1,10 +1,10 @@
 import { TRANS_TEMP_QUEUE_ROUTING_KEY, ExternalTransStateID } from "@bnqkl/wallet-sdk";
 import { Injectable } from "@nestjs/common";
 import { Logger } from "@bnqkl/wallet-sdk";
-import { ExternalChainTransObj } from "../../external-chain-trans-obj.js";
+import type { ExternalChainTransObj } from "../../external-chain-trans-obj.js";
 import { ExternalTransState } from "../external-trans.state.js";
-import { walletPublisher } from "../../../mq.js";
-import { LOCAL_MQ_ID } from "../../../../common.js";
+import { walletPublisher } from "../../../mq/index.js";
+import { LOCAL_MQ_ID } from "../../../../common/index.js";
 
 /**等待上链状态 */
 @Injectable()

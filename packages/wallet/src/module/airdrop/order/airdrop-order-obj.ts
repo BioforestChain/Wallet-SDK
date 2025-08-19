@@ -1,8 +1,9 @@
-import { AirdropOrder, NORMAL_DP_NO } from "../../../common.js";
-import { AirdropHelper } from "../../../helper.js";
-import { AirdropOrderRepository, AirdropTransferTxRepository } from "../airdrop.repository.js";
-import { AirdropOrderMgr } from "./airdrop-order-mgr.js";
-import { AirdropOrderState } from "./state.js";
+import type { AirdropOrder} from "../../../common/index.js";
+import { NORMAL_DP_NO } from "../../../common/index.js";
+import { AirdropHelper } from "../../../helper/index.js";
+import type { AirdropOrderRepository, AirdropTransferTxRepository } from "../airdrop.repository.js";
+import type { AirdropOrderMgr } from "./airdrop-order-mgr.js";
+import type { AirdropOrderState } from "./state/index.js";
 import {
     $noNullMap,
     AIRDROP_ORDER_STATE_ID,

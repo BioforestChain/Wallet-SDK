@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { AirdropOrder, AirdropTransferTx } from "../../common.js";
-import { DataSource } from "typeorm";
+import { AirdropOrder, AirdropTransferTx } from "../../common/index.js";
+import type { DataSource } from "typeorm";
 import { BaseRepository } from "@bnqkl/wallet-sdk";
 
 @Injectable()

@@ -2,20 +2,20 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class EthTransPrepResDto implements WalletTypings.Eth.Api.EthTransPrepResDto {
     @ApiProperty({ description: "用户地址" })
-    address: string;
+    address!: string;
 
     @ApiProperty({ description: "交易类型" })
-    type: number;
+    type!: number;
 
     @ApiProperty({ description: "gasPrice" })
-    gasPrice: string;
+    gasPrice!: string;
 
     @ApiProperty({ description: "交易数" })
-    txCount: number;
+    txCount!: number;
 
     @ApiProperty({ description: "普通交易Gas，默认为0", default: 0 })
-    generalGas: number;
+    generalGas!: number;
 
     @ApiProperty({ description: "合约交易Gas，默认为0", default: 0 })
-    contractGas: number;
+    contractGas!: number;
 }

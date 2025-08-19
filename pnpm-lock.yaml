@@ -35,29 +35,81 @@ importers:
       source-map-support:
         specifier: ^0.5.20
         version: 0.5.21
+      tslib:
+        specifier: ^2.8.1
+        version: 2.8.1
       typescript:
         specifier: ^5.0.0
         version: 5.9.2
 
-  packages/core: {}
+  packages/core:
+    dependencies:
+      '@bnqkl/wallet-typings':
+        specifier: workspace:^
+        version: link:../typings
 
   packages/sdk:
     dependencies:
+      '@bfmeta/sign-util':
+        specifier: ^2.1.1
+        version: 2.1.1
       '@bfmeta/transaction-maker-api':
         specifier: ^1.1.11
         version: 1.1.11
       '@bfmeta/wallet':
-        specifier: ^2.0.0
-        version: 2.0.0(typescript@5.9.2)(zod@3.25.76)
+        specifier: ^2.0.2
+        version: 2.0.2(typescript@5.9.2)(zod@3.25.76)
+      '@bfmeta/wallet-bcf':
+        specifier: ^2.0.2
+        version: 2.0.2
+      '@bfmeta/wallet-helpers':
+        specifier: ^2.0.2
+        version: 2.0.2
       '@bnqkl/server-util':
-        specifier: ^1.1.2
-        version: 1.1.2(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)
+        specifier: ^2.0.0
+        version: 2.0.0(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)
+      '@bnqkl/util-node':
+        specifier: ^1.1.3
+        version: 1.1.3
+      '@bnqkl/wallet-typings':
+        specifier: workspace:^
+        version: link:../typings
+      typeorm:
+        specifier: ^0.3.26
+        version: 0.3.26(mysql2@2.3.3)(redis@4.6.7)(reflect-metadata@0.1.13)
 
   packages/test:
     dependencies:
+      '@bfmeta/sign-util':
+        specifier: ^2.1.1
+        version: 2.1.1
+      '@bnqkl/wallet':
+        specifier: workspace:^
+        version: link:../wallet
+      '@bnqkl/wallet-sdk':
+        specifier: workspace:^
+        version: link:../sdk
+      '@bnqkl/wallet-typings':
+        specifier: workspace:^
+        version: link:../typings
+      '@nestjs/common':
+        specifier: ^10.4.20
+        version: 10.4.20(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.1.13)(rxjs@7.8.2)
+      '@nestjs/core':
+        specifier: ^10.4.20
+        version: 10.4.20(@nestjs/common@10.4.20(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.1.13)(rxjs@7.8.2))(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(reflect-metadata@0.1.13)(rxjs@7.8.2)
+      '@nestjs/typeorm':
+        specifier: ^10.0.2
+        version: 10.0.2(@nestjs/common@10.4.20(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.1.13)(rxjs@7.8.2))(@nestjs/core@10.4.20)(reflect-metadata@0.1.13)(rxjs@7.8.2)(typeorm@0.3.26(mysql2@2.3.3)(redis@4.6.7)(reflect-metadata@0.1.13))
+      bip39:
+        specifier: ^3.1.0
+        version: 3.1.0
       ethers:
         specifier: ^6.13.1
         version: 6.15.0
+      js-sha256:
+        specifier: ^0.9.0
+        version: 0.9.0
 
   packages/typings:
     dependencies:
@@ -65,17 +117,47 @@ importers:
         specifier: ^1.1.0
         version: 1.1.11
       '@bfmeta/wallet-typings':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.2
+        version: 2.0.2
 
   packages/wallet:
     dependencies:
+      '@bfmeta/wallet':
+        specifier: ^2.0.2
+        version: 2.0.2(typescript@5.9.2)(zod@3.25.76)
+      '@bfmeta/wallet-bcf':
+        specifier: ^2.0.2
+        version: 2.0.2
+      '@bfmeta/wallet-bsc':
+        specifier: ^2.0.2
+        version: 2.0.2(typescript@5.9.2)(zod@3.25.76)
+      '@bfmeta/wallet-eth':
+        specifier: ^2.0.2
+        version: 2.0.2(typescript@5.9.2)(zod@3.25.76)
       '@bfmeta/wallet-helpers':
+        specifier: ^2.0.2
+        version: 2.0.2
+      '@bfmeta/wallet-tron':
+        specifier: ^2.0.2
+        version: 2.0.2
+      '@bnqkl/ipc':
+        specifier: ^1.0.1
+        version: 1.0.1
+      '@bnqkl/server-util':
         specifier: ^2.0.0
-        version: 2.0.0
+        version: 2.0.0(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)
+      '@bnqkl/util-node':
+        specifier: ^1.1.3
+        version: 1.1.3
+      '@bnqkl/wallet-core':
+        specifier: workspace:^
+        version: link:../core
       '@bnqkl/wallet-sdk':
-        specifier: ^0.23.3
-        version: 0.23.3(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)(typescript@5.9.2)(zod@3.25.76)
+        specifier: workspace:^
+        version: link:../sdk
+      '@bnqkl/wallet-typings':
+        specifier: workspace:^
+        version: link:../typings
       '@nestjs/common':
         specifier: ^10.0.0
         version: 10.4.20(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.1.13)(rxjs@7.8.2)
@@ -103,6 +185,12 @@ importers:
       bip39:
         specifier: ^3.1.0
         version: 3.1.0
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.2
+        version: 0.14.2
       helmet:
         specifier: ^7.0.0
         version: 7.2.0
@@ -158,17 +246,11 @@ packages:
     resolution: {integrity: sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==}
     engines: {node: '>=6.9.0'}
 
-  '@bfmeta/node-sdk@4.0.7':
-    resolution: {integrity: sha512-gE4lOab961oQr0aSFsdZSW5bOMpZhqGp/nwKVEqksjX9PT9/4Kq6ijgThoi047cOIJalNB4RcQzC+UebP/OAFw==}
-
   '@bfmeta/node-sdk@5.1.0':
     resolution: {integrity: sha512-yUabwQxisQW4xlVNMz+sWFCBVOTOtiPcAR6KabLaF/xFlyXXV9o/SN7LmWoQbE76a9ndG97tJoaCUuZyZIRCrA==}
 
-  '@bfmeta/sign-util@1.2.2':
-    resolution: {integrity: sha512-9islb4gU9XvQflrDDZ0rvVrEK38fqI691rt0b2+kYxSYUTZvBM8wni7CqrPqJb0Sa23rKiro5/l74FcK6Ul0Tg==}
-
-  '@bfmeta/sign-util@2.1.0':
-    resolution: {integrity: sha512-ArebAonHk2gouN2WCJcnioCpqRmW0O6shIc/TX9QijlyVcrm2nBJ/tthyXmBPBrK98WaZXlpK22Pv+/kSltSxA==}
+  '@bfmeta/sign-util@2.1.1':
+    resolution: {integrity: sha512-naGE4U7gDcx2XeKjYvE9EOLnWhWg1Xae/IB3L83M2tRSsOdj0S036TD1kBd6HxvSva3DXSmW/g1xw0zLBi2yoQ==}
 
   '@bfmeta/transaction-maker-api@1.1.11':
     resolution: {integrity: sha512-+PLRcT2EfM3dtGoyZppdYUmeBcpenP9DPr4nzvlNPvmziZMP4/hmh0Jz/zYkj/93MVMIsNzYNMDe66kSNcQYyg==}
@@ -176,47 +258,26 @@ packages:
   '@bfmeta/transaction-maker-typings@1.1.11':
     resolution: {integrity: sha512-EglFjraKDfnP5H0dogkTAlGusvvtcnbV35bQmucSv6kCvJO8wGo0l4gwVWnpnesgMedq8I1SyQfmmPrBcnBIUA==}
 
-  '@bfmeta/wallet-bcf@1.6.10':
-    resolution: {integrity: sha512-aChSrdpUbup3zM3gKpot9aAIAA8qx5vhx9ved/8/fTtleCMZSLDLeAfnh7KEfgpZWUHdItY/9Un72O9ZGiWssg==}
+  '@bfmeta/wallet-bcf@2.0.2':
+    resolution: {integrity: sha512-wKPCp8p0EVSuW9/tqpmhci3gc5JwZG5D3jBOnW/4cAxoI5yOk6IhkxTUGxVEoI6c5j5WakAY42IDiV0XZzjPZg==}
 
-  '@bfmeta/wallet-bcf@2.0.0':
-    resolution: {integrity: sha512-BrosRU9F4e2Kh7kPWnBbYMJPn39ahjjYr6NCO+Saj6MEuC3Knsdn4zN0W6F9zzE6b7ukM2Pl8wxR0Fiks7T5yw==}
+  '@bfmeta/wallet-bsc@2.0.2':
+    resolution: {integrity: sha512-LT2OgouXOdR68beCp2ibVk5vwyHref0XKRcZYY/pR0pfVkvGL8BPB7GR9mF1mKrn5zzGy6JJKAh4LV5Ghc58yw==}
 
-  '@bfmeta/wallet-bsc@1.6.10':
-    resolution: {integrity: sha512-YUPQy+yJAkLNds0Q4A/3YNPjJ3lzuCaX9Y+L5J6jUCn4eM84TTxa1FSfIQDCHuhr9ZRKBU9SrKS9Wgff90cUUQ==}
+  '@bfmeta/wallet-eth@2.0.2':
+    resolution: {integrity: sha512-cPKw6YUkJDPl1eXcR25HsbUW8ECPE2MXIiTwH5XjaK+/Ih0YXZKAz/rkGzWv/0hgR8QAiqa0pHu6M+uR6EGJ4w==}
 
-  '@bfmeta/wallet-bsc@2.0.0':
-    resolution: {integrity: sha512-y8TxDn2K8MkknbnXMqJn59jz2mV9zjcXp3l4f5nhecN9VnTjozBnwUI9YOzG1Q3Ke5Vdmw3T0OFlqdGqont6tg==}
+  '@bfmeta/wallet-helpers@2.0.2':
+    resolution: {integrity: sha512-Thm3q1HtyO+7TK9+/nW+ao+Mh+dvxPRJJH7xaTQkQP+0Lx5ObTyYuas6FtqcITNI+tzrqI9LqrdSNUYlntrGzg==}
 
-  '@bfmeta/wallet-eth@1.6.10':
-    resolution: {integrity: sha512-L4zRfVq1flCTzXHR1OpoKi9ybHk4oaDUhAE+WAlB2yX0SqlzE2B1R8+arjkHY0n1ihsGhFTXMuHTfCNQDNXGxA==}
+  '@bfmeta/wallet-tron@2.0.2':
+    resolution: {integrity: sha512-t492y7spF6LOarbM+EqKbgK8NUtF8FZ1fYAWuVpzV6t/K+Ok2FstPeyE1D78ihrvhaiA/8Hfy9qoxNAGeNgEoQ==}
 
-  '@bfmeta/wallet-eth@2.0.0':
-    resolution: {integrity: sha512-W2lBWROgUE4VKXGSBtTMODOGK8h4A2RCMA02F2krXI6fB08CVbEx6jM7/Bi70Z7qXO8/Sbn6t3CDkrwcs0BfqA==}
+  '@bfmeta/wallet-typings@2.0.2':
+    resolution: {integrity: sha512-4bsauGtJoEFqFvy4yJEDuAECXghbykm2g4uwiVKLjT+sbQI5jvKM7RZTJmFGSGgPtzq/tpkZpl+iZp46q6QJPw==}
 
-  '@bfmeta/wallet-helpers@1.6.10':
-    resolution: {integrity: sha512-N+LK9CAeubXRhfNlPxldqeY5huLzhJGUqkxd+pHGi34vfaIghnApGx3PhlQ7ZoXSgODEtmHmWPMuMjTZnNz2zQ==}
-
-  '@bfmeta/wallet-helpers@2.0.0':
-    resolution: {integrity: sha512-YZ3aMnyas03KRt3Owvvgm05tKq1AseFGamGYWfHpYBp/r5xnkafSh01kAI+Pw9dwT4wXXH4Eec4vrcyhvfKtFA==}
-
-  '@bfmeta/wallet-tron@1.6.10':
-    resolution: {integrity: sha512-PyXU9t9drDSOH4WFUJpmVq8HFtTBrrjQJe4jCQmnKVuDOvQ8I7SEoM75UPOI3ATU+haEmmpEXIK54gSwD13mXw==}
-
-  '@bfmeta/wallet-tron@2.0.0':
-    resolution: {integrity: sha512-b+1VEEfXxh/AU5EcxZR0lMxzUQj8xK6j8NBlY1KTN4+AKxSX7SukCvkal2XXgILPeEXwyk/XFzqT/qgiqaYWXg==}
-
-  '@bfmeta/wallet-typings@1.6.10':
-    resolution: {integrity: sha512-ytIfZ8n05xF9DLWVkijrCjW7iRm5YTq1TWtyCsDJb6iuzKUUZ4wuV90pf9uPYC+foAEjY1SvXgcskzsCzj4+3Q==}
-
-  '@bfmeta/wallet-typings@2.0.0':
-    resolution: {integrity: sha512-jqU5TvpritWiZI48JKSMua1fwDuipA5pSpPOS+J6bBbKjRkz8A6nj1q0y0nG+PP0BK/q1l+YfXr7EbmiMpqS6Q==}
-
-  '@bfmeta/wallet@1.6.10':
-    resolution: {integrity: sha512-ipMJOAafAjZk4tALLagAscZI2H2zAGVQNAEs/7y3rJB1h3O+pzLpFT1xK1+iJeF+967zTjWSrtomPwNTkNg8ag==}
-
-  '@bfmeta/wallet@2.0.0':
-    resolution: {integrity: sha512-FdWmeHWiMQ2J7hoKHEOCZSvJyXvoO2gypP6zZ47j2l8Ta8ljYi0YBjKcy35D1hHEgBiXqlul3TOnsrDsz1i+Ow==}
+  '@bfmeta/wallet@2.0.2':
+    resolution: {integrity: sha512-lvZ2oxWr8tIAMJnL3Ay/l7Tc1LQGzfReE3PYxeZZwCI7cEh4E4WUuTITNmZVk6sQ72iYCSJRyMGpC0X1SdoWbQ==}
 
   '@bnqkl/ipc-request@1.0.0':
     resolution: {integrity: sha512-C1gaRkUPK9CBxLB4sxZt/wRwOtrijKL08x6Fxm6InJG6q1B+BGV77pO4A+FU9c+mQkSa0bIfSVaDAC81BLMslQ==}
@@ -227,14 +288,11 @@ packages:
   '@bnqkl/json-dry-factory@1.0.0':
     resolution: {integrity: sha512-0bDlvG5M3QfbeilwbXsVGSe1TzrscOwfB+8c0itPmkpQTJYGGhOXULiMQAnm1GxdaMd9hdmmrHYus3AchWkmrg==}
 
-  '@bnqkl/server-util@1.1.2':
-    resolution: {integrity: sha512-miTl+IVBL+c06x1n2+2EhMKEn2DlPKoVFm6CQZ5dCz0fMO0+W50F6Q3TwO6bCtP+jLfYBJVszsxAEBOAx7jFqA==}
+  '@bnqkl/server-util@2.0.0':
+    resolution: {integrity: sha512-ZYelRLtKv4fMChWee2yjy5XpLOr/tpwaSeE9G6AoV/9s8ETUIZykq09FniK+BvHXwZ352VUbgcXt+U/z+Fuazw==}
 
   '@bnqkl/util-node@1.1.3':
     resolution: {integrity: sha512-y2wR/kveWqgJEzdEf2vhhsPcl57wMTrqBHHpkR7BpvgRhObn2VYdk0mEI73Zp/gMzHPz3/Kvedn5SNC4w6P8iA==}
-
-  '@bnqkl/wallet-sdk@0.23.3':
-    resolution: {integrity: sha512-gH8JmscyvgKKbh9irg0OkrFFJ6b9ZfKQSZxpFu/K/BBexrsRmM30nNYgwR3fwccAdXcHHX2ABJ92zik7mCIgXg==}
 
   '@borewit/text-codec@0.1.1':
     resolution: {integrity: sha512-5L/uBxmjaCIX5h8Z+uu+kA9BQLkc/Wl06UGR5ajNRxu+/XjonB5i8JpgFMrPj3LXTCPA0pv8yxUvbUi+QthGGA==}
@@ -1668,6 +1726,10 @@ packages:
   fs-extra@10.1.0:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
+
+  fs-extra@11.3.1:
+    resolution: {integrity: sha512-eXvGGwZ5CL17ZSwHWd3bbgk7UUpF6IFHtP57NYYakPvHOs8GDgDe5KJI36jIJzDkJ6eJjuzRA8eBQb6SkKue0g==}
+    engines: {node: '>=14.14'}
 
   fs-extra@8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -3218,19 +3280,9 @@ snapshots:
 
   '@babel/runtime@7.28.3': {}
 
-  '@bfmeta/node-sdk@4.0.7':
-    dependencies:
-      '@bfmeta/sign-util': 1.2.2
-      '@types/socket.io-client': 1.4.36
-      socket.io-client: 2.5.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
   '@bfmeta/node-sdk@5.1.0':
     dependencies:
-      '@bfmeta/sign-util': 2.1.0
+      '@bfmeta/sign-util': 2.1.1
       '@types/socket.io-client': 1.4.36
       socket.io-client: 2.5.0
     transitivePeerDependencies:
@@ -3238,11 +3290,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@bfmeta/sign-util@1.2.2':
-    dependencies:
-      tslib: 2.8.1
-
-  '@bfmeta/sign-util@2.1.0':
+  '@bfmeta/sign-util@2.1.1':
     dependencies:
       tslib: 2.8.1
 
@@ -3257,42 +3305,21 @@ snapshots:
 
   '@bfmeta/transaction-maker-typings@1.1.11': {}
 
-  '@bfmeta/wallet-bcf@1.6.10':
-    dependencies:
-      '@bfmeta/wallet-helpers': 1.6.10
-      '@bfmeta/wallet-typings': 1.6.10
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
-  '@bfmeta/wallet-bcf@2.0.0':
+  '@bfmeta/wallet-bcf@2.0.2':
     dependencies:
       '@bfmeta/node-sdk': 5.1.0
-      '@bfmeta/wallet-helpers': 2.0.0
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-helpers': 2.0.2
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  '@bfmeta/wallet-bsc@1.6.10(typescript@5.9.2)(zod@3.25.76)':
+  '@bfmeta/wallet-bsc@2.0.2(typescript@5.9.2)(zod@3.25.76)':
     dependencies:
-      '@bfmeta/wallet-typings': 1.6.10
-      web3: 4.8.0(typescript@5.9.2)(zod@3.25.76)
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - typescript
-      - utf-8-validate
-      - zod
-
-  '@bfmeta/wallet-bsc@2.0.0(typescript@5.9.2)(zod@3.25.76)':
-    dependencies:
-      '@bfmeta/wallet-helpers': 1.6.10
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-helpers': 2.0.2
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
       ethereumjs-common: 1.5.2
       ethereumjs-tx: 2.1.2
@@ -3308,24 +3335,10 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@bfmeta/wallet-eth@1.6.10(typescript@5.9.2)(zod@3.25.76)':
+  '@bfmeta/wallet-eth@2.0.2(typescript@5.9.2)(zod@3.25.76)':
     dependencies:
-      '@bfmeta/wallet-typings': 1.6.10
-      '@ethereumjs/tx': 4.2.0
-      ethereumjs-tx: 2.1.2
-      web3: 4.8.0(typescript@5.9.2)(zod@3.25.76)
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - typescript
-      - utf-8-validate
-      - zod
-
-  '@bfmeta/wallet-eth@2.0.0(typescript@5.9.2)(zod@3.25.76)':
-    dependencies:
-      '@bfmeta/wallet-helpers': 2.0.0
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-helpers': 2.0.2
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
       '@ethereumjs/tx': 4.2.0
       ethereumjs-tx: 2.1.2
@@ -3341,38 +3354,19 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@bfmeta/wallet-helpers@1.6.10':
+  '@bfmeta/wallet-helpers@2.0.2':
     dependencies:
-      '@bfmeta/wallet-typings': 1.6.10
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
-  '@bfmeta/wallet-helpers@2.0.0':
-    dependencies:
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  '@bfmeta/wallet-tron@1.6.10':
+  '@bfmeta/wallet-tron@2.0.2':
     dependencies:
-      '@bfmeta/wallet-typings': 1.6.10
-      ethers: 5.8.0
-      tronweb: 5.3.1
-    transitivePeerDependencies:
-      - bufferutil
-      - debug
-      - supports-color
-      - utf-8-validate
-
-  '@bfmeta/wallet-tron@2.0.0':
-    dependencies:
-      '@bfmeta/wallet-helpers': 2.0.0
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-helpers': 2.0.2
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
       ethers: 5.8.0
       tronweb: 5.3.1
@@ -3382,15 +3376,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@bfmeta/wallet-typings@1.6.10':
-    dependencies:
-      '@bfmeta/node-sdk': 4.0.7
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
-  '@bfmeta/wallet-typings@2.0.0':
+  '@bfmeta/wallet-typings@2.0.2':
     dependencies:
       '@bfmeta/node-sdk': 5.1.0
     transitivePeerDependencies:
@@ -3398,32 +3384,14 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@bfmeta/wallet@1.6.10(typescript@5.9.2)(zod@3.25.76)':
+  '@bfmeta/wallet@2.0.2(typescript@5.9.2)(zod@3.25.76)':
     dependencies:
-      '@bfmeta/wallet-bcf': 1.6.10
-      '@bfmeta/wallet-bsc': 1.6.10(typescript@5.9.2)(zod@3.25.76)
-      '@bfmeta/wallet-eth': 1.6.10(typescript@5.9.2)(zod@3.25.76)
-      '@bfmeta/wallet-helpers': 1.6.10
-      '@bfmeta/wallet-tron': 1.6.10
-      '@bfmeta/wallet-typings': 1.6.10
-      '@bnqkl/util-node': 1.1.3
-    transitivePeerDependencies:
-      - bufferutil
-      - debug
-      - encoding
-      - supports-color
-      - typescript
-      - utf-8-validate
-      - zod
-
-  '@bfmeta/wallet@2.0.0(typescript@5.9.2)(zod@3.25.76)':
-    dependencies:
-      '@bfmeta/wallet-bcf': 2.0.0
-      '@bfmeta/wallet-bsc': 2.0.0(typescript@5.9.2)(zod@3.25.76)
-      '@bfmeta/wallet-eth': 2.0.0(typescript@5.9.2)(zod@3.25.76)
-      '@bfmeta/wallet-helpers': 2.0.0
-      '@bfmeta/wallet-tron': 2.0.0
-      '@bfmeta/wallet-typings': 2.0.0
+      '@bfmeta/wallet-bcf': 2.0.2
+      '@bfmeta/wallet-bsc': 2.0.2(typescript@5.9.2)(zod@3.25.76)
+      '@bfmeta/wallet-eth': 2.0.2(typescript@5.9.2)(zod@3.25.76)
+      '@bfmeta/wallet-helpers': 2.0.2
+      '@bfmeta/wallet-tron': 2.0.2
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/util-node': 1.1.3
     transitivePeerDependencies:
       - bufferutil
@@ -3445,9 +3413,10 @@ snapshots:
     dependencies:
       '@deno/shim-deno': 0.16.1
 
-  '@bnqkl/server-util@1.1.2(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)':
+  '@bnqkl/server-util@2.0.0(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)':
     dependencies:
-      '@bfmeta/wallet-typings': 1.6.10
+      '@bfmeta/sign-util': 2.1.1
+      '@bfmeta/wallet-typings': 2.0.2
       '@bnqkl/ipc': 1.0.1
       '@bnqkl/ipc-request': 1.0.0
       '@bnqkl/util-node': 1.1.3
@@ -3456,16 +3425,20 @@ snapshots:
       '@nestjs/typeorm': 9.0.1(@nestjs/common@9.4.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.1.13)(rxjs@7.8.2))(@nestjs/core@10.4.20)(reflect-metadata@0.1.13)(rxjs@7.8.2)(typeorm@0.3.26(mysql2@2.3.3)(redis@4.6.7)(reflect-metadata@0.1.13))
       amqplib: 0.10.8
       bignumber.js: 9.3.1
+      chalk: 5.6.0
       class-transformer: 0.5.1
       class-validator: 0.14.2
       cos-nodejs-sdk-v5: 2.15.4
       crypto-js: 4.2.0
       dayjs: 1.11.13
+      fs-extra: 11.3.1
       log4js: 6.9.1
       redis: 4.6.7
       request: 2.88.2
       rxjs: 7.8.2
+      tslib: 2.8.1
       typeorm: 0.3.26(mysql2@2.3.3)(redis@4.6.7)(reflect-metadata@0.1.13)
+      uuid: 11.1.0
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@nestjs/microservices'
@@ -3497,41 +3470,6 @@ snapshots:
     dependencies:
       reflect-metadata: 0.1.13
       tslib: 2.3.1
-
-  '@bnqkl/wallet-sdk@0.23.3(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)(typescript@5.9.2)(zod@3.25.76)':
-    dependencies:
-      '@bfmeta/transaction-maker-api': 1.1.11
-      '@bfmeta/wallet': 1.6.10(typescript@5.9.2)(zod@3.25.76)
-      '@bnqkl/server-util': 1.1.2(@nestjs/platform-express@10.4.20)(@nestjs/websockets@10.4.20)(mysql2@2.3.3)(reflect-metadata@0.1.13)
-    transitivePeerDependencies:
-      - '@google-cloud/spanner'
-      - '@nestjs/microservices'
-      - '@nestjs/platform-express'
-      - '@nestjs/websockets'
-      - '@sap/hana-client'
-      - babel-plugin-macros
-      - better-sqlite3
-      - bufferutil
-      - cache-manager
-      - debug
-      - encoding
-      - ioredis
-      - mongodb
-      - mssql
-      - mysql2
-      - oracledb
-      - pg
-      - pg-native
-      - pg-query-stream
-      - reflect-metadata
-      - sql.js
-      - sqlite3
-      - supports-color
-      - ts-node
-      - typeorm-aurora-data-api-driver
-      - typescript
-      - utf-8-validate
-      - zod
 
   '@borewit/text-codec@0.1.1': {}
 
@@ -4858,7 +4796,7 @@ snapshots:
     dependencies:
       cipher-base: 1.0.6
       inherits: 2.0.4
-      ripemd160: 2.0.1
+      ripemd160: 2.0.2
       sha.js: 2.4.12
 
   create-hash@1.2.0:
@@ -5359,6 +5297,12 @@ snapshots:
   fresh@0.5.2: {}
 
   fs-extra@10.1.0:
+    dependencies:
+      graceful-fs: 4.2.11
+      jsonfile: 6.2.0
+      universalify: 2.0.1
+
+  fs-extra@11.3.1:
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.2.0

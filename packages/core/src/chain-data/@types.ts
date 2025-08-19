@@ -1,4 +1,4 @@
-import { ExternalChainName, InternalChainName } from "@bnqkl/wallet-typings";
+import type { ExternalChainName, InternalChainName } from "@bnqkl/wallet-typings";
 
 export {};
 declare global {

@@ -1,4 +1,4 @@
-import { ChainTransEntity, ChainTransServiceBase } from "../common.js";
+import type { ChainTransEntity, ChainTransServiceBase } from "../common/index.js";
 
 export {};
 declare global {

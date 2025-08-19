@@ -1,5 +1,5 @@
-import { ExternalChainName } from "../external-chain.js";
-import { InternalChainName } from "../internal-chain.js";
+import type { ExternalChainName } from "../external-chain/index.js";
+import type { InternalChainName } from "../internal-chain/index.js";
 
 export {};
 declare global {

@@ -1,11 +1,12 @@
 import { MqConsumer } from "@bnqkl/server-util";
-import {
-    COMMON_ORDER_EXCHANGE_NAME,
+import type {
     COMMON_ORDER_QUEUE_ROUTING_KEY,
     COMMON_ORDER_TEMP_QUEUE_ROUTING_KEY,
-    TRANS_EXCHANGE_NAME,
     TRANS_QUEUE_ROUTING_KEY,
-    TRANS_TEMP_QUEUE_ROUTING_KEY,
+    TRANS_TEMP_QUEUE_ROUTING_KEY} from "./constants.js";
+import {
+    COMMON_ORDER_EXCHANGE_NAME,
+    TRANS_EXCHANGE_NAME
 } from "./constants.js";
 
 export class WalletConsumer extends MqConsumer {

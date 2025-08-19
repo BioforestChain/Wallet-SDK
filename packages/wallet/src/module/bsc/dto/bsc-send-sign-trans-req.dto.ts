@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { EthBrocastDirectNotifyReqDto, EthBrocastDirectReqDto, EthSendSignTransReqDto } from "../../eth/dto.js";
+import { EthBrocastDirectNotifyReqDto, EthBrocastDirectReqDto, EthSendSignTransReqDto } from "../../eth/dto/index.js";
 
 export class BscSendSignTransReqDto extends EthSendSignTransReqDto implements WalletTypings.Bsc.Api.BscSendSignTransReqDto {}
 

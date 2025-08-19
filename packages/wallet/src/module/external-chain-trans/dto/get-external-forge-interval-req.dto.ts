@@ -6,5 +6,5 @@ import { IsNotEmpty } from "class-validator";
 export class GetExternalForgeIntervalReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: ExternalChainName })
-    chainName: ExternalChainName;
+    chainName!: ExternalChainName;
 }

@@ -1,5 +1,6 @@
-import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
-import { WalletRequestMiddleware, mysqlConfig } from "../../common.js";
+import type { MiddlewareConsumer, NestModule } from "@nestjs/common";
+import { Module } from "@nestjs/common";
+import { WalletRequestMiddleware, mysqlConfig } from "../../common/index.js";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { MemoryModule } from "../../module/memory/memory.module.js";
 import { RedisModule } from "../../module/redis/redis.module.js";

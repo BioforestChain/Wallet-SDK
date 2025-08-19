@@ -2,29 +2,30 @@ import { WALLET_TRON_API_REQUEST } from "@bnqkl/wallet-sdk";
 import { Body, Controller, forwardRef, Get, Inject, Post, Query } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
-import {
+import type { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto/index.js";
+import type {
     TronCreateTransDto,
-    TRC20TransactionDto,
     TriggerSmartContractDto,
-    TronTransactionDto,
     TronBaseReqDto,
-    TronBroadcastTransDto,
-    Trc20BalanceResDto,
     TronBalanceReqDto,
-    TronAccountResourceResDto,
     TronTransHistoryReqDto,
     TronTransReceiptReqDto,
     TronAccountBalanceV2ReqDto,
     Trc20ContractReqDto,
     TronSendTrxDto,
     TronSendTrc20Dto,
+    TRC20TransactionNotifyDto} from "./dto/index.js";
+import {
+    TRC20TransactionDto,
+    TronTransactionDto,
+    TronBroadcastTransDto,
+    Trc20BalanceResDto,
+    TronAccountResourceResDto,
     TronTransBodyDto,
-    Trc20TransBodyDto,
-    TRC20TransactionNotifyDto,
-} from "./dto.js";
+    Trc20TransBodyDto
+} from "./dto/index.js";
 import { TronService } from "./tron.service.js";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
+import type { GetExternalPendingTransReqDto } from "../external-chain-trans/dto/index.js";
 @ApiTags("TRON")
 @Controller()
 export class TronController {

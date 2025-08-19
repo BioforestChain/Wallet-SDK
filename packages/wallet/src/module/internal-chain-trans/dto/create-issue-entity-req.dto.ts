@@ -6,12 +6,12 @@ import { CreateTrBaseParamWithRecipientId } from "./create-internal-asset-req.dt
 export class CreateIssueEntityReqDto extends CreateTrBaseParamWithRecipientId implements WalletTypings.InternalChain.Api.CreateIssueEntityReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "发行的非同质资产信息" })
-    issueEntityInfo: TransactionMaker.Transaction.IssueEntityTransactionParams["entityInfo"];
+    issueEntityInfo!: TransactionMaker.Transaction.IssueEntityTransactionParams["entityInfo"];
 }
 
 /**生成批量发行非同质资产交易 */
 export class CreateIssueEntityMultiReqDto extends CreateTrBaseParamWithRecipientId implements WalletTypings.InternalChain.Api.CreateIssueEntityMultiReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "发行的非同质资产信息" })
-    issueEntityInfo: TransactionMaker.Transaction.IssueEntityMultiTransactionParams["entityInfo"];
+    issueEntityInfo!: TransactionMaker.Transaction.IssueEntityMultiTransactionParams["entityInfo"];
 }

@@ -6,7 +6,7 @@ import { CreateTrBaseParamWithRecipientId } from "./create-internal-asset-req.dt
 export class CreateTransferEntityReqDto extends CreateTrBaseParamWithRecipientId implements WalletTypings.InternalChain.Api.CreateTransferEntityReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "转移资产id" })
-    entityId: string;
+    entityId!: string;
 
     @IsOptional()
     @ApiProperty({ description: "纳税信息", required: false })

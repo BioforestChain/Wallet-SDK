@@ -1,5 +1,5 @@
-import { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../airdrop-order-obj.js";
+import type { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
+import type { AirdropOrderObj } from "../airdrop-order-obj.js";
 import { AirdropOrderState } from "./airdrop-order.state.js";
 import { Inject, forwardRef } from "@nestjs/common";
 import { InternalChainTransMgr } from "../../../internal-chain-trans/internal-chain-trans-mgr.js";

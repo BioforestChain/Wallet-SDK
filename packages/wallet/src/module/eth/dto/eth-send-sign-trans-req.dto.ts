@@ -1,39 +1,39 @@
-import { ExternalChainName } from "@bnqkl/wallet-typings";
+import type { ExternalChainName } from "@bnqkl/wallet-typings";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
 
 export class EthSendSignTransReqDto implements WalletTypings.Eth.Api.EthSendSignTransReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "已签名的交易字符串" })
-    signTransData: string;
+    signTransData!: string;
 
     @ApiProperty({ description: "交易详情", required: false })
-    detail: WalletTypings.ExternalChain.ExternalTransDetail;
+    detail!: WalletTypings.ExternalChain.ExternalTransDetail;
 }
 
 export class EthBrocastDirectReqDto implements WalletTypings.Eth.Api.EthBrocastDirectReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "已签名的交易字符串" })
-    signTransData: string;
+    signTransData!: string;
 }
 export class EthBrocastDirectNotifyReqDto {
     @ApiProperty()
     customParamString?: string; // 自定义参数
     @ApiProperty()
-    notifyUrl: string; // url
+    notifyUrl!: string; // url
     @ApiProperty()
-    toAddress: string; // 接收地址
+    toAddress!: string; // 接收地址
     @ApiProperty()
-    fromAddress: string; // 发送地址
+    fromAddress!: string; // 发送地址
     @ApiProperty()
-    amount: string; // 发送数量
+    amount!: string; // 发送数量
     @ApiProperty()
-    timestamp: number; // 时间戳，用于签名用
+    timestamp!: number; // 时间戳，用于签名用
     @ApiProperty()
-    signature: string; /// 内链对整个 json签名
+    signature!: string; /// 内链对整个 json签名
     @ApiProperty()
-    publickey: string; /// 签名对应公钥
-    trsInfo: {
+    publickey!: string; /// 签名对应公钥
+    trsInfo!: {
         chain: ExternalChainName; // 链名
         info: {
             contractAddress: string; // 外链的话有合约地址，解析合约地址

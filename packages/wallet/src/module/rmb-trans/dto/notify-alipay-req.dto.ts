@@ -7,13 +7,13 @@ import { IsNotEmpty, IsOptional } from "class-validator";
 export class NotifyAlipayReqDto implements WalletTypings.Rmb.Api.NotifyAlipayReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "外部交易id" })
-    out_trade_no: string;
+    out_trade_no!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "支付宝交易id", default: CommonHelper.getUuid() })
-    trade_no: string;
+    trade_no!: string;
 
     @IsNotEmpty()
     @ApiProperty({ description: "交易状态", enum: ALIPAY_TRADE_STATUS, default: ALIPAY_TRADE_STATUS.TRADE_SUCCESS })
-    trade_status: ALIPAY_TRADE_STATUS;
+    trade_status!: ALIPAY_TRADE_STATUS;
 }

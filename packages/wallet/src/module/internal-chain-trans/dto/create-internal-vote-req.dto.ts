@@ -6,8 +6,8 @@ import { IsNotEmpty, IsOptional } from "class-validator";
 export class CreateVoteTrReqDto implements WalletTypings.InternalChain.Api.CreateVoteTrReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "链名", enum: InternalChainName })
-    chainName: InternalChainName;
+    chainName!: InternalChainName;
 
     @ApiProperty({ description: "交易参数" })
-    data: TransactionMaker.Transaction.VoteTransactionParams;
+    data!: TransactionMaker.Transaction.VoteTransactionParams;
 }

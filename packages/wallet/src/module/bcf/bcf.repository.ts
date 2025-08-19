@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { DataSource } from "typeorm";
+import type { DataSource } from "typeorm";
 import {
     BFChainV2Transactions,
     BfmchainTransactions,
@@ -10,7 +10,7 @@ import {
     ETHMetaTransactions,
     MalibuTransactions,
     PMChainTransactions,
-} from "../../common.js";
+} from "../../common/index.js";
 import { BaseRepository } from "@bnqkl/wallet-sdk";
 
 @Injectable()

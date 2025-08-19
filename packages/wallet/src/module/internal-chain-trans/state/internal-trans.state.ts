@@ -1,6 +1,7 @@
-import { InternalChainTransObj } from "../internal-chain-trans-obj.js";
+import type { InternalChainTransObj } from "../internal-chain-trans-obj.js";
 import { ChainTransState } from "../../../common/chain-trans/chain-trans-state.js";
-import { InternalTransStateID, InternalChainName } from "@bnqkl/wallet-typings";
+import type { InternalChainName } from "@bnqkl/wallet-typings";
+import { InternalTransStateID } from "@bnqkl/wallet-typings";
 
 /**内链交易状态基类 */
 export abstract class InternalTransState extends ChainTransState<InternalTransStateID, InternalChainName> implements Wallet.InternalChain.TransState {

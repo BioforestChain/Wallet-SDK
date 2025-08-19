@@ -6,5 +6,5 @@ import { CreateTrBaseParamWithRecipientId } from "./create-internal-asset-req.dt
 export class CreateIssueEntityFactoryReqDto extends CreateTrBaseParamWithRecipientId implements WalletTypings.InternalChain.Api.CreateIssueEntityFactoryReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "发行的非同质资产模板信息" })
-    issueFactoryInfo: TransactionMaker.Transaction.IssueEntityFactoryTransactionParams["factoryInfo"];
+    issueFactoryInfo!: TransactionMaker.Transaction.IssueEntityFactoryTransactionParams["factoryInfo"];
 }

@@ -3,23 +3,23 @@ import { IsIn } from "class-validator";
 
 export class BTCRPCReqDto {
     @ApiProperty({ description: "rpc版本" })
-    jsonrpc: string;
+    jsonrpc!: string;
 
     @ApiProperty({ description: "rpc方法" })
-    method: string;
+    method!: string;
 
     @ApiProperty({ description: "参数" })
-    params: any[];
+    params!: any[];
 }
 
 export class BTCBlockBookReqDto {
     @ApiProperty({ description: "url , 如 /api/v2/address/xxxxx " })
-    url: string;
+    url!: string;
 
     @IsIn(["GET", "POST"])
     @ApiProperty({ description: "GET 或者 POST" })
-    method: string;
+    method!: string;
 
     @ApiProperty({ description: "参数" })
-    body: any;
+    body!: any;
 }

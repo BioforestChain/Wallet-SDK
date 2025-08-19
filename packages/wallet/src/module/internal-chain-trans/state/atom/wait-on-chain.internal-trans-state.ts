@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { InternalChainTransObj } from "../../internal-chain-trans-obj.js";
+import type { InternalChainTransObj } from "../../internal-chain-trans-obj.js";
 import { InternalTransState } from "../internal-trans.state.js";
-import { walletPublisher } from "../../../mq.js";
+import { walletPublisher } from "../../../mq/index.js";
 import { TRANS_TEMP_QUEUE_ROUTING_KEY, InternalTransStateID, Logger } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID } from "../../../../common.js";
+import { LOCAL_MQ_ID } from "../../../../common/index.js";
 
 /**规定了这些类型是失败的 */
 export const FAIL_CODE = new Set([

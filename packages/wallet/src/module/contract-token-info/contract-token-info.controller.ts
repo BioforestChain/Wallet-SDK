@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import { ContractTokenInfoService } from "./contract-token-info.service.js";
-import { TokenInfoReqDto, TokenInfoByChainReqDto } from "./dto.js";
+import type { TokenInfoReqDto, TokenInfoByChainReqDto } from "./dto/index.js";
 import { WALLET_CONTRACT_TOKEN_INFO_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 @ApiTags("CONTRACT-TOKEN-INFO")

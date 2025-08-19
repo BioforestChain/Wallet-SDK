@@ -5,5 +5,5 @@ import { IsNotEmpty } from "class-validator";
 export class GetRmbTransReqDto implements WalletTypings.Rmb.Api.GetRmbTransReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "交易id" })
-    txId: string;
+    txId!: string;
 }

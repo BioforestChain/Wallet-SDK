@@ -3,8 +3,8 @@ import { ExternalTransactionBase } from "./external-transaction-base.js";
 @Entity("eth_transactions")
 export class EthTransactions extends ExternalTransactionBase<WalletTypings.ExternalChain.EthTrJson> {
     @Column("varchar")
-    fee: string;
+    fee!: string;
 
     @Column("int")
-    nonce: number;
+    nonce!: number;
 }

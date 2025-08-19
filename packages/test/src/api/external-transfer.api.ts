@@ -1,5 +1,6 @@
 import { walletSdk } from "@bnqkl/wallet";
-import { NetWorkHelper, Logger, $asyncAllNoNullMap, $asyncNoNullMap } from "@bnqkl/wallet-sdk";
+import type { NetWorkHelper} from "@bnqkl/wallet-sdk";
+import { Logger, $asyncAllNoNullMap, $asyncNoNullMap } from "@bnqkl/wallet-sdk";
 import { ExternalTransType } from "@bnqkl/wallet-typings";
 import { TransApi } from "./trans.api.js";
 import * as ethers from "ethers";

@@ -1,9 +1,9 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { memTimeCache, MEM_TIME_CACHE_STRATEGY, getPagination, Logger, BaseRepository, ExternalChainName } from "@bnqkl/wallet-sdk";
-import { DataSource } from "typeorm";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "./dto.js";
-import { ContractTokenInfo } from "../../common/entity.js";
-import { externalChainHelper } from "../../helper.js";
+import type { DataSource } from "typeorm";
+import type { TokenInfoDetailReqDto, TokenInfoListReqDto } from "./dto/index.js";
+import { ContractTokenInfo } from "../../common/entity/index.js";
+import { externalChainHelper } from "../../helper/index.js";
 
 @Injectable()
 export class ContractTokenInfoRepository extends BaseRepository<ContractTokenInfo> {
@@ -15,7 +15,7 @@ export class ContractTokenInfoRepository extends BaseRepository<ContractTokenInf
 @Injectable()
 export class ContractTokenInfoService {
     @Inject(ContractTokenInfoRepository)
-    public readonly repository: ContractTokenInfoRepository;
+    public readonly repository!: ContractTokenInfoRepository;
 
     getInfoListByPage(dto: TokenInfoListReqDto) {
         return this.findByPage(dto.page, dto.pageSize, dto.chain, dto.keywords, dto.contractAddress);

@@ -1,4 +1,4 @@
-import { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
+import type { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
 
 export {};
 declare global {

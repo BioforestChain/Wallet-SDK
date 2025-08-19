@@ -1,9 +1,10 @@
 import { BaseRepository, ExternalChainName, memTimeCache, MEM_TIME_CACHE_STRATEGY } from "@bnqkl/wallet-sdk";
 import { Inject, Injectable } from "@nestjs/common";
-import { EthTransactions, API_SCAN_SORT_ENUM } from "../../common.js";
-import { externalChainHelper, walletSdk } from "../../helper.js";
-import { DataSource } from "typeorm";
-import { EthAccountBalanceResDto, EthSendSignTransReqDto, EthTransHistoryReqDto } from "./dto.js";
+import { EthTransactions, API_SCAN_SORT_ENUM } from "../../common/index.js";
+import { externalChainHelper, walletSdk } from "../../helper/index.js";
+import type { DataSource } from "typeorm";
+import type { EthTransHistoryReqDto } from "./dto/index.js";
+import { EthAccountBalanceResDto, EthSendSignTransReqDto } from "./dto/index.js";
 import { EthServiceBase } from "./eth-base.service.js";
 
 @Injectable()
@@ -16,7 +17,7 @@ export class EthTransactionRepository extends BaseRepository<EthTransactions> {
 @Injectable()
 export class EthService extends EthServiceBase {
     @Inject(EthTransactionRepository)
-    public readonly repository: EthTransactionRepository;
+    public readonly repository!: EthTransactionRepository;
 
     constructor() {
         super(ExternalChainName.ETH);

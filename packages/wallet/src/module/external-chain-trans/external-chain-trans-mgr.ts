@@ -10,17 +10,19 @@ import {
     RedisLock,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { CHAIN_INFO_KEY_TYPE, ExternalTransactionBase, LOCAL_MQ_ID, ChainTransMgr, CHAIN_TRANS_TYPE } from "../../common.js";
+import type { ExternalTransactionBase} from "../../common/index.js";
+import { CHAIN_INFO_KEY_TYPE, LOCAL_MQ_ID, ChainTransMgr, CHAIN_TRANS_TYPE } from "../../common/index.js";
 import { EthService } from "../eth/eth.service.js";
 import { BscService } from "../bsc/bsc.service.js";
 import { TronService } from "../tron/tron.service.js";
-import { ExternalTransState, OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state.js";
+import type { ExternalTransState} from "./state/index.js";
+import { OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state/index.js";
 import { ExternalChainTransObj } from "./external-chain-trans-obj.js";
-import { FindOptionsWhere } from "typeorm";
-import { ExternalChainTransService } from "./external-chain-trans.service.js";
+import type { FindOptionsWhere } from "typeorm";
+import type { ExternalChainTransService } from "./external-chain-trans.service.js";
 import { ChainInfoRedisRepository } from "../redis/chain-info.redis-repository.js";
-import { TransHelper } from "../../helper.js";
-import {
+import { TransHelper } from "../../helper/index.js";
+import type {
     CreateExternalTransferReqDto,
     SaveExternalTransactionReqDto,
     CreateExternalTransObjReqDto,
@@ -30,10 +32,10 @@ import {
     GetExternalAccountBalanceReqDto,
     GetExternalForgeIntervalReqDto,
     UpdateExternalTransStateReqDto,
-} from "./dto.js";
+} from "./dto/index.js";
 import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
-import { staticConfig } from "../../config.js";
-import { walletPublisher, walletConsumer } from "../mq.js";
+import { staticConfig } from "../../config/index.js";
+import { walletPublisher, walletConsumer } from "../mq/index.js";
 
 /**外链交易管理器 */
 @Injectable()

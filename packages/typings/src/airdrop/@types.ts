@@ -1,5 +1,5 @@
-import { AIRDROP_ORDER_STATE_ID, AIRDROP_RECORD_STATE, AIRDROP_TYPE, DP_FILE_TYPE, DP_LEVEL } from "./constants.js";
-import { InternalChainName } from "../internal-chain.js";
+import type { AIRDROP_ORDER_STATE_ID, AIRDROP_RECORD_STATE, AIRDROP_TYPE, DP_FILE_TYPE, DP_LEVEL } from "./constants.js";
+import type { InternalChainName } from "../internal-chain/index.js";
 
 export {};
 declare global {

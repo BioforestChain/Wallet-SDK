@@ -1,13 +1,14 @@
 import { MqPublisher } from "@bnqkl/server-util";
-import {
-    COMMON_ORDER_EXCHANGE_NAME,
+import type {
     COMMON_ORDER_QUEUE_ROUTING_KEY,
     COMMON_ORDER_TEMP_QUEUE_ROUTING_KEY,
-    TRANS_EXCHANGE_NAME,
     TRANS_QUEUE_ROUTING_KEY,
-    TRANS_TEMP_QUEUE_ROUTING_KEY,
+    TRANS_TEMP_QUEUE_ROUTING_KEY} from "@bnqkl/wallet-sdk";
+import {
+    COMMON_ORDER_EXCHANGE_NAME,
+    TRANS_EXCHANGE_NAME
 } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID } from "../../common.js";
+import { LOCAL_MQ_ID } from "../../common/index.js";
 
 export class WalletPublisher extends MqPublisher {
     /**

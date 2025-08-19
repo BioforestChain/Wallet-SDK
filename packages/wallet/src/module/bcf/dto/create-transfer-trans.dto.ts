@@ -2,15 +2,15 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class BcfCreateTransferAssetReqDto implements WalletTypings.Bcf.Api.BcfCreateTransferAssetReqDto {
     @ApiProperty({ description: "转账金额" })
-    amount: string;
+    amount!: string;
     @ApiProperty({ description: "发起者公钥" })
-    publicKey: string;
+    publicKey!: string;
     @ApiProperty({ description: "手续费" })
-    fee: string;
+    fee!: string;
     @ApiProperty({ description: "接收者" })
-    recipientId: string;
+    recipientId!: string;
     @ApiProperty({ description: "事件发起高度" })
-    applyBlockHeight: number;
+    applyBlockHeight!: number;
     @ApiProperty({ description: "事件有效高度", required: false })
     numberOfEffectiveBlocks?: number;
     @ApiProperty({ description: "来源链magic", required: false })

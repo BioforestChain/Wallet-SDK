@@ -5,7 +5,7 @@ import { IsNotEmpty, IsOptional } from "class-validator";
 export class SaveRmbTransactionReqDto implements WalletTypings.Rmb.Api.SaveRmbTransactionReqDto {
     @IsNotEmpty()
     @ApiProperty({ description: "人民币交易详情" })
-    detail: WalletTypings.Rmb.RmbTransDetail;
+    detail!: WalletTypings.Rmb.RmbTransDetail;
 
     @IsOptional()
     @ApiProperty({ description: "业务参数" })

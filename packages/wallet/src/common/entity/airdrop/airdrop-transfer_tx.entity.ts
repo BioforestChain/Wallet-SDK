@@ -5,21 +5,21 @@ import { Column, Entity } from "typeorm";
 export class AirdropTransferTx extends BaseEntity {
     /**订单id */
     @Column("varchar", { name: "order_id" })
-    orderId: string;
+    orderId!: string;
 
     /**dp编号 */
     @Column("smallint", { name: "dp_no" })
-    dpNo: number;
+    dpNo!: number;
 
     /**dp转移地址 */
     @Column("varchar", { name: "address" })
-    address: string;
+    address!: string;
 
     /**空投转移交易id */
     @Column("varchar", { name: "transfer_tx_id" })
-    transferTxId: string;
+    transferTxId!: string;
 
     /**转移交易已上链 */
     @Column("boolean", { name: "transfer_tx_onchain" })
-    transferTxOnchain: boolean;
+    transferTxOnchain!: boolean;
 }

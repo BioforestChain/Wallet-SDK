@@ -13,7 +13,7 @@ import {
 } from "@bnqkl/wallet";
 import { CommonApi } from "../api/common.api.js";
 import { SECRETS } from "../constant.js";
-import { BaseHelper } from "../helper.js";
+import { BaseHelper } from "../helper/index.js";
 import { TransApi } from "../api/trans.api.js";
 
 export abstract class CommonTest {

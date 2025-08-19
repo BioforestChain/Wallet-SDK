@@ -2,8 +2,8 @@
     "name": "@bnqkl/wallet-core",
     "version": "0.23.3",
     "description": "bnqkl wallet core",
-    "exports":{
-        ".":"./build/index.js"
+    "exports": {
+        ".": "./build/index.js"
     },
     "type": "module",
     "keywords": [
@@ -15,5 +15,8 @@
     "files": [
         "build"
     ],
-    "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847"
+    "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847",
+    "dependencies": {
+        "@bnqkl/wallet-typings": "workspace:^"
+    }
 }

@@ -1,32 +1,33 @@
 import { Column, Entity } from "typeorm";
-import { BaseEntity, ExternalChainName, InternalChainName } from "@bnqkl/wallet-sdk";
-import { NotifyResult } from "@bnqkl/wallet-core";
+import type { ExternalChainName, InternalChainName } from "@bnqkl/wallet-sdk";
+import { BaseEntity } from "@bnqkl/wallet-sdk";
+import type { NotifyResult } from "@bnqkl/wallet-core";
 
 @Entity("notify")
 export class NotifyEntity extends BaseEntity {
     @Column({ name: "chain_name", comment: "链名" })
-    chainName: ExternalChainName | InternalChainName;
+    chainName!: ExternalChainName | InternalChainName;
     @Column({ name: "signature", comment: "签名" })
-    signature: string;
+    signature!: string;
     @Column({ name: "sign_time", comment: "签名时间" })
-    signTime: number;
+    signTime!: number;
     @Column({ name: "tr_signature", comment: "交易签名" })
-    trSignature: string;
+    trSignature!: string;
     @Column({ name: "notify_url", comment: "通知url" })
-    notifyUrl: string;
+    notifyUrl!: string;
     @Column({ name: "from_address", comment: "发起地址" })
-    fromAddress: string;
+    fromAddress!: string;
     @Column({ name: "to_address", comment: "接收地址" })
-    toAddress: string;
+    toAddress!: string;
     @Column({ name: "amount", comment: "金额" })
-    amount: string;
+    amount!: string;
     @Column({ name: "tid", comment: "tid" })
-    tid: string;
+    tid!: string;
     @Column({ name: "notify_result", comment: "通知结果" })
-    notifyResult: NotifyResult;
+    notifyResult!: NotifyResult;
     /** 重试次数 */
     @Column("smallint", { name: "retry_num", default: 0 })
-    retryNum: number;
+    retryNum!: number;
     @Column({ name: "custom_param_string", comment: "自定义参数" })
     customParamString?: string;
 }
