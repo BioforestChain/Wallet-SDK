@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { CommonTest } from "../common/common.test";
+import { CommonTest } from "../common/common.test.js";
 import { $asyncAllNoNullMap, AIRDROP_TYPE, DP_FILE_TYPE, DP_LEVEL, InternalChainName, Logger, redisCore, staticConfig } from "@bnqkl/wallet";
 import * as fs from "fs";
 

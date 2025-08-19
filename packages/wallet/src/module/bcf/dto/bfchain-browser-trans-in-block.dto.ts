@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { BFChainTransInBlockDto } from "./bfchain-trans-in-block.dto";
+import { BFChainTransInBlockDto } from "./bfchain-trans-in-block.dto.js";
 
 export class BFChainBrowserTransactionInBlockDto implements BFChainWallet.BCF.GetTransactionsByBrowserResp {
     @ApiProperty()

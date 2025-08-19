@@ -1,12 +1,12 @@
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import { $asyncAllNoNullMap, Logger, InternalChainName, AIRDROP_TYPE, AIRDROP_ORDER_STATE_ID, ChainHelper, CHAIN_NETWORK_TYPE } from "@bnqkl/wallet-sdk";
-import { AirdropRecordsReqDto, AirdropReqDto } from "./dto";
-import { AirdropOrderRepository, AirdropTransferTxRepository } from "./airdrop.repository";
-import { AirdropOrder, AirdropTransferTx, ORDER_TYPE } from "../../common";
-import { AirdropHelper, FileHelper, internalChainHelper, OrderHelper } from "../../helper";
-import { InternalChainTransMgr } from "../internal-chain-trans/internal-chain-trans-mgr";
+import { AirdropRecordsReqDto, AirdropReqDto } from "./dto.js";
+import { AirdropOrderRepository, AirdropTransferTxRepository } from "./airdrop.repository.js";
+import { AirdropOrder, AirdropTransferTx, ORDER_TYPE } from "../../common.js";
+import { AirdropHelper, FileHelper, internalChainHelper, OrderHelper } from "../../helper.js";
+import { InternalChainTransMgr } from "../internal-chain-trans/internal-chain-trans-mgr.js";
 import { DataSource, QueryRunner } from "typeorm";
-import { staticConfig } from "../../config";
+import { staticConfig } from "../../config.js";
 
 @Injectable()
 export class AirdropService {

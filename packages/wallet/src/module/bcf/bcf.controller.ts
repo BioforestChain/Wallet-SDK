@@ -10,8 +10,8 @@ import {
     ETHMetaService,
     MalibuService as MalibuService,
     PMChainService,
-} from "./bcf.service";
-import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service";
+} from "./bcf.service.js";
+import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service.js";
 import {
     BFChainBlockDto,
     BcfQueryBlockReqDto,
@@ -31,7 +31,7 @@ import {
     MinperByteResDto,
     BcfGetAssetDetailsReqDto,
     BcfBroadcastTransactionNotifyReqDto,
-} from "./dto";
+} from "./dto.js";
 import { ChainHelper, InternalChainName, WALLET_BCF_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 /**

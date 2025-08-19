@@ -1,8 +1,8 @@
 import { NestFactory } from "@nestjs/core";
 import { Logger } from "@bnqkl/wallet-sdk";
-import { staticConfig } from "../../config";
-import { BaseWorker } from "../worker";
-import { OrderAppModule } from "./order-app.module";
+import { staticConfig } from "../../config.js";
+import { BaseWorker } from "../worker.js";
+import { OrderAppModule } from "./order-app.module.js";
 import { NestExpressApplication } from "@nestjs/platform-express";
 
 process.on("uncaughtException", (err) => {

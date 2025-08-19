@@ -9,7 +9,7 @@ import {
     ETHMetaService,
     MalibuService,
     PMChainService,
-} from "./bcf.service";
+} from "./bcf.service.js";
 import {
     BFChainV2Controller,
     BfmChainController,
@@ -20,8 +20,8 @@ import {
     ETHMetaController,
     MalibuController,
     PMChainController,
-} from "./bcf.controller";
-import { RedisModule } from "../redis/redis.module";
+} from "./bcf.controller.js";
+import { RedisModule } from "../redis/redis.module.js";
 import {
     BFChainV2TransactionsRepository,
     BfmchainTransactionsRepository,
@@ -32,8 +32,8 @@ import {
     ETHMetaTransactionsRepository,
     MalibuTransactionsRepository,
     PmchainTransactionsRepository,
-} from "./bcf.repository";
-import { NotifyModule } from "../notify/notify.module";
+} from "./bcf.repository.js";
+import { NotifyModule } from "../notify/notify.module.js";
 
 @Module({
     imports: [forwardRef(() => RedisModule), forwardRef(() => NotifyModule)],

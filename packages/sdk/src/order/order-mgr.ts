@@ -12,9 +12,9 @@ import {
     RedisLock,
 } from "@bnqkl/server-util";
 import { FindOptionsWhere } from "typeorm";
-import { OrderBaseHelper } from "../helper";
-import { OrderObj } from "./order-obj";
-import { OrderState } from "./order-state";
+import { OrderBaseHelper } from "../helper.js";
+import { OrderObj } from "./order-obj.js";
+import { OrderState } from "./order-state.js";
 
 /**订单管理器 */
 export abstract class OrderMgr<

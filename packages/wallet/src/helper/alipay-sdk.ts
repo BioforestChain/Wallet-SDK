@@ -1,5 +1,5 @@
 import { AlipaySdk, AlipaySdkConfig } from "alipay-sdk";
-import { staticConfig } from "../config";
+import { staticConfig } from "../config.js";
 
 const defaultConfig: AlipaySdkConfig = {
     appId: "appId",

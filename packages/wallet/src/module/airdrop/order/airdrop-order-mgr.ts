@@ -6,16 +6,16 @@ import {
     IssueTxWaitOnChain_AirdropOrderState,
     IssueTxOnChainFail_AirdropOrderState,
     AirdropOrderState,
-} from "./state";
-import { AirdropOrderObj } from "./airdrop-order-obj";
-import { AirdropOrderRepository, AirdropTransferTxRepository } from "../airdrop.repository";
+} from "./state/index.js";
+import { AirdropOrderObj } from "./airdrop-order-obj.js";
+import { AirdropOrderRepository, AirdropTransferTxRepository } from "../airdrop.repository.js";
 import { FindOptionsWhere, In } from "typeorm";
 import { OrderMgr, AIRDROP_ORDER_STATE_ID, COMMON_ORDER_TEMP_QUEUE_ROUTING_KEY, Logger, COMMON_ORDER_QUEUE_ROUTING_KEY } from "@bnqkl/wallet-sdk";
-import { AirdropService } from "../airdrop.service";
-import { AirdropOrder, LOCAL_MQ_ID, ORDER_TYPE } from "../../../common";
-import { GlobalValueRedisRepository } from "../../redis";
-import { OrderHelper } from "../../../helper";
-import { walletConsumer, walletPublisher } from "../../mq";
+import { AirdropService } from "../airdrop.service.js";
+import { AirdropOrder, LOCAL_MQ_ID, ORDER_TYPE } from "../../../common/index.js";
+import { GlobalValueRedisRepository } from "../../redis/index.js";
+import { OrderHelper } from "../../../helper/index.js";
+import { walletConsumer, walletPublisher } from "../../mq/index.js";
 
 /**空投订单管理器 */
 @Injectable()

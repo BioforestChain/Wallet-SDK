@@ -1,8 +1,8 @@
 import { TRANS_QUEUE_ROUTING_KEY, RMB_TRANS_STATE_ID } from "@bnqkl/wallet-sdk";
 import { Injectable } from "@nestjs/common";
-import { walletPublisher } from "../../../mq";
-import { RmbTransObj } from "../../rmb-trans-obj";
-import { RmbTransFinallyState } from "../rmb-trans-finally.state";
+import { walletPublisher } from "../../../mq.js";
+import { RmbTransObj } from "../../rmb-trans-obj.js";
+import { RmbTransFinallyState } from "../rmb-trans-finally.state.js";
 
 /**成功状态 */
 @Injectable()

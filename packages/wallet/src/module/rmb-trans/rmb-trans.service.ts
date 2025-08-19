@@ -1,5 +1,5 @@
 import { Injectable, Inject } from "@nestjs/common";
-import { RmbTransactions } from "../../common/entity";
+import { RmbTransactions } from "../../common/entity.js";
 import {
     ALIPAY_TRADE_STATUS,
     BaseRepository,
@@ -11,11 +11,11 @@ import {
     TRANS_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
 import { DataSource, In } from "typeorm";
-import { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto";
-import { alipaySdk, TransHelper } from "../../helper";
-import { BUSINESS_QUEUE_ROUTING_KEY } from "../../common";
-import { staticConfig } from "../../config";
-import { businessPublisher } from "../mq";
+import { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto.js";
+import { alipaySdk, TransHelper } from "../../helper.js";
+import { BUSINESS_QUEUE_ROUTING_KEY } from "../../common.js";
+import { staticConfig } from "../../config.js";
+import { businessPublisher } from "../mq.js";
 import { AlipaySdkCommonResult } from "alipay-sdk";
 
 @Injectable()

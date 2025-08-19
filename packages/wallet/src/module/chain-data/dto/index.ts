@@ -1,1 +1,1 @@
-export * from "./multi-get-asset-info-req.dto";
+export * from "./multi-get-asset-info-req.dto.js";

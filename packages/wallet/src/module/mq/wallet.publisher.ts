@@ -7,7 +7,7 @@ import {
     TRANS_QUEUE_ROUTING_KEY,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID } from "../../common";
+import { LOCAL_MQ_ID } from "../../common.js";
 
 export class WalletPublisher extends MqPublisher {
     /**

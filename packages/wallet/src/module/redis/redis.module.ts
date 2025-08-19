@@ -1,6 +1,6 @@
 import { Module, forwardRef } from "@nestjs/common";
-import { ChainInfoRedisRepository } from "./chain-info.redis-repository";
-import { GlobalValueRedisRepository } from "./global-value.redis-repository";
+import { ChainInfoRedisRepository } from "./chain-info.redis-repository.js";
+import { GlobalValueRedisRepository } from "./global-value.redis-repository.js";
 
 @Module({
     imports: [],

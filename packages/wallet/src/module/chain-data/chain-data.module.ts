@@ -1,7 +1,7 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { ExternalChainTransModule } from "../external-chain-trans/external-chain-trans.module";
-import { InternalChainTransModule } from "../internal-chain-trans/internal-chain-trans.module";
-import { ChainDataController } from "./chain-data.controller";
+import { ExternalChainTransModule } from "../external-chain-trans/external-chain-trans.module.js";
+import { InternalChainTransModule } from "../internal-chain-trans/internal-chain-trans.module.js";
+import { ChainDataController } from "./chain-data.controller.js";
 
 @Module({
     imports: [forwardRef(() => ExternalChainTransModule), forwardRef(() => InternalChainTransModule)],

@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Master } from "./cluster/master";
-import { UpgradeModule } from "./module/upgrade/upgrade.module";
-import { mysqlConfig } from "./common";
+import { Master } from "./cluster/master.js";
+import { UpgradeModule } from "./module/upgrade/upgrade.module.js";
+import { mysqlConfig } from "./common.js";
 
 @Module({
     imports: [TypeOrmModule.forRootAsync(mysqlConfig), UpgradeModule],

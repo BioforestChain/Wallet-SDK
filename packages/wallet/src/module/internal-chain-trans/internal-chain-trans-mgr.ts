@@ -9,15 +9,15 @@ import {
     MQ_CONSUME_MAX_SPEED,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID, CHAIN_TRANS_TYPE } from "../../common/constants";
-import { InternalTransactionBase } from "../../common/entity";
+import { LOCAL_MQ_ID, CHAIN_TRANS_TYPE } from "../../common/constants.js";
+import { InternalTransactionBase } from "../../common/entity.js";
 import { FindOptionsWhere } from "typeorm";
-import { InternalChainTransService } from "./internal-chain-trans.service";
-import { InternalChainTransObj } from "./internal-chain-trans-obj";
-import { InternalTransState, OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state";
-import { ChainTransMgr } from "../../common/chain-trans/chain-trans-mgr";
-import { staticConfig } from "../../config";
-import { transactionMaker, TransHelper } from "../../helper";
+import { InternalChainTransService } from "./internal-chain-trans.service.js";
+import { InternalChainTransObj } from "./internal-chain-trans-obj.js";
+import { InternalTransState, OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state.js";
+import { ChainTransMgr } from "../../common/chain-trans/chain-trans-mgr.js";
+import { staticConfig } from "../../config.js";
+import { transactionMaker, TransHelper } from "../../helper.js";
 import {
     CreateInternalTransferAssetReqDto,
     SaveInternalTransactionReqDto,
@@ -37,8 +37,8 @@ import {
     CreateInternalUnstakeAssetReqDto,
     CreateInternalIssueAssetReqDto,
     GetInternalAssetDetailsReqDto,
-} from "./dto";
-import { walletPublisher, walletConsumer } from "../mq";
+} from "./dto.js";
+import { walletPublisher, walletConsumer } from "../mq.js";
 import {
     BfmChainService,
     BFChainV2Service,
@@ -49,7 +49,7 @@ import {
     BTGMetaService,
     BIWMetaService,
     MalibuService,
-} from "../bcf/bcf.service";
+} from "../bcf/bcf.service.js";
 
 /**内链交易管理器 */
 @Injectable()

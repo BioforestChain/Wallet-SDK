@@ -2,8 +2,10 @@
     "name": "@bnqkl/wallet-core",
     "version": "0.23.3",
     "description": "bnqkl wallet core",
-    "main": "build/src/index.js",
-    "type": "commonjs",
+    "exports":{
+        ".":"./build/index.js"
+    },
+    "type": "module",
     "keywords": [
         "bnqkl",
         "wallet"

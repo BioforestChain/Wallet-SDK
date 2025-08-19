@@ -1,6 +1,6 @@
 import { InternalChainName, InternalTransStateID } from "@bnqkl/wallet-typings";
 import { Column } from "typeorm";
-import { ChainTransEntity } from "../chain-trans.entity";
+import { ChainTransEntity } from "../chain-trans.entity.js";
 
 export abstract class InternalTransactionBase
     extends ChainTransEntity<InternalTransStateID, InternalChainName, BFMetaNodeSDK.Basic.TransactionJSON>

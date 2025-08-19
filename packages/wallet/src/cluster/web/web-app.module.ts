@@ -1,15 +1,15 @@
 import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
-import { WebApp } from "./web.app";
+import { WebApp } from "./web.app.js";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { mysqlConfig } from "../../common/entity/mysql.config";
-import { ChainDataModule } from "../../module/chain-data/chain-data.module";
-import { WalletRequestMiddleware } from "../../common";
+import { mysqlConfig } from "../../common/entity/mysql.config.js";
+import { ChainDataModule } from "../../module/chain-data/chain-data.module.js";
+import { WalletRequestMiddleware } from "../../common.js";
 import { RedisBaseModule } from "@bnqkl/wallet-sdk";
-import { ExternalChainTransModule } from "../../module/external-chain-trans/external-chain-trans.module";
-import { InternalChainTransModule } from "../../module/internal-chain-trans/internal-chain-trans.module";
-import { RmbTransModule } from "../../module/rmb-trans/rmb-trans.module";
-import { AirdropModule } from "../../module/airdrop/airdrop.module";
-import { BCFModule } from "../../module/bcf/bcf.module";
+import { ExternalChainTransModule } from "../../module/external-chain-trans/external-chain-trans.module.js";
+import { InternalChainTransModule } from "../../module/internal-chain-trans/internal-chain-trans.module.js";
+import { RmbTransModule } from "../../module/rmb-trans/rmb-trans.module.js";
+import { AirdropModule } from "../../module/airdrop/airdrop.module.js";
+import { BCFModule } from "../../module/bcf/bcf.module.js";
 
 @Module({
     imports: [

@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ERC20BalanceItem } from "../../eth/dto";
+import { ERC20BalanceItem } from "../../eth/dto.js";
 
 export class BscAccountBalanceResDto  {
     @ApiProperty({ description: "BNB余额" })

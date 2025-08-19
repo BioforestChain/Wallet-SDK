@@ -1,5 +1,5 @@
 import { CHAIN_NETWORK_TYPE, ExternalChainHelper, InternalChainHelper, WalletSDK, TransactionMaker } from "@bnqkl/wallet-sdk";
-import { staticConfig } from "../config";
+import { staticConfig } from "../config/index.js";
 
 export const walletSdk = new WalletSDK(staticConfig.chainConfig.chainNetworkType === CHAIN_NETWORK_TYPE.TESTNET ? "c" : "b", staticConfig.chainConfig.chain);
 export const bfmetaSignUtil = walletSdk.bfmetaSignUtil;

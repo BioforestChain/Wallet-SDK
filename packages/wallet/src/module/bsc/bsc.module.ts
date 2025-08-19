@@ -1,9 +1,9 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { BscService, BscTransactionRepository } from "./bsc.service";
-import { BscController } from "./bsc.controller";
-import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module";
-import { RedisModule } from "../redis/redis.module";
-import { NotifyModule } from "../notify/notify.module";
+import { BscService, BscTransactionRepository } from "./bsc.service.js";
+import { BscController } from "./bsc.controller.js";
+import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module.js";
+import { RedisModule } from "../redis/redis.module.js";
+import { NotifyModule } from "../notify/notify.module.js";
 
 @Module({
     imports: [forwardRef(() => ContracTokenInfoModule), forwardRef(() => RedisModule), forwardRef(() => NotifyModule)],
@@ -12,4 +12,4 @@ import { NotifyModule } from "../notify/notify.module";
     exports: [BscService],
 })
 export class BscModule {}
-export * from "./bsc.service";
+export * from "./bsc.service.js";

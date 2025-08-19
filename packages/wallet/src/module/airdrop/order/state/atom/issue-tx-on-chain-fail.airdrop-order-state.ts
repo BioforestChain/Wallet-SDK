@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { AIRDROP_ORDER_STATE_ID, COMMON_ORDER_QUEUE_ROUTING_KEY, Logger } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../../airdrop-order-obj";
-import { AirdropOrderFinallyState } from "../airdrop-order-finally.state";
-import { walletPublisher } from "../../../../mq";
+import { AirdropOrderObj } from "../../airdrop-order-obj.js";
+import { AirdropOrderFinallyState } from "../airdrop-order-finally.state.js";
+import { walletPublisher } from "../../../../mq.js";
 
 /**发行交易上链失败状态 */
 @Injectable()

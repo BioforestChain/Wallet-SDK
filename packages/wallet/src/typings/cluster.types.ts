@@ -1,5 +1,5 @@
 import { ExternalChainName, InternalChainName } from "@bnqkl/wallet-typings";
-import { CMD } from "../common";
+import { CMD } from "../common.js";
 
 export {};
 declare global {

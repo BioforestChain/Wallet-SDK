@@ -3,13 +3,15 @@
     "version": "0.23.3",
     "private": true,
     "description": "wallet test",
-    "bin": "build/src/test-main.js",
+    "bin": "build/test-main.js",
     "pkg": {
         "scripts": [],
         "assets": []
     },
-    "main": "build/src/test-main.js",
-    "type": "commonjs",
+    "exports":{
+        ".":"./build/test-main.js"
+    },
+    "type": "module",
     "keywords": [
         "wallet",
         "test"

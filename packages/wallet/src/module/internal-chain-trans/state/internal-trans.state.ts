@@ -1,5 +1,5 @@
-import { InternalChainTransObj } from "../internal-chain-trans-obj";
-import { ChainTransState } from "../../../common/chain-trans/chain-trans-state";
+import { InternalChainTransObj } from "../internal-chain-trans-obj.js";
+import { ChainTransState } from "../../../common/chain-trans/chain-trans-state.js";
 import { InternalTransStateID, InternalChainName } from "@bnqkl/wallet-typings";
 
 /**内链交易状态基类 */

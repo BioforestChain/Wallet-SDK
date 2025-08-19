@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { TransApiTest } from "./trans-api.test";
+import { TransApiTest } from "./trans-api.test.js";
 
 @Module({
     imports: [],

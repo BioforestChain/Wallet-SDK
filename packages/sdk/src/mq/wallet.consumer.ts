@@ -6,7 +6,7 @@ import {
     TRANS_EXCHANGE_NAME,
     TRANS_QUEUE_ROUTING_KEY,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
-} from "./constants";
+} from "./constants.js";
 
 export class WalletConsumer extends MqConsumer {
     /**

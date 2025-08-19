@@ -1,7 +1,7 @@
 import { RMB_TRANS_STATE_ID } from "@bnqkl/wallet-sdk";
 import { forwardRef, Inject } from "@nestjs/common";
-import { RmbTransObj } from "../rmb-trans-obj";
-import { RmbTransState } from "./rmb-trans.state";
+import { RmbTransObj } from "../rmb-trans-obj.js";
+import { RmbTransState } from "./rmb-trans.state.js";
 
 /**外链交易最终状态 */
 export abstract class RmbTransFinallyState extends RmbTransState {

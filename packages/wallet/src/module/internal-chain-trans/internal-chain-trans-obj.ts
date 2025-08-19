@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import { InternalTransactionBase } from "../../common/entity";
-import { InternalChainTransMgr } from "./internal-chain-trans-mgr";
-import { InternalTransState } from "./state";
-import { ChainTransObj } from "../../common/chain-trans/chain-trans-obj";
-import { walletPublisher } from "../mq";
+import { InternalTransactionBase } from "../../common/entity.js";
+import { InternalChainTransMgr } from "./internal-chain-trans-mgr.js";
+import { InternalTransState } from "./state.js";
+import { ChainTransObj } from "../../common/chain-trans/chain-trans-obj.js";
+import { walletPublisher } from "../mq.js";
 import { InternalChainName, InternalTransStateID, TRANS_TEMP_QUEUE_ROUTING_KEY } from "@bnqkl/wallet-sdk";
-import { LOCAL_MQ_ID } from "../../common";
+import { LOCAL_MQ_ID } from "../../common.js";
 
 /**内链交易的逻辑对象 */
 @Injectable()

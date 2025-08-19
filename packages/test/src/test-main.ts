@@ -1,7 +1,7 @@
 process.env["workerName"] = "test";
 
 import { NestFactory } from "@nestjs/core";
-import { TestModule } from "./test.module";
+import { TestModule } from "./test.module.js";
 import { Logger } from "@bnqkl/wallet";
 
 (async () => {

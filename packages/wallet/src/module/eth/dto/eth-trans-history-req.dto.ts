@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, Max, Min } from "class-validator";
-import { API_SCAN_SORT_ENUM } from "../../../common/constants";
+import { API_SCAN_SORT_ENUM } from "../../../common/constants.js";
 
 export class EthTransHistoryReqDto implements WalletTypings.Eth.Api.EthTransHistoryReqDto {
     @IsNotEmpty({ message: "参数错误" })

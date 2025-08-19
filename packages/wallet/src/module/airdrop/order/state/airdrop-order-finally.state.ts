@@ -1,6 +1,6 @@
 import { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../airdrop-order-obj";
-import { AirdropOrderState } from "./airdrop-order.state";
+import { AirdropOrderObj } from "../airdrop-order-obj.js";
+import { AirdropOrderState } from "./airdrop-order.state.js";
 
 /**空投订单最终状态 */
 export abstract class AirdropOrderFinallyState extends AirdropOrderState {

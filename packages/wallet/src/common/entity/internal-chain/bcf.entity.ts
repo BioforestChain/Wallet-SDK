@@ -1,5 +1,5 @@
 import { Entity } from "typeorm";
-import { InternalTransactionBase } from "./internal-transaction-base";
+import { InternalTransactionBase } from "./internal-transaction-base.js";
 
 @Entity("bfmchain_transactions")
 export class BfmchainTransactions extends InternalTransactionBase {}

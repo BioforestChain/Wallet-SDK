@@ -1,8 +1,8 @@
 import { ExternalTransStateID } from "@bnqkl/wallet-sdk";
 import { forwardRef, Inject } from "@nestjs/common";
-import { ChainInfoRedisRepository } from "../../redis/chain-info.redis-repository";
-import { ExternalChainTransObj } from "../external-chain-trans-obj";
-import { ExternalTransState } from "./external-trans.state";
+import { ChainInfoRedisRepository } from "../../redis/chain-info.redis-repository.js";
+import { ExternalChainTransObj } from "../external-chain-trans-obj.js";
+import { ExternalTransState } from "./external-trans.state.js";
 
 /**外链交易最终状态 */
 export abstract class ExternalTransFinallyState extends ExternalTransState {

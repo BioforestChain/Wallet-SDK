@@ -1,6 +1,6 @@
 import { AIRDROP_ORDER_STATE_ID, AIRDROP_RECORD_STATE, AIRDROP_TYPE, Logger } from "@bnqkl/wallet-sdk";
-import { CMD, WORKER } from "../common";
-import { ipcHelpers } from "./ipc.helper";
+import { CMD, WORKER } from "../common.js";
+import { ipcHelpers } from "./ipc.helper.js";
 
 export class OrderHelper {
     /**

@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { UpgradeService } from "./upgrade.service";
+import { UpgradeService } from "./upgrade.service.js";
 
 @Module({
     imports: [],

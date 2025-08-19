@@ -1,5 +1,5 @@
 import { InternalChainName } from "@bnqkl/wallet-typings";
-import { WalletSDK } from "../core";
+import { WalletSDK } from "../core.js";
 
 export class InternalChainHelper {
     private __walletSdk: WalletSDK;

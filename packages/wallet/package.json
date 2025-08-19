@@ -8,8 +8,10 @@
     "name": "@bnqkl/wallet",
     "version": "0.23.3",
     "description": "bnqkl wallet",
-    "main": "build/src/index.js",
-    "type": "commonjs",
+    "exports": {
+        ".": "./build/index.js"
+    },
+    "type": "module",
     "keywords": [
         "bnqkl",
         "wallet"
@@ -20,6 +22,8 @@
         "build"
     ],
     "dependencies": {
+        "@bfmeta/wallet-helpers": "^2.0.0",
+        "@bnqkl/wallet-sdk": "workspace:^",
         "@nestjs/common": "^10.0.0",
         "@nestjs/core": "^10.0.0",
         "@nestjs/platform-express": "^10.3.10",

@@ -1,10 +1,10 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { PayFail_RmbTransState, Success_RmbTransState, WaitPay_RmbTransState } from "./state";
+import { PayFail_RmbTransState, Success_RmbTransState, WaitPay_RmbTransState } from "./state.js";
 import { QueneEventEmitter } from "@bnqkl/util-node";
-import { RedisModule } from "../redis/redis.module";
-import { RmbTransController } from "./rmb-trans.controller";
-import { RmbTransMgr } from "./rmb-trans-mgr";
-import { RmbTransactionRepository, RmbTransService } from "./rmb-trans.service";
+import { RedisModule } from "../redis/redis.module.js";
+import { RmbTransController } from "./rmb-trans.controller.js";
+import { RmbTransMgr } from "./rmb-trans-mgr.js";
+import { RmbTransactionRepository, RmbTransService } from "./rmb-trans.service.js";
 
 @Module({
     imports: [forwardRef(() => RedisModule)],

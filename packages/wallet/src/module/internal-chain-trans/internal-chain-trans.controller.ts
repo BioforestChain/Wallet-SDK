@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, Query, Res, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common";
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from "@nestjs/swagger";
-import { InternalChainTransMgr } from "./internal-chain-trans-mgr";
+import { InternalChainTransMgr } from "./internal-chain-trans-mgr.js";
 import { forwardRef, Inject } from "@nestjs/common";
 import {
     CreateInternalDestroyAssetReqDto,
@@ -26,8 +26,8 @@ import {
     UpdateInternalTransStateReqDto,
     UploadFileReqDto,
     UploadFilesReqDto,
-} from "./dto";
-import { FileHelper } from "../../helper";
+} from "./dto.js";
+import { FileHelper } from "../../helper.js";
 import { FileFieldsInterceptor, FileInterceptor } from "@nestjs/platform-express";
 import { Throttle } from "@nestjs/throttler";
 import { Response } from "express";

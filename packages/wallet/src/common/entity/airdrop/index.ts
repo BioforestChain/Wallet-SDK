@@ -1,2 +1,2 @@
-export * from "./airdrop-order.entity";
-export * from "./airdrop-transfer_tx.entity";
+export * from "./airdrop-order.entity.js";
+export * from "./airdrop-transfer_tx.entity.js";

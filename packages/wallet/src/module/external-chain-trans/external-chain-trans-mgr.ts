@@ -10,16 +10,16 @@ import {
     RedisLock,
     TRANS_TEMP_QUEUE_ROUTING_KEY,
 } from "@bnqkl/wallet-sdk";
-import { CHAIN_INFO_KEY_TYPE, ExternalTransactionBase, LOCAL_MQ_ID, ChainTransMgr, CHAIN_TRANS_TYPE } from "../../common";
-import { EthService } from "../eth/eth.service";
-import { BscService } from "../bsc/bsc.service";
-import { TronService } from "../tron/tron.service";
-import { ExternalTransState, OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state";
-import { ExternalChainTransObj } from "./external-chain-trans-obj";
+import { CHAIN_INFO_KEY_TYPE, ExternalTransactionBase, LOCAL_MQ_ID, ChainTransMgr, CHAIN_TRANS_TYPE } from "../../common.js";
+import { EthService } from "../eth/eth.service.js";
+import { BscService } from "../bsc/bsc.service.js";
+import { TronService } from "../tron/tron.service.js";
+import { ExternalTransState, OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state.js";
+import { ExternalChainTransObj } from "./external-chain-trans-obj.js";
 import { FindOptionsWhere } from "typeorm";
-import { ExternalChainTransService } from "./external-chain-trans.service";
-import { ChainInfoRedisRepository } from "../redis/chain-info.redis-repository";
-import { TransHelper } from "../../helper";
+import { ExternalChainTransService } from "./external-chain-trans.service.js";
+import { ChainInfoRedisRepository } from "../redis/chain-info.redis-repository.js";
+import { TransHelper } from "../../helper.js";
 import {
     CreateExternalTransferReqDto,
     SaveExternalTransactionReqDto,
@@ -30,10 +30,10 @@ import {
     GetExternalAccountBalanceReqDto,
     GetExternalForgeIntervalReqDto,
     UpdateExternalTransStateReqDto,
-} from "./dto";
-import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service";
-import { staticConfig } from "../../config";
-import { walletPublisher, walletConsumer } from "../mq";
+} from "./dto.js";
+import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
+import { staticConfig } from "../../config.js";
+import { walletPublisher, walletConsumer } from "../mq.js";
 
 /**外链交易管理器 */
 @Injectable()

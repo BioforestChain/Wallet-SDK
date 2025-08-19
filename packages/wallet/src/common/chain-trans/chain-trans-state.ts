@@ -1,5 +1,5 @@
 import { FSMState } from "@bnqkl/wallet-sdk";
-import { ChainTransObj } from "./chain-trans-obj";
+import { ChainTransObj } from "./chain-trans-obj.js";
 
 /**链上交易状态基类 */
 export abstract class ChainTransState<StateID extends number, ChainName extends string>

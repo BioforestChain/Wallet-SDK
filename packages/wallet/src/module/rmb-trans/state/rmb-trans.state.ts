@@ -1,5 +1,5 @@
 import { FSMState } from "@bnqkl/wallet-sdk";
-import { RmbTransObj } from "../rmb-trans-obj";
+import { RmbTransObj } from "../rmb-trans-obj.js";
 import { RMB_TRANS_STATE_ID } from "@bnqkl/wallet-typings";
 
 /**外链交易状态基类 */

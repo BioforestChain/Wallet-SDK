@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { REDIS_REPOSITORY_NAME } from "../../common/constants";
+import { REDIS_REPOSITORY_NAME } from "../../common/constants.js";
 import { RedisRepository } from "@bnqkl/wallet-sdk";
 
 /**链信息的Redis仓库 */

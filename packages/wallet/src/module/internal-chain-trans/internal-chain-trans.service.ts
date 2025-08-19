@@ -8,10 +8,10 @@ import {
     Logger,
     CHAIN_NETWORK_TYPE,
 } from "@bnqkl/wallet-sdk";
-import { CHAIN_INFO_HKEY, PROJECT_NAME, VERSION } from "../../common/constants";
+import { CHAIN_INFO_HKEY, PROJECT_NAME, VERSION } from "../../common/constants.js";
 import { FindManyOptions, FindOptionsWhere, In } from "typeorm";
-import { InternalTransactionBase } from "../../common/entity";
-import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service";
+import { InternalTransactionBase } from "../../common/entity.js";
+import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service.js";
 import {
     CreateInternalDestroyAssetReqDto,
     CreateInternalIncreaseAssetReqDto,
@@ -23,9 +23,9 @@ import {
     CreateIssueEntityMultiReqDto,
     CreateIssueEntityReqDto,
     CreateTransferEntityReqDto,
-} from "./dto";
-import { staticConfig } from "../../config";
-import { walletSdk, transactionMaker, bfmetaSignUtil } from "../../helper";
+} from "./dto.js";
+import { staticConfig } from "../../config.js";
+import { walletSdk, transactionMaker, bfmetaSignUtil } from "../../helper.js";
 import {
     BcfQueryBlockReqDto,
     BcfQueryTransactionReqDto,
@@ -34,8 +34,8 @@ import {
     BcfGetPendingTrReqDto,
     BcfBroadcastTransactionReqDto,
     BcfBroadcastTransactionNotifyReqDto,
-} from "../bcf/dto";
-import { NotifyService } from "../notify/notify.service";
+} from "../bcf/dto.js";
+import { NotifyService } from "../notify/notify.service.js";
 import { forwardRef, Inject } from "@nestjs/common";
 
 export abstract class InternalChainTransService extends ChainTransServiceBase<

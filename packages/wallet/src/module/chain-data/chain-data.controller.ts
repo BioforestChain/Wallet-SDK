@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { forwardRef, Inject } from "@nestjs/common";
-import { ExternalChainTransMgr } from "../external-chain-trans/external-chain-trans-mgr";
-import { InternalChainTransMgr } from "../internal-chain-trans/internal-chain-trans-mgr";
-import { ExternalAssetQueryParam, InternalAssetQueryParam, MultiGetAssetInfoReqDto } from "./dto";
+import { ExternalChainTransMgr } from "../external-chain-trans/external-chain-trans-mgr.js";
+import { InternalChainTransMgr } from "../internal-chain-trans/internal-chain-trans-mgr.js";
+import { ExternalAssetQueryParam, InternalAssetQueryParam, MultiGetAssetInfoReqDto } from "./dto.js";
 import { $asyncAllNoNullMap } from "@bnqkl/server-util";
 import { BCF_DEFAULT_DECIMALS, ChainHelper, ExternalChainName, InternalChainName } from "@bnqkl/wallet-typings";
 import { WALLET_CHAIN_DATA_API_REQUEST } from "@bnqkl/wallet-core";

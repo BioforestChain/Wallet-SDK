@@ -1,7 +1,7 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { NotifyService } from "./notify.service";
-import { NotifyRepository } from "./notify.repository";
-import { NotifyController } from "./notify.controller";
+import { NotifyService } from "./notify.service.js";
+import { NotifyRepository } from "./notify.repository.js";
+import { NotifyController } from "./notify.controller.js";
 
 @Module({
     imports: [],

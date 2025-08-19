@@ -4,7 +4,7 @@ import { BCFApi } from "@bfmeta/wallet-bcf";
 import { LoggerSymbol } from "@bfmeta/wallet-helpers";
 import { ModuleStroge } from "@bnqkl/util-node";
 import { BFMetaSignUtil } from "@bfmeta/sign-util";
-import { CryptoHelper } from "../helper/crypto.helper";
+import { CryptoHelper } from "../helper/crypto.helper.js";
 import { Logger } from "@bnqkl/server-util";
 import { InternalChainName } from "@bnqkl/wallet-typings";
 

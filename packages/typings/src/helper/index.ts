@@ -1,1 +1,1 @@
-export * from "./chain.helper";
+export * from "./chain.helper.js";

@@ -1,6 +1,6 @@
 import { forwardRef, Inject, OnModuleInit } from "@nestjs/common";
-import { TransApiTest } from "./trans/trans-api.test";
-import { AirdropApiTest } from "./airdrop/airdrop-api.test";
+import { TransApiTest } from "./trans/trans-api.test.js";
+import { AirdropApiTest } from "./airdrop/airdrop-api.test.js";
 
 export class TestApp implements OnModuleInit {
     @Inject(forwardRef(() => TransApiTest))

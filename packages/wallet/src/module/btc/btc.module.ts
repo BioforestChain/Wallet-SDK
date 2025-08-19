@@ -1,7 +1,7 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { BTCService } from "./btc.service";
-import { BTCController } from "./btc.controller";
-import { RedisModule } from "../redis/redis.module";
+import { BTCService } from "./btc.service.js";
+import { BTCController } from "./btc.controller.js";
+import { RedisModule } from "../redis/redis.module.js";
 
 @Module({
     imports: [forwardRef(() => RedisModule)],

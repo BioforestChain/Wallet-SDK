@@ -1,10 +1,10 @@
 import { AIRDROP_ORDER_STATE_ID } from "@bnqkl/wallet-sdk";
-import { AirdropOrderObj } from "../airdrop-order-obj";
-import { AirdropOrderState } from "./airdrop-order.state";
+import { AirdropOrderObj } from "../airdrop-order-obj.js";
+import { AirdropOrderState } from "./airdrop-order.state.js";
 import { Inject, forwardRef } from "@nestjs/common";
-import { InternalChainTransMgr } from "../../../internal-chain-trans/internal-chain-trans-mgr";
-import { MemoryService } from "../../../memory/memory.service";
-import { GlobalValueRedisRepository } from "../../../redis";
+import { InternalChainTransMgr } from "../../../internal-chain-trans/internal-chain-trans-mgr.js";
+import { MemoryService } from "../../../memory/memory.service.js";
+import { GlobalValueRedisRepository } from "../../../redis/index.js";
 
 /**空投订单待处理状态 */
 export abstract class AirdropOrderPendingState extends AirdropOrderState {

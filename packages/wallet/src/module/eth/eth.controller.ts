@@ -16,12 +16,12 @@ import {
     EthBaseReqDto,
     EthQueryTransReqDto,
     EthBrocastDirectNotifyReqDto,
-} from "./dto";
-import { EthService } from "./eth.service";
+} from "./dto.js";
+import { EthService } from "./eth.service.js";
 import { ExternalTransType, WALLET_ETH_API_REQUEST } from "@bnqkl/wallet-sdk";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto";
-import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto";
+import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
+import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
+import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
 
 @ApiTags("ETH")
 @Controller()

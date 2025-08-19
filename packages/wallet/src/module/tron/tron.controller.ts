@@ -1,8 +1,8 @@
 import { WALLET_TRON_API_REQUEST } from "@bnqkl/wallet-sdk";
 import { Body, Controller, forwardRef, Get, Inject, Post, Query } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
-import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto";
+import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
+import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
 import {
     TronCreateTransDto,
     TRC20TransactionDto,
@@ -22,9 +22,9 @@ import {
     TronTransBodyDto,
     Trc20TransBodyDto,
     TRC20TransactionNotifyDto,
-} from "./dto";
-import { TronService } from "./tron.service";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto";
+} from "./dto.js";
+import { TronService } from "./tron.service.js";
+import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
 @ApiTags("TRON")
 @Controller()
 export class TronController {

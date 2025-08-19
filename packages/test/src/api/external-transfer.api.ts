@@ -1,7 +1,7 @@
 import { walletSdk } from "@bnqkl/wallet";
 import { NetWorkHelper, Logger, $asyncAllNoNullMap, $asyncNoNullMap } from "@bnqkl/wallet-sdk";
 import { ExternalTransType } from "@bnqkl/wallet-typings";
-import { TransApi } from "./trans.api";
+import { TransApi } from "./trans.api.js";
 import * as ethers from "ethers";
 
 export class ExternalTransferApi {

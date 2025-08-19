@@ -1,11 +1,11 @@
 import { forwardRef, Inject } from "@nestjs/common";
-import { ExternalTransactionBase } from "../../common/entity";
-import { GetExternalPendingTransReqDto } from "./dto";
-import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service";
-import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service";
+import { ExternalTransactionBase } from "../../common/entity.js";
+import { GetExternalPendingTransReqDto } from "./dto.js";
+import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
+import { ChainTransServiceBase } from "../../common/chain-trans/chain-trans-service.js";
 import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-sdk";
 import { In } from "typeorm";
-import { NotifyService } from "../notify/notify.service";
+import { NotifyService } from "../notify/notify.service.js";
 
 export abstract class ExternalChainTransService extends ChainTransServiceBase<
     ExternalTransStateID,

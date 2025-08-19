@@ -1,5 +1,5 @@
-import { ExternalChainTransObj } from "../external-chain-trans-obj";
-import { ChainTransState } from "../../../common/chain-trans/chain-trans-state";
+import { ExternalChainTransObj } from "../external-chain-trans-obj.js";
+import { ChainTransState } from "../../../common/chain-trans/chain-trans-state.js";
 import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
 
 /**外链交易状态基类 */

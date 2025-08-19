@@ -1,9 +1,9 @@
 import { FSMObj } from "@bnqkl/wallet-sdk";
 import { FindOptionsWhere } from "typeorm";
 import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
-import { ChainTransEntity } from "../entity/chain-trans.entity";
-import { ChainTransMgr } from "./chain-trans-mgr";
-import { ChainTransState } from "./chain-trans-state";
+import { ChainTransEntity } from "../entity/chain-trans.entity.js";
+import { ChainTransMgr } from "./chain-trans-mgr.js";
+import { ChainTransState } from "./chain-trans-state.js";
 
 /**链上交易的逻辑对象 */
 export abstract class ChainTransObj<

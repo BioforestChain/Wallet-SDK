@@ -1,5 +1,5 @@
 import { RMB_TRANS_STATE_ID } from "@bnqkl/wallet-typings";
-import { RmbTransactions } from "../common";
+import { RmbTransactions } from "../common.js";
 
 export {};
 declare global {

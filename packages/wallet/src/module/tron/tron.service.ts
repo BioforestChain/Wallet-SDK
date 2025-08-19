@@ -23,11 +23,11 @@ import {
     TronBroadcastTrxReqDto,
     TronBroadcastTrc20ReqDto,
     TRC20TransactionNotifyDto,
-} from "./dto";
-import { TronTransactions } from "../../common/entity";
-import { ExternalChainTransService } from "../external-chain-trans/external-chain-trans.service";
+} from "./dto.js";
+import { TronTransactions } from "../../common/entity.js";
+import { ExternalChainTransService } from "../external-chain-trans/external-chain-trans.service.js";
 import { $asyncAllNoNullMap, BaseRepository, ExternalChainName, ExternalTransStateID, regSpace } from "@bnqkl/wallet-sdk";
-import { walletSdk } from "../../helper";
+import { walletSdk } from "../../helper.js";
 
 @Injectable()
 export class TronTransactionRepository extends BaseRepository<TronTransactions> {

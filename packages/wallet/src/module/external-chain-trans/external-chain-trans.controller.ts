@@ -11,8 +11,8 @@ import {
     GetExternalTransFeeInfoReqDto,
     SaveExternalTransactionReqDto,
     UpdateExternalTransStateReqDto,
-} from "./dto";
-import { ExternalChainTransMgr } from "./external-chain-trans-mgr";
+} from "./dto.js";
+import { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
 import { WALLET_EXTERNAL_CHAIN_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 @ApiTags("EXTERNAL-CHAIN")

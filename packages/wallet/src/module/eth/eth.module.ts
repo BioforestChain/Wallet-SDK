@@ -1,9 +1,9 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { EthService, EthTransactionRepository } from "./eth.service";
-import { EthController } from "./eth.controller";
-import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module";
-import { RedisModule } from "../redis/redis.module";
-import { NotifyModule } from "../notify/notify.module";
+import { EthService, EthTransactionRepository } from "./eth.service.js";
+import { EthController } from "./eth.controller.js";
+import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module.js";
+import { RedisModule } from "../redis/redis.module.js";
+import { NotifyModule } from "../notify/notify.module.js";
 
 @Module({
     imports: [forwardRef(() => ContracTokenInfoModule), forwardRef(() => RedisModule), forwardRef(() => NotifyModule)],

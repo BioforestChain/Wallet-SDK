@@ -1,6 +1,6 @@
 import { InternalTransStateID } from "@bnqkl/wallet-sdk";
-import { InternalChainTransObj } from "../internal-chain-trans-obj";
-import { InternalTransState } from "./internal-trans.state";
+import { InternalChainTransObj } from "../internal-chain-trans-obj.js";
+import { InternalTransState } from "./internal-trans.state.js";
 
 /**内链交易最终状态 */
 export abstract class InternalTransFinallyState extends InternalTransState {

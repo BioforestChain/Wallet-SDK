@@ -1,10 +1,10 @@
 import { BaseRepository, ExternalChainName, memTimeCache, MEM_TIME_CACHE_STRATEGY } from "@bnqkl/wallet-sdk";
 import { Inject, Injectable } from "@nestjs/common";
-import { EthTransactions, API_SCAN_SORT_ENUM } from "../../common";
-import { externalChainHelper, walletSdk } from "../../helper";
+import { EthTransactions, API_SCAN_SORT_ENUM } from "../../common.js";
+import { externalChainHelper, walletSdk } from "../../helper.js";
 import { DataSource } from "typeorm";
-import { EthAccountBalanceResDto, EthSendSignTransReqDto, EthTransHistoryReqDto } from "./dto";
-import { EthServiceBase } from "./eth-base.service";
+import { EthAccountBalanceResDto, EthSendSignTransReqDto, EthTransHistoryReqDto } from "./dto.js";
+import { EthServiceBase } from "./eth-base.service.js";
 
 @Injectable()
 export class EthTransactionRepository extends BaseRepository<EthTransactions> {

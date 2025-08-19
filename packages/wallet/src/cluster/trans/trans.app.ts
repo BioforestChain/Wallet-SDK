@@ -1,10 +1,10 @@
 import { Inject, OnModuleInit, forwardRef } from "@nestjs/common";
-import { CMD } from "../../common";
-import { BaseApp } from "../app";
-import { ipcHelpers } from "../../helper";
-import { ExternalChainTransMgr } from "../../module/external-chain-trans/external-chain-trans-mgr";
-import { InternalChainTransMgr } from "../../module/internal-chain-trans/internal-chain-trans-mgr";
-import { RmbTransMgr } from "../../module/rmb-trans/rmb-trans-mgr";
+import { CMD } from "../../common.js";
+import { BaseApp } from "../app.js";
+import { ipcHelpers } from "../../helper.js";
+import { ExternalChainTransMgr } from "../../module/external-chain-trans/external-chain-trans-mgr.js";
+import { InternalChainTransMgr } from "../../module/internal-chain-trans/internal-chain-trans-mgr.js";
+import { RmbTransMgr } from "../../module/rmb-trans/rmb-trans-mgr.js";
 
 export class TransApp extends BaseApp implements OnModuleInit {
     @Inject(forwardRef(() => ExternalChainTransMgr))

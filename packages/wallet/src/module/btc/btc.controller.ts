@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { HttpHelper } from "@bfmeta/wallet-helpers";
-import { BTCService } from "./btc.service";
-import { staticConfig } from "../../config";
-import { BTCBlockBookReqDto, BTCRPCReqDto } from "./dto/btc-rpc-req.dto";
+import { BTCService } from "./btc.service.js";
+import { staticConfig } from "../../config.js";
+import { BTCBlockBookReqDto, BTCRPCReqDto } from "./dto/btc-rpc-req.dto.js";
 
 @ApiTags("BTC")
 @Controller("btc")

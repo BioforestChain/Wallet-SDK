@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { CommonTest } from "../common/common.test";
+import { CommonTest } from "../common/common.test.js";
 import { CHAIN_NETWORK_TYPE, ChainHelper, InternalChainName, Logger, redisCore, staticConfig, transactionMaker } from "@bnqkl/wallet";
-import { TransApi } from "../api/trans.api";
-import { BSC_MNEMONIC, INCREASE_ASSET_FROZEN_ADDRESS, INCREASE_ASSET_NAME, INCREASE_ASSET_SECRET, TEST_STAKE_ID } from "../constant";
+import { TransApi } from "../api/trans.api.js";
+import { BSC_MNEMONIC, INCREASE_ASSET_FROZEN_ADDRESS, INCREASE_ASSET_NAME, INCREASE_ASSET_SECRET, TEST_STAKE_ID } from "../constant.js";
 import * as fs from "fs";
-import { ExternalTransferApi } from "../api/external-transfer.api";
+import { ExternalTransferApi } from "../api/external-transfer.api.js";
 
 @Injectable()
 export class TransApiTest extends CommonTest {

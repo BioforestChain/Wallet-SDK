@@ -1,15 +1,15 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { ExternalChainTransMgr } from "./external-chain-trans-mgr";
-import { BTCModule } from "../btc/btc.module";
-import { EthModule } from "../eth/eth.module";
-import { BscModule } from "../bsc/bsc.module";
-import { TronModule } from "../tron/tron.module";
-import { OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state";
+import { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
+import { BTCModule } from "../btc/btc.module.js";
+import { EthModule } from "../eth/eth.module.js";
+import { BscModule } from "../bsc/bsc.module.js";
+import { TronModule } from "../tron/tron.module.js";
+import { OnChainFail_ExternalTransState, Success_ExternalTransState, WaitOnChain_ExternalTransState } from "./state.js";
 import { QueneEventEmitter } from "@bnqkl/util-node";
-import { RedisModule } from "../redis/redis.module";
-import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module";
-import { ExternalChainTransController } from "./external-chain-trans.controller";
-import { NotifyModule } from "../notify/notify.module";
+import { RedisModule } from "../redis/redis.module.js";
+import { ContracTokenInfoModule } from "../contract-token-info/contract-token-info.module.js";
+import { ExternalChainTransController } from "./external-chain-trans.controller.js";
+import { NotifyModule } from "../notify/notify.module.js";
 
 @Module({
     imports: [

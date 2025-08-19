@@ -1,4 +1,4 @@
-import { GetExternalTransReqDto } from "./get-external-trans-req.dto";
+import { GetExternalTransReqDto } from "./get-external-trans-req.dto.js";
 
 /**获取外链交易手续费信息 */
 export class GetExternalTransFeeInfoReqDto extends GetExternalTransReqDto implements WalletTypings.ExternalChain.Api.GetExternalTransFeeInfoReqDto {}

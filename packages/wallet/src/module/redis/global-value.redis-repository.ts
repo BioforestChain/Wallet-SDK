@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { AIRDROP_TYPE, GlobalValueRedisBaseRepository } from "@bnqkl/wallet-sdk";
-import { GLOBAL_VALUE_ENTITY_ID } from "../../common";
-import { bfmetaSignUtil } from "../../helper";
+import { GLOBAL_VALUE_ENTITY_ID } from "../../common.js";
+import { bfmetaSignUtil } from "../../helper.js";
 import * as bip39 from "bip39";
 
 /**全局的Redis数据操作仓库 */

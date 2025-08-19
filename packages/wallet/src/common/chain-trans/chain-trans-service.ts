@@ -1,10 +1,10 @@
 import { BaseRepository, ExternalChainName, InternalChainName, Logger, sleep } from "@bnqkl/wallet-sdk";
 import { QueneEventEmitter } from "@bnqkl/util-node";
 import { $EventInOutMap } from "@bnqkl/util-node/event-quene_emitter";
-import { ChainTransEntity } from "../entity/chain-trans.entity";
+import { ChainTransEntity } from "../entity/chain-trans.entity.js";
 import { forwardRef, Inject } from "@nestjs/common";
-import { ChainInfoRedisRepository } from "../../module/redis";
-import { CHAIN_INFO_HKEY } from "../constants";
+import { ChainInfoRedisRepository } from "../../module/redis.js";
+import { CHAIN_INFO_HKEY } from "../constants.js";
 
 /**链上交易Service */
 export abstract class ChainTransServiceBase<

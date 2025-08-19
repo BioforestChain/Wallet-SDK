@@ -1,5 +1,5 @@
 import { ExternalChainName } from "@bnqkl/wallet-typings";
-import { CHAIN_NETWORK_TYPE } from "./constants";
+import { CHAIN_NETWORK_TYPE } from "./constants.js";
 
 export {};
 declare global {

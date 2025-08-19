@@ -1,10 +1,10 @@
 import { gipcSetup } from "@bnqkl/ipc";
 import * as path from "path";
 import { forwardRef, Inject, Injectable, OnModuleInit } from "@nestjs/common";
-import { staticConfig } from "../config";
-import { WORKER } from "../common/constants";
+import { staticConfig } from "../config.js";
+import { WORKER } from "../common/constants.js";
 import { Logger, redisCore, GLOBAL_INITING, CommonMaster } from "@bnqkl/wallet-sdk";
-import { UpgradeService } from "../module/upgrade/upgrade.service";
+import { UpgradeService } from "../module/upgrade/upgrade.service.js";
 
 process.on("uncaughtException", (err) => {
     // tslint:disable-next-line: no-empty

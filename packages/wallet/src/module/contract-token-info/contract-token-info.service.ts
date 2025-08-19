@@ -1,9 +1,9 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { memTimeCache, MEM_TIME_CACHE_STRATEGY, getPagination, Logger, BaseRepository, ExternalChainName } from "@bnqkl/wallet-sdk";
 import { DataSource } from "typeorm";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "./dto";
-import { ContractTokenInfo } from "../../common/entity";
-import { externalChainHelper } from "../../helper";
+import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "./dto.js";
+import { ContractTokenInfo } from "../../common/entity.js";
+import { externalChainHelper } from "../../helper.js";
 
 @Injectable()
 export class ContractTokenInfoRepository extends BaseRepository<ContractTokenInfo> {

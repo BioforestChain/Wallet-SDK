@@ -1,9 +1,9 @@
 import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
 import { Injectable } from "@nestjs/common";
-import { ExternalTransactionBase } from "../../common/entity";
-import { ChainTransObj } from "../../common/chain-trans/chain-trans-obj";
-import { ExternalChainTransMgr } from "./external-chain-trans-mgr";
-import { ExternalTransState } from "./state";
+import { ExternalTransactionBase } from "../../common/entity.js";
+import { ChainTransObj } from "../../common/chain-trans/chain-trans-obj.js";
+import { ExternalChainTransMgr } from "./external-chain-trans-mgr.js";
+import { ExternalTransState } from "./state.js";
 
 /**外链交易的逻辑对象 */
 @Injectable()

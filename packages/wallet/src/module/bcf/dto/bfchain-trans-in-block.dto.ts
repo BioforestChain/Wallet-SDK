@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ExternalChainName, InternalChainName } from "../../..";
+import { ExternalChainName, InternalChainName } from "../../...js";
 
 export class BFChainTransInBlockDto implements BFMetaNodeSDK.Basic.TransactionInBlockJSON {
     @ApiProperty()

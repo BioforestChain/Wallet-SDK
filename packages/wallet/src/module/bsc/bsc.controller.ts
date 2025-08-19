@@ -16,13 +16,13 @@ import {
     BscBaseReqDto,
     BscQueryTransReqDto,
     BscBrocastDirectNotifyReqDto,
-} from "./dto";
+} from "./dto.js";
 
-import { BscService } from "./bsc.service";
+import { BscService } from "./bsc.service.js";
 import { ExternalTransType, WALLET_BSC_API_REQUEST } from "@bnqkl/wallet-sdk";
-import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto";
-import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service";
-import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto";
+import { TokenInfoDetailReqDto, TokenInfoListReqDto } from "../contract-token-info/dto.js";
+import { ContractTokenInfoService } from "../contract-token-info/contract-token-info.service.js";
+import { GetExternalPendingTransReqDto } from "../external-chain-trans/dto.js";
 
 @ApiTags("BSC")
 @Controller()

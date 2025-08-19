@@ -2,8 +2,10 @@
     "name": "@bnqkl/wallet-sdk",
     "version": "0.23.3",
     "description": "bnqkl wallet sdk",
-    "main": "build/src/index.js",
-    "type": "commonjs",
+    "exports":{
+        ".":"./build/index.js"
+    },
+    "type": "module",
     "keywords": [
         "bnqkl",
         "wallet"
@@ -15,7 +17,7 @@
     ],
     "dependencies": {
         "@bfmeta/transaction-maker-api": "^1.1.11",
-        "@bfmeta/wallet": "^1.6.10",
+        "@bfmeta/wallet": "^2.0.0",
         "@bnqkl/server-util": "^1.1.2"
     },
     "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847"

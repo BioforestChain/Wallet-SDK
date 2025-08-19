@@ -4,9 +4,9 @@ import express from "express";
 import helmet from "helmet";
 import type http from "node:http";
 import { CHAIN_NETWORK_TYPE, CommonTransformIterceptor, Logger, WALLET_GLOBAL_PREFIX } from "@bnqkl/wallet-sdk";
-import { VERSION } from "../common/constants";
-import { WalletAllExceptionFilter } from "../common";
-import { staticConfig } from "../config";
+import { VERSION } from "../common/constants.js";
+import { WalletAllExceptionFilter } from "../common.js";
+import { staticConfig } from "../config.js";
 
 export abstract class BaseWorker {
     server!: http.Server;

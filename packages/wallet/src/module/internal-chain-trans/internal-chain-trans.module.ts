@@ -1,10 +1,10 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { InternalChainTransMgr } from "./internal-chain-trans-mgr";
-import { OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state";
+import { InternalChainTransMgr } from "./internal-chain-trans-mgr.js";
+import { OnChainFail_InternalTransState, Success_InternalTransState, WaitOnChain_InternalTransState } from "./state.js";
 import { QueneEventEmitter } from "@bnqkl/util-node";
-import { InternalChainTransController } from "./internal-chain-trans.controller";
-import { BCFModule } from "../bcf/bcf.module";
-import { NotifyModule } from "../notify/notify.module";
+import { InternalChainTransController } from "./internal-chain-trans.controller.js";
+import { BCFModule } from "../bcf/bcf.module.js";
+import { NotifyModule } from "../notify/notify.module.js";
 
 @Module({
     imports: [forwardRef(() => BCFModule), forwardRef(() => NotifyModule)],

@@ -9,7 +9,7 @@ import {
     ETHMetaTransactions,
     MalibuTransactions,
     PMChainTransactions,
-} from "../../common";
+} from "../../common.js";
 import { memTimeCache, MEM_TIME_CACHE_STRATEGY, InternalChainName, ERROR_CODE_ENUM, ERROR_CODE_OBJ, Result } from "@bnqkl/wallet-sdk";
 import {
     BFChainV2TransactionsRepository,
@@ -21,10 +21,10 @@ import {
     ETHMetaTransactionsRepository,
     MalibuTransactionsRepository,
     PmchainTransactionsRepository,
-} from "./bcf.repository";
-import { walletSdk } from "../../helper";
-import { BcfGetAssetsReqDto } from "./dto";
-import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service";
+} from "./bcf.repository.js";
+import { walletSdk } from "../../helper.js";
+import { BcfGetAssetsReqDto } from "./dto.js";
+import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service.js";
 
 @Injectable()
 export class BfmChainService extends InternalChainTransService {

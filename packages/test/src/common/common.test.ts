@@ -11,10 +11,10 @@ import {
     WALLET_GLOBAL_PREFIX,
     WalletServerSDK,
 } from "@bnqkl/wallet";
-import { CommonApi } from "../api/common.api";
-import { SECRETS } from "../constant";
-import { BaseHelper } from "../helper";
-import { TransApi } from "../api/trans.api";
+import { CommonApi } from "../api/common.api.js";
+import { SECRETS } from "../constant.js";
+import { BaseHelper } from "../helper.js";
+import { TransApi } from "../api/trans.api.js";
 
 export abstract class CommonTest {
     /**已登录用户集合 */

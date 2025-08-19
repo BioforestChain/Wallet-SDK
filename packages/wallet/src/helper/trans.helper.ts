@@ -1,6 +1,6 @@
 import { $noNullMap, ExternalChainName, InternalChainName, Logger } from "@bnqkl/wallet-sdk";
-import { BLOB_IN_TRS_REMARK_PREFIX, CMD, WORKER } from "../common";
-import { ipcHelpers } from "./ipc.helper";
+import { BLOB_IN_TRS_REMARK_PREFIX, CMD, WORKER } from "../common.js";
+import { ipcHelpers } from "./ipc.helper.js";
 import { decodeHex } from "@bnqkl/util-node";
 
 export class TransHelper {

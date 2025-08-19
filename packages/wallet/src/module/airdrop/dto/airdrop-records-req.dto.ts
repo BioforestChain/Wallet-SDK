@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { AIRDROP_TYPE, InternalChainName } from "@bnqkl/wallet-sdk";
-import { PageReqDto } from "../../../common";
+import { PageReqDto } from "../../../common.js";
 
 export class AirdropRecordsReqDto extends PageReqDto implements WalletTypings.Airdrop.Api.AirdropRecordsReqDto {
     @IsOptional()

@@ -1,8 +1,8 @@
 import { NestFactory } from "@nestjs/core";
 import { Logger } from "@bnqkl/wallet-sdk";
-import { staticConfig } from "../../config";
-import { BaseWorker } from "../worker";
-import { WebAppModule } from "./web-app.module";
+import { staticConfig } from "../../config.js";
+import { BaseWorker } from "../worker.js";
+import { WebAppModule } from "./web-app.module.js";
 
 process.on("uncaughtException", (err) => {
     // tslint:disable-next-line: no-empty

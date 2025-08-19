@@ -1,6 +1,6 @@
 import { forwardRef, Module } from "@nestjs/common";
-import { ContractTokenInfoController } from "./contract-token-info.controller";
-import { ContractTokenInfoRepository, ContractTokenInfoService } from "./contract-token-info.service";
+import { ContractTokenInfoController } from "./contract-token-info.controller.js";
+import { ContractTokenInfoRepository, ContractTokenInfoService } from "./contract-token-info.service.js";
 
 @Module({
     imports: [],

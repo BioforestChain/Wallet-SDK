@@ -1,6 +1,6 @@
 import { ExternalChainName, ExternalTransStateID } from "@bnqkl/wallet-typings";
 import { Column } from "typeorm";
-import { ChainTransEntity } from "../chain-trans.entity";
+import { ChainTransEntity } from "../chain-trans.entity.js";
 
 export abstract class ExternalTransactionBase<TrJsonType extends object = {}>
     extends ChainTransEntity<ExternalTransStateID, ExternalChainName, TrJsonType>

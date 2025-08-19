@@ -1,3 +1,3 @@
-export * from "./wallet-sdk";
-export * from "./wallet-server-sdk";
-export * from "./transaction-maker";
+export * from "./wallet-sdk.js";
+export * from "./wallet-server-sdk.js";
+export * from "./transaction-maker.js";

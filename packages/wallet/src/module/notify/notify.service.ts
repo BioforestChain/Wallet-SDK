@@ -1,18 +1,18 @@
 import * as crypto from "node:crypto";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
-import { NotifyEntity } from "../../common/entity/notify.entity";
-import { NotifyRepository } from "./notify.repository";
+import { NotifyEntity } from "../../common/entity/notify.entity.js";
+import { NotifyRepository } from "./notify.repository.js";
 import { URL } from "url";
 import { Logger, sleep } from "@bnqkl/server-util";
-import { BcfBroadcastTransactionNotifyReqDto } from "../bcf/dto";
-import { EthBrocastDirectNotifyReqDto } from "../eth/dto";
-import { TRC20TransactionNotifyDto } from "../tron/dto";
+import { BcfBroadcastTransactionNotifyReqDto } from "../bcf/dto.js";
+import { EthBrocastDirectNotifyReqDto } from "../eth/dto.js";
+import { TRC20TransactionNotifyDto } from "../tron/dto.js";
 import { CHECK_RETRY_MAX_NUM, ExternalChainName, InternalChainName, NotifyResult } from "@bnqkl/wallet-core";
 import { NetWorkHelper } from "@bnqkl/server-util";
-import { staticConfig } from "../../config";
-import { walletSdk } from "../../helper";
+import { staticConfig } from "../../config.js";
+import { walletSdk } from "../../helper.js";
 import { BCFApi } from "@bfmeta/wallet-bcf";
-import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto";
+import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto.js";
 import { FindOptionsWhere } from "typeorm";
 
 @Injectable()

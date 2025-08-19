@@ -1,2 +1,2 @@
-export * from "./internal-transaction-base";
-export * from "./bcf.entity";
+export * from "./internal-transaction-base.js";
+export * from "./bcf.entity.js";

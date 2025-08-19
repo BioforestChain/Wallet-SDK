@@ -1,1 +1,1 @@
-export * from "./static-config";
+export * from "./static-config.js";

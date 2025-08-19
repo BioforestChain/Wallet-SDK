@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
-import { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto";
-import { RmbTransService } from "./rmb-trans.service";
+import { CreateRmbTransObjReqDto, GetRmbTransReqDto, NotifyAlipayReqDto, SaveRmbTransactionReqDto, UpdateRmbTransStateReqDto } from "./dto.js";
+import { RmbTransService } from "./rmb-trans.service.js";
 import { WALLET_RMB_API_REQUEST } from "@bnqkl/wallet-sdk";
 
 @ApiTags("RMB")

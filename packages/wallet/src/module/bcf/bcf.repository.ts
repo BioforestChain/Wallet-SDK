@@ -10,7 +10,7 @@ import {
     ETHMetaTransactions,
     MalibuTransactions,
     PMChainTransactions,
-} from "../../common";
+} from "../../common.js";
 import { BaseRepository } from "@bnqkl/wallet-sdk";
 
 @Injectable()
