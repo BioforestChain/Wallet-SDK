@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-core",
-    "version": "0.23.3",
+    "version": "2.0.0",
     "description": "bnqkl wallet core",
     "exports": {
         ".": "./build/index.js"
