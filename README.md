@@ -2,20 +2,30 @@
 For Chinese version please see [README-zh](README-zh.md).
 
 ## Overview
-SDK for integrating BFMeta wallet capabilities into third-party apps: account management, signing, and chain RPC helpers.
+Monorepo SDK to embed BFMeta wallet capabilities in third‑party apps: account lifecycle, signing, RPC helpers, and UI glue.
 
-## Installation
+## Architecture
+- Workspaces `packages/`:
+  - `core`: core logic and types
+  - `sdk`: public SDK surface
+  - `wallet`: optional UI glue/adapters
+  - `typings`: shared TS definitions
+  - `test`: integration/regression harness
+- Tooling: `lerna.json`, `pnpm-workspace.yaml`, `tsconfig.build.json`; scripts in `scripts/`.
+
+## Getting Started
 ```bash
-pnpm add @bfmeta/wallet-sdk
+pnpm install
+pnpm build        # build all packages
+pnpm test         # run tests (if configured)
 ```
+Usage pattern:
+- Initialize SDK with node endpoints + network params.
+- Use SDK to create/import accounts, sign transactions, and broadcast via chain RPC.
+- Handle typed results/errors; extend `core` utilities for custom flows.
 
-## Usage
-- Initialize SDK with node endpoints and network params.
-- Use provided methods to create/import accounts, sign transactions, and broadcast via chain RPC.
-- Handle errors with provided typed results.
-
-## Contribution
-- SDK layer (MPL 2.0): keep TS strict; avoid `any`/`@ts-ignore`.
-- Reuse shared utilities; document new APIs with JSDoc and examples.
-- Add regression tests for new RPC surfaces or signing flows.
-- Branches: `feature/<scope>` / `fix/<issue>`.
+## Contribution Guide
+- SDK layer（MPL 2.0）: keep TS strict; avoid `any`/`@ts-ignore`.
+- Reuse `core` utilities; place types in `typings`; keep `sdk` API surface small and documented (JSDoc + examples).
+- Add regression tests in `packages/test` for new RPC/signing flows before release.
+- Branches: `feature/<scope>` / `fix/<issue>`; concise commits.
