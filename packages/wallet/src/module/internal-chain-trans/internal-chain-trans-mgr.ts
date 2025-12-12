@@ -48,7 +48,6 @@ import {
     BTCMetaService,
     BTGMetaService,
     BIWMetaService,
-    MalibuService,
 } from "../bcf/bcf.service";
 
 /**内链交易管理器 */
@@ -76,8 +75,6 @@ export class InternalChainTransMgr extends ChainTransMgr<
     private __btgMetaService!: BTGMetaService;
     @Inject(forwardRef(() => BIWMetaService))
     private __biwMetaService!: BIWMetaService;
-    @Inject(forwardRef(() => MalibuService))
-    private __malibuService!: MalibuService;
     @Inject(forwardRef(() => WaitOnChain_InternalTransState))
     private __waitOnChain_InternalTransState!: WaitOnChain_InternalTransState;
     @Inject(forwardRef(() => OnChainFail_InternalTransState))
@@ -139,8 +136,6 @@ export class InternalChainTransMgr extends ChainTransMgr<
                 return this.__btcMetaService;
             case this.__biwMetaService.chainName:
                 return this.__biwMetaService;
-            case this.__malibuService.chainName:
-                return this.__malibuService;
             default:
                 break;
         }
@@ -188,7 +183,6 @@ export class InternalChainTransMgr extends ChainTransMgr<
         await this.__loadTransaction(this.__btgMetaService);
         await this.__loadTransaction(this.__btcMetaService);
         await this.__loadTransaction(this.__biwMetaService);
-        await this.__loadTransaction(this.__malibuService);
     }
 
     /**
@@ -235,11 +229,7 @@ export class InternalChainTransMgr extends ChainTransMgr<
             // 处理完自己的逻辑，再触发onBIWMetaNewBlock事件
             this.emiter.emit("onBIWMetaNewBlock", newHeight);
         });
-        this.__malibuService.on("onNewBlock", async (newHeight: number) => {
-            await this.__onNewBlock(newHeight, this.__malibuService);
-            // 处理完自己的逻辑，再触发onMalibuNewBlock事件
-            this.emiter.emit("onMalibuNewBlock", newHeight);
-        });
+
         this.heightGetter();
     }
 
@@ -270,9 +260,6 @@ export class InternalChainTransMgr extends ChainTransMgr<
         }
         if (staticConfig.chainConfig.chain.bcf["biwmeta"] && staticConfig.chainConfig.chain.bcf["biwmeta"].enable) {
             this.__biwMetaService.heightGetter();
-        }
-        if (staticConfig.chainConfig.chain.bcf["malibu"] && staticConfig.chainConfig.chain.bcf["malibu"].enable) {
-            this.__malibuService.heightGetter();
         }
     }
 

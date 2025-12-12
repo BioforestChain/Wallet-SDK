@@ -34,8 +34,6 @@ declare global {
             onBTGMetaNewBlock: { in: number; out: void };
             /**biwmeta链上出新块 */
             onBIWMetaNewBlock: { in: number; out: void };
-            /**malibu链上出新块 */
-            onMalibuNewBlock: { in: number; out: void };
         };
 
         export namespace InternalChain {

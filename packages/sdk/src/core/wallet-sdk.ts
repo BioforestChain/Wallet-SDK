@@ -55,7 +55,6 @@ export class WalletSDK {
     private __BTGMChainApi!: BCFApi;
     private __BTCMChainApi!: BCFApi;
     private __BIWMChainApi!: BCFApi;
-    private __MalibuApi!: BCFApi;
     get BFMApi() {
         if (this.__BFMApi) {
             return this.__BFMApi;
@@ -123,14 +122,6 @@ export class WalletSDK {
         }
     }
 
-    get MalibuApi() {
-        if (this.__MalibuApi) {
-            return this.__MalibuApi;
-        } else {
-            this.__MalibuApi = this.walletFactory.generateBCFApi(this.__getConfigForce().bcf["malibu"]);
-            return this.__MalibuApi;
-        }
-    }
     /**
      * 获取内链api
      * @param chainName
@@ -153,8 +144,6 @@ export class WalletSDK {
                 return this.BTCMChainApi;
             case InternalChainName.BIWMETA:
                 return this.BIWMChainApi;
-            case InternalChainName.MALIBU:
-                return this.MalibuApi;
             default:
                 break;
         }

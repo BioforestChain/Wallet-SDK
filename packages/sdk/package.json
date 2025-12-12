@@ -15,7 +15,7 @@
     ],
     "dependencies": {
         "@bfmeta/transaction-maker-api": "^1.1.11",
-        "@bfmeta/wallet": "^1.6.10",
+        "@bfmeta/wallet": "^1.6.11",
         "@bnqkl/server-util": "^1.1.2"
     },
     "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847"

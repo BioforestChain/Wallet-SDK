@@ -25,7 +25,7 @@
         "pkg:linux": "node scripts/build.js --linux",
         "pkg:win": "node scripts/build.js --win",
         "pkg:all": "node scripts/build.js --all",
-        "pkg:test": "node scripts/build.js --linux --test",
+        "pkg:test": "node scripts/build.js --test",
         "initconfig": "node scripts/updateConfig.js",
         "publ:force": "lerna publish --force-publish"
     },

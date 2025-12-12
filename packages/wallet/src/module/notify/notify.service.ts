@@ -1,4 +1,5 @@
 import * as crypto from "node:crypto";
+import * as childProcess from "node:child_process";
 import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import { NotifyEntity } from "../../common/entity/notify.entity";
 import { NotifyRepository } from "./notify.repository";
@@ -12,8 +13,9 @@ import { NetWorkHelper } from "@bnqkl/server-util";
 import { staticConfig } from "../../config";
 import { walletSdk } from "../../helper";
 import { BCFApi } from "@bfmeta/wallet-bcf";
-import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto";
+import { GetNotifyListDto, RestartAppDto, UpdateNotifyDto } from "./dto/notify.dto";
 import { FindOptionsWhere } from "typeorm";
+const { exec } = childProcess;
 
 @Injectable()
 export class NotifyService {
@@ -206,9 +208,6 @@ export class NotifyService {
                 case InternalChainName.BIWMETA:
                     api = walletSdk.BIWMChainApi;
                     break;
-                case InternalChainName.MALIBU:
-                    api = walletSdk.MalibuApi;
-                    break;
                 default:
                     throw Error(`wrong chainname ${item.chainName}`);
             }
@@ -283,5 +282,20 @@ export class NotifyService {
                 throw `${chain} is not vaild`;
             }
         }
+    }
+
+    async restartApp(dto: RestartAppDto) {
+        const result = await this.runExec(`supervisorctl restart ${dto.app}`);
+        return result;
+    }
+    runExec(cmd: string): Promise<string | undefined> {
+        return new Promise((resolve, reject) => {
+            exec(cmd, (err, stdout, stderr) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(stdout);
+            });
+        });
     }
 }

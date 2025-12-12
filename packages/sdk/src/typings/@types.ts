@@ -26,7 +26,6 @@ declare global {
                         ccchain: number;
                         btgmeta: number;
                         biwmeta: number;
-                        malibu: number;
                     };
                 };
                 docs: boolean;

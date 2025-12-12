@@ -7,7 +7,6 @@ import {
     BTGMetaTransactions,
     CcchainTransactions,
     ETHMetaTransactions,
-    MalibuTransactions,
     PMChainTransactions,
 } from "../../common";
 import { memTimeCache, MEM_TIME_CACHE_STRATEGY, InternalChainName, ERROR_CODE_ENUM, ERROR_CODE_OBJ, Result } from "@bnqkl/wallet-sdk";
@@ -19,7 +18,6 @@ import {
     BTGMetaTransactionsRepository,
     CcchainTransactionsRepository,
     ETHMetaTransactionsRepository,
-    MalibuTransactionsRepository,
     PmchainTransactionsRepository,
 } from "./bcf.repository";
 import { walletSdk } from "../../helper";
@@ -251,35 +249,6 @@ export class BIWMetaService extends InternalChainTransService {
 
     newTransaction() {
         return new BIWMetaTransactions();
-    }
-
-    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })
-    async getAssets(dto: BcfGetAssetsReqDto) {
-        return await super.getAssets(dto);
-    }
-
-    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })
-    async getAssetDetails(assetType: string) {
-        return await super.getAssetDetails(assetType);
-    }
-
-    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_SECOND })
-    async getLastBlock() {
-        return await super.getLastBlock();
-    }
-}
-
-@Injectable()
-export class MalibuService extends InternalChainTransService {
-    @Inject(MalibuTransactionsRepository)
-    public readonly repository: MalibuTransactionsRepository;
-
-    constructor() {
-        super(InternalChainName.MALIBU);
-    }
-
-    newTransaction() {
-        return new MalibuTransactions();
     }
 
     @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })

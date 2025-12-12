@@ -25,3 +25,10 @@ export class UpdateNotifyDto {
     @ApiProperty({ description: "verifyKey" })
     verifyKey: string;
 }
+
+export class RestartAppDto {
+    @ApiProperty({ description: "app" })
+    app: string;
+    @ApiProperty({ description: "verifyKey" })
+    verifyKey: string;
+}

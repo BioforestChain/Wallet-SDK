@@ -1,7 +1,7 @@
 import { Body, Controller, forwardRef, Inject, Post } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { NotifyService } from "./notify.service";
-import { GetNotifyListDto, UpdateNotifyDto } from "./dto/notify.dto";
+import { GetNotifyListDto, RestartAppDto, UpdateNotifyDto } from "./dto/notify.dto";
 import { NotifyEntity } from "../../common/entity/notify.entity";
 
 @ApiTags("NOTIFY")
@@ -23,5 +23,14 @@ export class NotifyController {
             throw Error(`invaild verifyKey`);
         }
         return await this.__notifyService.updateNotify(dto);
+    }
+
+    @Post("notify/restart")
+    @ApiOperation({ summary: "restart", description: "notify/restart" })
+    async restartApp(@Body() dto: RestartAppDto) {
+        if (dto.verifyKey !== process.env["clientPublicKey"]) {
+            throw Error(`invaild verifyKey`);
+        }
+        return await this.__notifyService.restartApp(dto);
     }
 }
