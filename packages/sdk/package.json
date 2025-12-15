@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-sdk",
-    "version": "0.23.3",
+    "version": "0.23.4",
     "description": "bnqkl wallet sdk",
     "main": "build/src/index.js",
     "type": "commonjs",
