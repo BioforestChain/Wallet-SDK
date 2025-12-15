@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-typings",
-    "version": "0.23.4",
+    "version": "0.23.5",
     "description": "bnqkl wallet typings",
     "main": "build/src/index.js",
     "type": "commonjs",
