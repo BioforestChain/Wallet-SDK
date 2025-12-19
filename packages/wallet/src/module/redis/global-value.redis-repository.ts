@@ -39,7 +39,7 @@ export class GlobalValueRedisRepository extends GlobalValueRedisBaseRepository {
             const bytes = bfmetaSignUtil.asymmetricDecrypt(
                 Buffer.from(redisValue, "base64"),
                 new Uint8Array(Buffer.from(clientPublicKey, "hex")),
-                serverKeypair.secretKey,
+                serverKeypair.secretKey as any,
             );
             if (!bytes) {
                 throw Error(`decrypt fail`);
@@ -74,7 +74,7 @@ export class GlobalValueRedisRepository extends GlobalValueRedisBaseRepository {
         const result = bfmetaSignUtil.asymmetricEncrypt(
             new Uint8Array(Buffer.from(secret)),
             new Uint8Array(Buffer.from(clientPublicKey, "hex")),
-            serverKeypair.secretKey,
+            serverKeypair.secretKey as any,
         );
         // 这个值存到redis
         await this.setKeyValue(GLOBAL_VALUE_ENTITY_ID.ACCOUNT, keyName, Buffer.from(result.encryptedMessage).toString("base64"));

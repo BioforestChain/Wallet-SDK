@@ -47,7 +47,7 @@ export abstract class CommonTest {
 
     async createAccountBySecret(secret: string): Promise<WalletTest.Account["info"]> {
         const keypair = await bfmetaSignUtil.createKeypair(secret);
-        const address = await bfmetaSignUtil.getAddressFromPublicKey(keypair.publicKey);
+        const address = await bfmetaSignUtil.getAddressFromPublicKey(keypair.publicKey as any);
         return {
             deviceId: secret,
             secret,

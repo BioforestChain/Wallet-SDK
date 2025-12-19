@@ -183,7 +183,7 @@ export class MyBFMetaSignUtil extends BFMetaSignUtil {
         const result = this.asymmetricEncrypt(
             new Uint8Array(Buffer.from(JSON.stringify(data))),
             new Uint8Array(Buffer.from(serverPublicKey, "hex")),
-            keypair.secretKey,
+            keypair.secretKey as any,
         );
         return Buffer.from(result.encryptedMessage).toString("base64");
     }
