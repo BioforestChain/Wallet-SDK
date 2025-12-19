@@ -1,6 +1,6 @@
 {
     "packages": ["packages/*"],
-    "version": "0.23.5",
+    "version": "0.23.6",
     "npmClient": "yarn",
     "publishConifg": {
         "registry": "http://192.168.250.245:4873/"
