@@ -55,6 +55,8 @@ export class WalletSDK {
     private __BTGMChainApi!: BCFApi;
     private __BTCMChainApi!: BCFApi;
     private __BIWMChainApi!: BCFApi;
+    private __BFMETACHAINApi!: BCFApi;
+
     get BFMApi() {
         if (this.__BFMApi) {
             return this.__BFMApi;
@@ -122,6 +124,15 @@ export class WalletSDK {
         }
     }
 
+    get BFMETACHAINApi() {
+        if (this.__BFMETACHAINApi) {
+            return this.__BFMETACHAINApi;
+        } else {
+            this.__BFMETACHAINApi = this.walletFactory.generateBCFApi(this.__getConfigForce().bcf["bfmetachain"]);
+            return this.__BFMETACHAINApi;
+        }
+    }
+
     /**
      * 获取内链api
      * @param chainName
@@ -144,6 +155,8 @@ export class WalletSDK {
                 return this.BTCMChainApi;
             case InternalChainName.BIWMETA:
                 return this.BIWMChainApi;
+            case InternalChainName.BFMETACHAIN:
+                return this.BFMETACHAINApi;
             default:
                 break;
         }

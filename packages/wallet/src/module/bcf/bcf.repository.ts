@@ -3,6 +3,7 @@ import { DataSource } from "typeorm";
 import {
     BFChainV2Transactions,
     BfmchainTransactions,
+    BfmetaChainTransactions,
     BIWMetaTransactions,
     BTCMetaTransactions,
     BTGMetaTransactions,
@@ -65,5 +66,12 @@ export class BTGMetaTransactionsRepository extends BaseRepository<BTGMetaTransac
 export class BIWMetaTransactionsRepository extends BaseRepository<BIWMetaTransactions> {
     constructor(dataSource: DataSource) {
         super(BIWMetaTransactions, dataSource);
+    }
+}
+
+@Injectable()
+export class BfmetaChainTransactionsRepository extends BaseRepository<BfmetaChainTransactions> {
+    constructor(dataSource: DataSource) {
+        super(BfmetaChainTransactions, dataSource);
     }
 }

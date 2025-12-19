@@ -2,6 +2,7 @@ import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import {
     BFChainV2Transactions,
     BfmchainTransactions,
+    BfmetaChainTransactions,
     BIWMetaTransactions,
     BTCMetaTransactions,
     BTGMetaTransactions,
@@ -19,6 +20,7 @@ import {
     CcchainTransactionsRepository,
     ETHMetaTransactionsRepository,
     PmchainTransactionsRepository,
+    BfmetaChainTransactionsRepository,
 } from "./bcf.repository";
 import { walletSdk } from "../../helper";
 import { BcfGetAssetsReqDto } from "./dto";
@@ -249,6 +251,35 @@ export class BIWMetaService extends InternalChainTransService {
 
     newTransaction() {
         return new BIWMetaTransactions();
+    }
+
+    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })
+    async getAssets(dto: BcfGetAssetsReqDto) {
+        return await super.getAssets(dto);
+    }
+
+    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })
+    async getAssetDetails(assetType: string) {
+        return await super.getAssetDetails(assetType);
+    }
+
+    @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_SECOND })
+    async getLastBlock() {
+        return await super.getLastBlock();
+    }
+}
+
+@Injectable()
+export class BfmetaChainService extends InternalChainTransService {
+    @Inject(BfmetaChainTransactionsRepository)
+    public readonly repository: BfmetaChainTransactionsRepository;
+
+    constructor() {
+        super(InternalChainName.BFMETACHAIN);
+    }
+
+    newTransaction() {
+        return new BfmetaChainTransactions();
     }
 
     @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })

@@ -57,6 +57,8 @@ export class ChainHelper {
                 return InternalMainAssetType.BTGM;
             case InternalChainName.BIWMETA:
                 return InternalMainAssetType.BIW;
+            case InternalChainName.BFMETACHAIN:
+                return InternalMainAssetType.BFM;
             default:
                 throw Error(`getInternalMainAssetType error. chainName:${chainName}`);
         }

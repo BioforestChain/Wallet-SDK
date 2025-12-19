@@ -11,6 +11,8 @@ export class TransactionMaker {
     private __ccchainTransactionMaker!: PromiseOut<BFMetaTrMaker>;
     private __btgmetaTransactionMaker!: PromiseOut<BFMetaTrMaker>;
     private __biwmetaTransactionMaker!: PromiseOut<BFMetaTrMaker>;
+    private __bfmetachainTransactionMaker!: PromiseOut<BFMetaTrMaker>;
+
     constructor(public transactionMakerPort: WalletServerSdk.Config.CustomerConfig["chainConfig"]["transactionMakerPort"]) {}
 
     async getPmchainTransactionMaker() {
@@ -103,6 +105,19 @@ export class TransactionMaker {
         }
     }
 
+    async getBfmetaChainTransactionMaker() {
+        if (this.__bfmetachainTransactionMaker) {
+            return this.__bfmetachainTransactionMaker.promise;
+        } else {
+            const { ip, bfmetachain } = this.transactionMakerPort;
+            this.__bfmetachainTransactionMaker = new PromiseOut<BFMetaTrMaker>();
+            const maker = new BFMetaTrMaker({ ips: [`${ip ?? "127.0.0.1"}:${bfmetachain}`] });
+            await sleep(1000);
+            this.__bfmetachainTransactionMaker.resolve(maker);
+            return maker;
+        }
+    }
+
     async getTrMaker(chainName: InternalChainName) {
         switch (chainName) {
             case InternalChainName.PMCHAIN:
@@ -119,6 +134,8 @@ export class TransactionMaker {
                 return this.getBTGMetaTransactionMaker();
             case InternalChainName.BIWMETA:
                 return this.getBIWMetaTransactionMaker();
+            case InternalChainName.BFMETACHAIN:
+                return this.getBfmetaChainTransactionMaker();
             default:
                 throw Error(`getTrMaker chainName:${chainName} error`);
         }

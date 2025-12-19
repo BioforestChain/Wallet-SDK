@@ -81,7 +81,8 @@
             "bfchainv2": "7791",
             "bfmchain": "7792",
             "ccchain": "7794",
-            "btgmeta": "7795"
+            "btgmeta": "7795",
+            "bfmetachain": "7796"
         },
         "syncInternalDelayHeight": 1
     },

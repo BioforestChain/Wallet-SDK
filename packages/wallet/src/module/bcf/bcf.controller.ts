@@ -9,6 +9,7 @@ import {
     CcchainService,
     ETHMetaService,
     PMChainService,
+    BfmetaChainService,
 } from "./bcf.service";
 import { InternalChainTransService } from "../internal-chain-trans/internal-chain-trans.service";
 import {
@@ -223,4 +224,11 @@ export class BTGMetaController extends BCFController {
 export class BIWMetaController extends BCFController {
     @Inject(BIWMetaService)
     public readonly service: BIWMetaService;
+}
+
+@ApiTags(InternalChainName.BFMETACHAIN)
+@Controller(ChainHelper.getBcfPathPrefix(InternalChainName.BFMETACHAIN))
+export class BfmetaChainController extends BCFController {
+    @Inject(BfmetaChainService)
+    public readonly service: BfmetaChainService;
 }

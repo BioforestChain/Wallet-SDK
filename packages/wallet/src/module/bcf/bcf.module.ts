@@ -8,6 +8,7 @@ import {
     CcchainService,
     ETHMetaService,
     PMChainService,
+    BfmetaChainService,
 } from "./bcf.service";
 import {
     BFChainV2Controller,
@@ -18,6 +19,7 @@ import {
     CcchainController,
     ETHMetaController,
     PMChainController,
+    BfmetaChainController,
 } from "./bcf.controller";
 import { RedisModule } from "../redis/redis.module";
 import {
@@ -29,6 +31,7 @@ import {
     CcchainTransactionsRepository,
     ETHMetaTransactionsRepository,
     PmchainTransactionsRepository,
+    BfmetaChainTransactionsRepository,
 } from "./bcf.repository";
 import { NotifyModule } from "../notify/notify.module";
 
@@ -43,6 +46,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaController,
         BTGMetaController,
         BIWMetaController,
+        BfmetaChainController,
     ],
     providers: [
         BfmChainService,
@@ -53,6 +57,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaService,
         BTGMetaService,
         BIWMetaService,
+        BfmetaChainService,
         BfmchainTransactionsRepository,
         BFChainV2TransactionsRepository,
         CcchainTransactionsRepository,
@@ -61,6 +66,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaTransactionsRepository,
         BTGMetaTransactionsRepository,
         BIWMetaTransactionsRepository,
+        BfmetaChainTransactionsRepository,
     ],
     exports: [
         BfmChainService,
@@ -71,6 +77,7 @@ import { NotifyModule } from "../notify/notify.module";
         BTCMetaService,
         BTGMetaService,
         BIWMetaService,
+        BfmetaChainService,
     ],
 })
 export class BCFModule {}
