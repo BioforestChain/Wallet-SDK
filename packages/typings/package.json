@@ -1,6 +1,6 @@
 {
     "name": "@bnqkl/wallet-typings",
-    "version": "0.23.6",
+    "version": "0.23.7",
     "description": "bnqkl wallet typings",
     "main": "build/src/index.js",
     "type": "commonjs",
@@ -17,5 +17,5 @@
         "@bfmeta/transaction-maker-typings": "^1.1.0",
         "@bfmeta/wallet-typings": "^1.6.10"
     },
-    "gitHead": "9b48b2d01528b4a696d99ca884659f2ba50ea847"
+    "gitHead": "66a21d2e6fdf24492c12b5ba6b1c480024d4d1c4"
 }
