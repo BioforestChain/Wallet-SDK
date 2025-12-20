@@ -134,7 +134,7 @@ export class TransactionMaker {
                 return this.getBTGMetaTransactionMaker();
             case InternalChainName.BIWMETA:
                 return this.getBIWMetaTransactionMaker();
-            case InternalChainName.bfmetav2:
+            case InternalChainName.BFMETAV2:
                 return this.getbfmetav2TransactionMaker();
             default:
                 throw Error(`getTrMaker chainName:${chainName} error`);
