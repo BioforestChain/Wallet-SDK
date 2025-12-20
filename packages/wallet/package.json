@@ -6,7 +6,7 @@
         "assets": []
     },
     "name": "@bnqkl/wallet",
-    "version": "0.23.7",
+    "version": "0.23.8",
     "description": "bnqkl wallet",
     "main": "build/src/index.js",
     "type": "commonjs",
