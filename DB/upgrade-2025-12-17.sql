@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `bfmetachain_transactions` (
+CREATE TABLE IF NOT EXISTS `bfmetav2_transactions` (
     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
     `entity_id` varchar(50) NOT NULL DEFAULT '' COMMENT '唯一id',
     `chain_name` varchar(20) NOT NULL DEFAULT '' COMMENT '链名',
@@ -26,4 +26,4 @@ CREATE TABLE IF NOT EXISTS `bfmetachain_transactions` (
     UNIQUE KEY `uniq_entityId` (`entity_id`) USING BTREE COMMENT '唯一id索引',
     UNIQUE KEY `uniq_signature` (`signature`) USING BTREE COMMENT '事件签名索引',
     KEY `idx_state` (`state`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = 'bfmetachain交易信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = 'bfmetav2交易信息表';

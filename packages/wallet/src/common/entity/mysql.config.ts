@@ -11,7 +11,7 @@ import {
     BTGMetaTransactions,
     BTCMetaTransactions,
     BIWMetaTransactions,
-    BfmetaChainTransactions,
+    BfmetaV2Transactions,
 } from "./internal-chain";
 import { RmbTransactions } from "./rmb-transaction.entity";
 import { AirdropOrder, AirdropTransferTx } from "./airdrop";
@@ -39,7 +39,7 @@ export const mysqlConfig: TypeOrmModuleAsyncOptions = {
             BTGMetaTransactions,
             BTCMetaTransactions,
             BIWMetaTransactions,
-            BfmetaChainTransactions,
+            BfmetaV2Transactions,
             RmbTransactions,
             AirdropOrder,
             AirdropTransferTx,

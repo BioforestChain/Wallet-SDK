@@ -126,8 +126,8 @@ export enum InternalChainName {
     BTCMETA = "BTCMETA",
     /**BIWMETA */
     BIWMETA = "BIWMETA",
-    /**BFMETACHAIN */
-    BFMETACHAIN = "BFMETACHAIN",
+    /**BFMETAV2 */
+    BFMETAV2 = "BFMETAV2",
 }
 
 /**内链支持交易的货币类型 */

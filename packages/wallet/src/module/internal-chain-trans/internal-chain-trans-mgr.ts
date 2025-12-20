@@ -48,7 +48,7 @@ import {
     BTCMetaService,
     BTGMetaService,
     BIWMetaService,
-    BfmetaChainService,
+    BfmetaV2Service,
 } from "../bcf/bcf.service";
 
 /**内链交易管理器 */
@@ -76,8 +76,8 @@ export class InternalChainTransMgr extends ChainTransMgr<
     private __btgMetaService!: BTGMetaService;
     @Inject(forwardRef(() => BIWMetaService))
     private __biwMetaService!: BIWMetaService;
-    @Inject(forwardRef(() => BfmetaChainService))
-    private __bfmetaChainService!: BfmetaChainService;
+    @Inject(forwardRef(() => BfmetaV2Service))
+    private __bfmetav2Service!: BfmetaV2Service;
 
     @Inject(forwardRef(() => WaitOnChain_InternalTransState))
     private __waitOnChain_InternalTransState!: WaitOnChain_InternalTransState;
@@ -140,8 +140,8 @@ export class InternalChainTransMgr extends ChainTransMgr<
                 return this.__btcMetaService;
             case this.__biwMetaService.chainName:
                 return this.__biwMetaService;
-            case this.__bfmetaChainService.chainName:
-                return this.__bfmetaChainService;
+            case this.__bfmetav2Service.chainName:
+                return this.__bfmetav2Service;
             default:
                 break;
         }
@@ -189,7 +189,7 @@ export class InternalChainTransMgr extends ChainTransMgr<
         await this.__loadTransaction(this.__btgMetaService);
         await this.__loadTransaction(this.__btcMetaService);
         await this.__loadTransaction(this.__biwMetaService);
-        await this.__loadTransaction(this.__bfmetaChainService);
+        await this.__loadTransaction(this.__bfmetav2Service);
     }
 
     /**
@@ -236,10 +236,10 @@ export class InternalChainTransMgr extends ChainTransMgr<
             // 处理完自己的逻辑，再触发onBIWMetaNewBlock事件
             this.emiter.emit("onBIWMetaNewBlock", newHeight);
         });
-        this.__bfmetaChainService.on("onNewBlock", async (newHeight: number) => {
-            await this.__onNewBlock(newHeight, this.__bfmetaChainService);
-            // 处理完自己的逻辑，再触发onBfmetachainNewBlock事件
-            this.emiter.emit("onBfmetachainNewBlock", newHeight);
+        this.__bfmetav2Service.on("onNewBlock", async (newHeight: number) => {
+            await this.__onNewBlock(newHeight, this.__bfmetav2Service);
+            // 处理完自己的逻辑，再触发onBfmetav2NewBlock事件
+            this.emiter.emit("onBfmetav2NewBlock", newHeight);
         });
 
         this.heightGetter();
@@ -273,8 +273,8 @@ export class InternalChainTransMgr extends ChainTransMgr<
         if (staticConfig.chainConfig.chain.bcf["biwmeta"] && staticConfig.chainConfig.chain.bcf["biwmeta"].enable) {
             this.__biwMetaService.heightGetter();
         }
-        if (staticConfig.chainConfig.chain.bcf["bfmetachain"] && staticConfig.chainConfig.chain.bcf["bfmetachain"].enable) {
-            this.__bfmetaChainService.heightGetter();
+        if (staticConfig.chainConfig.chain.bcf["bfmetav2"] && staticConfig.chainConfig.chain.bcf["bfmetav2"].enable) {
+            this.__bfmetav2Service.heightGetter();
         }
     }
 

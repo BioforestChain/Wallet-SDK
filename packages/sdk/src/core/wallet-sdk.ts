@@ -55,7 +55,7 @@ export class WalletSDK {
     private __BTGMChainApi!: BCFApi;
     private __BTCMChainApi!: BCFApi;
     private __BIWMChainApi!: BCFApi;
-    private __BFMETACHAINApi!: BCFApi;
+    private __BFMETAV2Api!: BCFApi;
 
     get BFMApi() {
         if (this.__BFMApi) {
@@ -124,12 +124,12 @@ export class WalletSDK {
         }
     }
 
-    get BFMETACHAINApi() {
-        if (this.__BFMETACHAINApi) {
-            return this.__BFMETACHAINApi;
+    get BFMETAV2Api() {
+        if (this.__BFMETAV2Api) {
+            return this.__BFMETAV2Api;
         } else {
-            this.__BFMETACHAINApi = this.walletFactory.generateBCFApi(this.__getConfigForce().bcf["bfmetachain"]);
-            return this.__BFMETACHAINApi;
+            this.__BFMETAV2Api = this.walletFactory.generateBCFApi(this.__getConfigForce().bcf["bfmetav2"]);
+            return this.__BFMETAV2Api;
         }
     }
 
@@ -155,8 +155,8 @@ export class WalletSDK {
                 return this.BTCMChainApi;
             case InternalChainName.BIWMETA:
                 return this.BIWMChainApi;
-            case InternalChainName.BFMETACHAIN:
-                return this.BFMETACHAINApi;
+            case InternalChainName.BFMETAV2:
+                return this.BFMETAV2Api;
             default:
                 break;
         }

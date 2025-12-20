@@ -11,7 +11,7 @@ export class TransactionMaker {
     private __ccchainTransactionMaker!: PromiseOut<BFMetaTrMaker>;
     private __btgmetaTransactionMaker!: PromiseOut<BFMetaTrMaker>;
     private __biwmetaTransactionMaker!: PromiseOut<BFMetaTrMaker>;
-    private __bfmetachainTransactionMaker!: PromiseOut<BFMetaTrMaker>;
+    private __bfmetav2TransactionMaker!: PromiseOut<BFMetaTrMaker>;
 
     constructor(public transactionMakerPort: WalletServerSdk.Config.CustomerConfig["chainConfig"]["transactionMakerPort"]) {}
 
@@ -105,15 +105,15 @@ export class TransactionMaker {
         }
     }
 
-    async getBfmetaChainTransactionMaker() {
-        if (this.__bfmetachainTransactionMaker) {
-            return this.__bfmetachainTransactionMaker.promise;
+    async getbfmetav2TransactionMaker() {
+        if (this.__bfmetav2TransactionMaker) {
+            return this.__bfmetav2TransactionMaker.promise;
         } else {
-            const { ip, bfmetachain } = this.transactionMakerPort;
-            this.__bfmetachainTransactionMaker = new PromiseOut<BFMetaTrMaker>();
-            const maker = new BFMetaTrMaker({ ips: [`${ip ?? "127.0.0.1"}:${bfmetachain}`] });
+            const { ip, bfmetav2 } = this.transactionMakerPort;
+            this.__bfmetav2TransactionMaker = new PromiseOut<BFMetaTrMaker>();
+            const maker = new BFMetaTrMaker({ ips: [`${ip ?? "127.0.0.1"}:${bfmetav2}`] });
             await sleep(1000);
-            this.__bfmetachainTransactionMaker.resolve(maker);
+            this.__bfmetav2TransactionMaker.resolve(maker);
             return maker;
         }
     }
@@ -134,8 +134,8 @@ export class TransactionMaker {
                 return this.getBTGMetaTransactionMaker();
             case InternalChainName.BIWMETA:
                 return this.getBIWMetaTransactionMaker();
-            case InternalChainName.BFMETACHAIN:
-                return this.getBfmetaChainTransactionMaker();
+            case InternalChainName.bfmetav2:
+                return this.getbfmetav2TransactionMaker();
             default:
                 throw Error(`getTrMaker chainName:${chainName} error`);
         }

@@ -25,5 +25,5 @@ export class BTGMetaTransactions extends InternalTransactionBase {}
 @Entity("biwmeta_transactions")
 export class BIWMetaTransactions extends InternalTransactionBase {}
 
-@Entity("bfmetachain_transactions")
-export class BfmetaChainTransactions extends InternalTransactionBase {}
+@Entity("bfmetav2_transactions")
+export class BfmetaV2Transactions extends InternalTransactionBase {}

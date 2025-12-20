@@ -26,7 +26,7 @@ declare global {
                         ccchain: number;
                         btgmeta: number;
                         biwmeta: number;
-                        bfmetachain: number;
+                        bfmetav2: number;
                     };
                 };
                 docs: boolean;

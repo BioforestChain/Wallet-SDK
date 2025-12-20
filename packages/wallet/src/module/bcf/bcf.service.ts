@@ -2,7 +2,7 @@ import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import {
     BFChainV2Transactions,
     BfmchainTransactions,
-    BfmetaChainTransactions,
+    BfmetaV2Transactions,
     BIWMetaTransactions,
     BTCMetaTransactions,
     BTGMetaTransactions,
@@ -20,7 +20,7 @@ import {
     CcchainTransactionsRepository,
     ETHMetaTransactionsRepository,
     PmchainTransactionsRepository,
-    BfmetaChainTransactionsRepository,
+    BfmetaV2TransactionsRepository,
 } from "./bcf.repository";
 import { walletSdk } from "../../helper";
 import { BcfGetAssetsReqDto } from "./dto";
@@ -270,16 +270,16 @@ export class BIWMetaService extends InternalChainTransService {
 }
 
 @Injectable()
-export class BfmetaChainService extends InternalChainTransService {
-    @Inject(BfmetaChainTransactionsRepository)
-    public readonly repository: BfmetaChainTransactionsRepository;
+export class BfmetaV2Service extends InternalChainTransService {
+    @Inject(BfmetaV2TransactionsRepository)
+    public readonly repository: BfmetaV2TransactionsRepository;
 
     constructor() {
-        super(InternalChainName.BFMETACHAIN);
+        super(InternalChainName.BFMETAV2);
     }
 
     newTransaction() {
-        return new BfmetaChainTransactions();
+        return new BfmetaV2Transactions();
     }
 
     @memTimeCache({ time: MEM_TIME_CACHE_STRATEGY.ONE_MINUTE })
